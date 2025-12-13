@@ -10,15 +10,21 @@
 body {
 margin: 0;
 font-family: 'Roboto', sans-serif;
-background: linear-gradient(to bottom, #FFC0CB, #FFD6E0);
+background: linear-gradient(to bottom, #FFE4F0, #FFD6E8);
 overflow-x: hidden;
 position: relative;
+color: #3A0E3A;
 }
 
 /* Urgency Banner */
 .urgency-pulse {
 animation: pulseUrgency 1.5s infinite;
 font-size: 1.1rem;
+background: linear-gradient(90deg,#FFB6C1,#FF69B4);
+color: white;
+padding: 0.5rem 0;
+text-align: center;
+font-weight: bold;
 }
 @keyframes pulseUrgency {
 0%, 100% { opacity: 1; }
@@ -47,13 +53,13 @@ animation-timing-function: linear;
 @keyframes pulse { 0%,100%{transform:scale(1);}50%{transform:scale(1.05);} }
 
 /* Step Boxes */
-.step1 { background: linear-gradient(145deg, #FFE4EC, #FFC0CB); }
-.step2 { background: linear-gradient(145deg, #FFD1DC, #FFB6C1); }
-.step3 { background: linear-gradient(145deg, #FFB6C1, #FF99AA); }
+.step1 { background: linear-gradient(135deg,#FFD1E0,#FFB6CC); color:#3A0E3A; }
+.step2 { background: linear-gradient(135deg,#FFB6CC,#FF99B3); color:#3A0E3A; }
+.step3 { background: linear-gradient(135deg,#FF99B3,#FF80A3); color:#3A0E3A; }
 
 /* Click Button */
 .click-button {
-background: linear-gradient(90deg,#FF69B4,#FF1493);
+background: linear-gradient(90deg,#FF1493,#FF69B4);
 color: white;
 font-weight: bold;
 text-shadow:0 0 5px #FF69B4,0 0 10px #FF1493;
@@ -66,11 +72,11 @@ box-shadow:0 0 15px #FF1493,0 0 25px #FF69B4;
 }
 
 /* Cards */
-.card { border-radius: 1.5rem; padding:2rem; box-shadow:0 10px 25px rgba(0,0,0,0.2); color:#7B1FA2; }
-.card-stats { background: linear-gradient(135deg,#FFC0CB,#FFD6E0); }
-.card-leaderboard { background: linear-gradient(135deg,#FFB6C1,#FF99AA); }
-.card-testimonial { background: linear-gradient(135deg,#FFD1DC,#FFE4EC); }
-.card-faq { background: linear-gradient(135deg,#FFE4EC,#FFD6E0); }
+.card { border-radius: 1.5rem; padding:2rem; box-shadow:0 10px 25px rgba(0,0,0,0.15); }
+.card-stats { background: linear-gradient(135deg,#FFB6C1,#FFC0CB); color:#3A0E3A; }
+.card-leaderboard { background: linear-gradient(135deg,#FF99B3,#FFB6C1); color:#3A0E3A; }
+.card-testimonial { background: linear-gradient(135deg,#FFC0CB,#FFD6E8); color:#3A0E3A; }
+.card-faq { background: linear-gradient(135deg,#FFD6E8,#FFE4F0); color:#3A0E3A; }
 .card-estimator { background: linear-gradient(135deg,#FF69B4,#FF1493); color:white; }
 
 /* Popups */
@@ -78,7 +84,7 @@ box-shadow:0 0 15px #FF1493,0 0 25px #FF69B4;
 position: fixed;
 bottom: 20px;
 right: -350px;
-background-color: #FF69B4AA;
+background-color: #FF69B4CC;
 color: white;
 padding: 12px 18px;
 border-radius: 12px;
@@ -93,26 +99,26 @@ opacity: 0;
 <body>
 
 <!-- Urgency Banner -->
-<div class="w-full bg-red-600 text-white text-center py-2 font-bold urgency-pulse">
+<div class="urgency-pulse">
 Limited Time! Hurry Up!
 </div>
 
 <!-- Hero -->
-<section class="py-20 px-4 text-center text-white">
+<section class="py-20 px-4 text-center">
 <h1 class="text-5xl md:text-7xl font-extrabold mb-6 animate-pulse-hero">Want a Shein Gift Card?</h1>
 <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Thousands already claimed their rewards. Secure yours today – fast, safe, and verified.</p>
 
 <!-- Steps -->
 <div class="grid md:grid-cols-3 gap-6 mb-6 max-w-6xl mx-auto">
-<div class="step1 p-6 rounded-3xl shadow-xl text-black">
+<div class="step1 p-6 rounded-3xl shadow-xl">
 <p class="font-bold text-lg mb-2">Step 1</p>
 <p>Complete surveys</p>
 </div>
-<div class="step2 p-6 rounded-3xl shadow-xl text-black">
+<div class="step2 p-6 rounded-3xl shadow-xl">
 <p class="font-bold text-lg mb-2">Step 2</p>
 <p>Enter email & basic info</p>
 </div>
-<div class="step3 p-6 rounded-3xl shadow-xl text-black">
+<div class="step3 p-6 rounded-3xl shadow-xl">
 <p class="font-bold text-lg mb-2">Step 3</p>
 <p>Complete recommended deals</p>
 </div>
@@ -133,14 +139,14 @@ Limited Time! Hurry Up!
 
 <!-- Live Comment Section -->
 <div class="mt-10 max-w-2xl mx-auto text-left">
-<h2 class="text-3xl font-bold mb-6 text-white">Recent Comments</h2>
+<h2 class="text-3xl font-bold mb-6">Recent Comments</h2>
 <div id="commentFeed" class="space-y-4"></div>
 </div>
 </section>
 
 <!-- Stats / Milestones -->
 <section class="py-20 px-4 text-center">
-<h2 class="text-4xl font-bold mb-12 text-white">Stats & Milestones</h2>
+<h2 class="text-4xl font-bold mb-12">Stats & Milestones</h2>
 <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
 <div class="card card-stats">
 <div class="text-6xl font-bold shimmer">12,540+</div>
@@ -159,13 +165,13 @@ Limited Time! Hurry Up!
 
 <!-- Live Leaderboard -->
 <section class="py-20 px-4 text-center">
-<h2 class="text-4xl font-bold mb-12 text-white">Recent Winners</h2>
+<h2 class="text-4xl font-bold mb-12">Recent Winners</h2>
 <div class="grid md:grid-cols-1 gap-4 max-w-4xl mx-auto" id="leaderboard"></div>
 </section>
 
 <!-- Testimonials -->
 <section class="py-20 px-4 text-center">
-<h2 class="text-4xl font-bold mb-12 text-white">Testimonials</h2>
+<h2 class="text-4xl font-bold mb-12">Testimonials</h2>
 <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
 <div class="card card-testimonial hover:-translate-y-2 transform transition">
 <p>"Received my gift card within 24 hours. Super smooth!"</p>
@@ -184,7 +190,7 @@ Limited Time! Hurry Up!
 
 <!-- FAQ -->
 <section class="py-20 px-4 text-center">
-<h2 class="text-4xl font-bold mb-12 text-white">Frequently Asked Questions</h2>
+<h2 class="text-4xl font-bold mb-12">Frequently Asked Questions</h2>
 <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto text-left">
 <div class="card card-faq faq-item cursor-pointer">
 <p class="font-bold mb-2">Is my information secure?</p>
@@ -206,7 +212,7 @@ Limited Time! Hurry Up!
 </section>
 
 <!-- Footer -->
-<footer class="py-12 px-4 text-center text-white">
+<footer class="py-12 px-4 text-center">
 <p class="mb-4">SSL Secured • Encrypted • Verified • 100% Safe</p>
 <p>© 2025</p>
 </footer>
@@ -307,16 +313,11 @@ div.innerHTML = `<div><span class="font-bold">${user}</span>: ${text}</div><div 
 
 commentFeed.prepend(div);
 
-// Keep max 6 comments
 if (commentFeed.childElementCount > 6) {
 commentFeed.removeChild(commentFeed.lastChild);
 }
 }
-
-// Initial comments
 for(let i=0;i<4;i++){ addComment(); }
-
-// Add new comment every 3 seconds
 setInterval(addComment, 3000);
 </script>
 </body>
