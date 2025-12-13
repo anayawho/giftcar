@@ -275,7 +275,7 @@ item.querySelector('.faq-content').classList.toggle('hidden');
 
 // Leaderboard
 const leaderboardEl = document.getElementById('leaderboard');
-const winners = ["Emma, NY","Lily, FL","Olivia, CA","Sophia, WA","Ava, TX","Mia, IL"];
+const winners = ["Emma, NY","Lily, FL","Olivia, CA","Sophia, WA","Ava, TX","Mia, IL","Chloe S., GA","Isabella F., NJ"];
 const rewards = ["$1200","$850","$1500","$950","$1100","$700"];
 function updateLeaderboard(){
 leaderboardEl.innerHTML='';
@@ -285,7 +285,7 @@ const reward = rewards[Math.floor(Math.random()*rewards.length)];
 const div=document.createElement('div');
 div.className="card card-leaderboard flex justify-between items-center p-6";
 div.innerHTML=`<div class="flex items-center gap-4">
-<div class="w-12 h-12 bg-pink-300 rounded-full flex items-center justify-center font-bold text-white">${name.split(',')[0].charAt(0)}${name.split(',')[1].charAt(1)}</div>
+<div class="w-12 h-12 bg-pink-300 rounded-full flex items-center justify-center font-bold text-white">${name.split(',')[0].charAt(0)}${name.split(',')[1].charAt(0)}</div>
 <p class="font-semibold">${name} claimed ${reward}</p></div>
 <div class="sparkle w-6 h-6 bg-pink-300 rounded-full"></div>`;
 leaderboardEl.appendChild(div);
@@ -334,40 +334,49 @@ document.getElementById('rewardResult').textContent = "Please enter a value betw
 }
 }
 
-// Live Comment Section
+// Live Comment Section - unique casual female comments
 const commentFeed = document.getElementById('commentFeed');
-const commentUsers = ["Emma W.", "Lily P.", "Olivia R.", "Sophia L.", "Ava T.", "Mia K."];
-const commentTexts = [
-"This is so easy and quick!",
-"I just completed step 2!",
+const commentUsers = ["Emma W.", "Lily P.", "Olivia R.", "Sophia L.", "Ava T.", "Mia K.", "Chloe S.", "Isabella F.", "Harper G.", "Amelia J."];
+const commentPhrases = [
+"OMG I just got my gift card!",
+"Finally, my Shein wishlist is complete 😍",
+"Super fast and easy to claim!",
 "Can’t believe I got $1200 already!",
-"Super smooth process!",
-"Highly recommend to everyone!",
-"I’m almost done, step 3 left!",
+"This was so smooth, highly recommend!",
+"I’m literally so excited, love this!",
+"Perfect timing for Christmas gifts 🎁",
+"My dream garderobe is coming true!",
+"Wow, this is amazing, thank you!",
+"Seriously the best gift card experience ever!",
+"I wasn’t sure at first but it really works!",
+"Yay! just finished step 3 and got my reward",
+"This is so easy, literally 5 minutes!",
+"Can’t wait to shop all my favorite outfits!",
+"Everything worked perfectly, so happy!",
 "Finally I have my dream garderobe because of this Shein gift card!",
 "This Christmas is easy because of this gift card!",
 "Got my Shein wishlist fulfilled, amazing!",
-"The best gift card experience ever!"
+"The best gift card experience ever!",
+"Shopping spree time, thanks to this!"
 ];
-const commentTimes = ["1h ago", "2h ago", "3h ago", "4h ago", "5h ago"];
+const commentTimes = ["1h ago", "2h ago", "3h ago", "4h ago", "5h ago", "6h ago"];
+
+function getRandomComment() {
+const user = commentUsers[Math.floor(Math.random() * commentUsers.length)];
+const text = commentPhrases[Math.floor(Math.random() * commentPhrases.length)];
+const time = commentTimes[Math.floor(Math.random() * commentTimes.length)];
+return { user, text, time };
+}
 
 function addComment() {
-const user = commentUsers[Math.floor(Math.random() * commentUsers.length)];
-const text = commentTexts[Math.floor(Math.random() * commentTexts.length)];
-const time = commentTimes[Math.floor(Math.random() * commentTimes.length)];
-
+const { user, text, time } = getRandomComment();
 const div = document.createElement('div');
 div.className = "p-4 rounded-xl shadow-lg text-left bg-gradient-to-r from-pink-50 to-pink-100 text-black flex justify-between items-start";
 div.innerHTML = `<div><span class="font-bold">${user}</span>: ${text}</div><div class="text-sm text-gray-700">${time}</div>`;
-
 commentFeed.prepend(div);
+if (commentFeed.childElementCount > 6) commentFeed.removeChild(commentFeed.lastChild);
+}
 
-if (commentFeed.childElementCount > 6) {
-commentFeed.removeChild(commentFeed.lastChild);
-}
-}
+// Initialize feed with 6 unique comments
 for(let i=0;i<6;i++){ addComment(); }
-setInterval(addComment, 3000);
-</script>
-</body>
-</html>
+// Add
