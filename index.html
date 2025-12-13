@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Want a Shein Gift Card?</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
 body {
@@ -52,19 +52,8 @@ animation-timing-function: linear;
 .animate-pulse-hero { animation: pulse 2s infinite; }
 @keyframes pulse { 0%,100%{transform:scale(1);}50%{transform:scale(1.05);} }
 
-/* Butterflies */
-.butterfly {
-position: absolute;
-width: 24px;
-height: 24px;
-animation: flutter linear infinite;
-pointer-events: none;
-}
-@keyframes flutter {
-0% { transform: translateY(0) rotate(0deg); }
-50% { transform: translateY(-15px) rotate(15deg); }
-100% { transform: translateY(0) rotate(0deg); }
-}
+/* Fancy Font for Headline */
+.hero-headline { font-family: 'Pacifico', cursive; }
 
 /* Step Boxes - creative */
 .step-box {
@@ -140,18 +129,13 @@ Limited Time! Hurry Up!
 
 <!-- Hero -->
 <section class="relative py-20 px-4 text-center">
-<!-- Butterflies -->
-<img src="https://i.ibb.co/3sHtQm6/butterfly1.png" class="butterfly" style="top:10%; left:15%; animation-duration:6s;">
-<img src="https://i.ibb.co/3sHtQm6/butterfly1.png" class="butterfly" style="top:5%; left:70%; animation-duration:7s;">
-<img src="https://i.ibb.co/3sHtQm6/butterfly1.png" class="butterfly" style="top:20%; left:50%; animation-duration:5s;">
-
-<h1 class="text-5xl md:text-7xl font-extrabold mb-6 animate-pulse-hero relative z-10">Want a Shein Gift Card?</h1>
-<p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto relative z-10">
+<h1 class="text-5xl md:text-7xl font-extrabold mb-6 animate-pulse-hero hero-headline">Want a Shein Gift Card?</h1>
+<p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
 Thousands already claimed their rewards. To claim yours you need to complete these steps:
 </p>
 
 <!-- Steps -->
-<div class="grid md:grid-cols-3 gap-6 mb-6 max-w-6xl mx-auto relative z-10">
+<div class="grid md:grid-cols-3 gap-6 mb-6 max-w-6xl mx-auto">
 <div class="step-box">
 <p class="font-bold text-lg mb-2">Step 1</p>
 <p>Complete surveys</p>
@@ -167,12 +151,12 @@ Thousands already claimed their rewards. To claim yours you need to complete the
 </div>
 
 <!-- Click Button -->
-<div class="mt-6 relative z-10">
+<div class="mt-6">
 <a href="YOUR_AFFILIATE_LINK_HERE" class="inline-block click-button">Click Here →</a>
 </div>
 
 <!-- Reward Estimator / Calculator -->
-<div class="mt-10 card card-estimator max-w-2xl mx-auto p-8 relative z-10">
+<div class="mt-10 card card-estimator max-w-2xl mx-auto p-8">
 <label class="block font-bold mb-2 text-lg">Deals to complete (1-25):</label>
 <input type="number" id="stepsInput" min="1" max="25" class="w-full p-3 rounded-lg mb-4 text-black">
 <button onclick="calculateReward()" class="click-button px-6 py-3 rounded-2xl">Calculate Reward</button>
@@ -180,7 +164,7 @@ Thousands already claimed their rewards. To claim yours you need to complete the
 </div>
 
 <!-- Live Comment Section -->
-<div class="mt-10 max-w-2xl mx-auto text-left relative z-10">
+<div class="mt-10 max-w-2xl mx-auto text-left">
 <h2 class="text-3xl font-bold mb-6">Recent Comments</h2>
 <div id="commentFeed" class="space-y-4"></div>
 </div>
