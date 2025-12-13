@@ -127,7 +127,7 @@ color:#3A0E3A;
 position: fixed;
 bottom: 20px;
 right: -350px;
-background-color: #ffffff; /* Changed to white */
+background-color: #ffffff;
 color: #3A0E3A;
 padding: 12px 18px;
 border-radius: 12px;
@@ -224,11 +224,11 @@ Thousands already claimed their rewards. To claim yours you need to complete the
 </div>
 <div class="card card-testimonial hover:-translate-y-2 transform transition">
 <p>"Fast, safe, and verified. Loved it!"</p>
-<p class="font-bold mt-4">- Michael B., New York</p>
+<p class="font-bold mt-4">- Emily B., New York</p>
 </div>
 <div class="card card-testimonial hover:-translate-y-2 transform transition">
 <p>"Everything explained clearly, trusted and verified."</p>
-<p class="font-bold mt-4">- Emma R., Texas</p>
+<p class="font-bold mt-4">- Olivia R., Texas</p>
 </div>
 </div>
 </section>
@@ -275,7 +275,7 @@ item.querySelector('.faq-content').classList.toggle('hidden');
 
 // Leaderboard
 const leaderboardEl = document.getElementById('leaderboard');
-const winners = ["Emma, NY","James, TX","Lily, FL","Olivia, CA","Mason, IL","Sophia, WA"];
+const winners = ["Emma, NY","Lily, FL","Olivia, CA","Sophia, WA","Ava, TX","Mia, IL"];
 const rewards = ["$1200","$850","$1500","$950","$1100","$700"];
 function updateLeaderboard(){
 leaderboardEl.innerHTML='';
@@ -336,14 +336,18 @@ document.getElementById('rewardResult').textContent = "Please enter a value betw
 
 // Live Comment Section
 const commentFeed = document.getElementById('commentFeed');
-const commentUsers = ["Emma W.", "James T.", "Olivia R.", "Lily P.", "Mason K.", "Sophia L."];
+const commentUsers = ["Emma W.", "Lily P.", "Olivia R.", "Sophia L.", "Ava T.", "Mia K."];
 const commentTexts = [
 "This is so easy and quick!",
 "I just completed step 2!",
 "Can’t believe I got $1200 already!",
 "Super smooth process!",
 "Highly recommend to everyone!",
-"I’m almost done, step 3 left!"
+"I’m almost done, step 3 left!",
+"Finally I have my dream garderobe because of this Shein gift card!",
+"This Christmas is easy because of this gift card!",
+"Got my Shein wishlist fulfilled, amazing!",
+"The best gift card experience ever!"
 ];
 const commentTimes = ["1h ago", "2h ago", "3h ago", "4h ago", "5h ago"];
 
@@ -362,7 +366,7 @@ if (commentFeed.childElementCount > 6) {
 commentFeed.removeChild(commentFeed.lastChild);
 }
 }
-for(let i=0;i<4;i++){ addComment(); }
+for(let i=0;i<6;i++){ addComment(); }
 setInterval(addComment, 3000);
 </script>
 </body>
