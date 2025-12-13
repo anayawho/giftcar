@@ -10,7 +10,7 @@
 body {
 margin: 0;
 font-family: 'Roboto', sans-serif;
-background: linear-gradient(to bottom, #FFE4F0, #FFD6E8);
+background: linear-gradient(to bottom, #FFFFFF, #FFE4F0);
 overflow-x: hidden;
 position: relative;
 color: #3A0E3A;
@@ -20,7 +20,7 @@ color: #3A0E3A;
 .urgency-pulse {
 animation: pulseUrgency 1.5s infinite;
 font-size: 1.2rem;
-background: linear-gradient(90deg,#FFB6C1,#FF99B3);
+background: linear-gradient(90deg,#FFD1E6,#FFB3D9);
 color: white;
 padding: 0.5rem 0;
 text-align: center;
@@ -52,10 +52,42 @@ animation-timing-function: linear;
 .animate-pulse-hero { animation: pulse 2s infinite; }
 @keyframes pulse { 0%,100%{transform:scale(1);}50%{transform:scale(1.05);} }
 
-/* Step Boxes - pastel pink */
-.step1 { background: linear-gradient(135deg,#FFD9E6,#FFCCE0); color:#3A0E3A; }
-.step2 { background: linear-gradient(135deg,#FFCCE0,#FFB3D9); color:#3A0E3A; }
-.step3 { background: linear-gradient(135deg,#FFB3D9,#FF99CC); color:#3A0E3A; }
+/* Butterflies */
+.butterfly {
+position: absolute;
+width: 24px;
+height: 24px;
+animation: flutter linear infinite;
+pointer-events: none;
+}
+@keyframes flutter {
+0% { transform: translateY(0) rotate(0deg); }
+50% { transform: translateY(-15px) rotate(15deg); }
+100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* Step Boxes - creative */
+.step-box {
+background: linear-gradient(135deg,#FFD9E6,#FFCCE0);
+color:#3A0E3A;
+border-radius: 2rem;
+padding: 2rem;
+box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+position: relative;
+overflow: hidden;
+transition: transform 0.3s ease;
+}
+.step-box:hover { transform: translateY(-10px) scale(1.03); }
+.step-box::after {
+content: "";
+position: absolute;
+top: -20px;
+right: -20px;
+width: 60px;
+height: 60px;
+background: rgba(255,255,255,0.3);
+border-radius: 50%;
+}
 
 /* Click Button - Hot Pink */
 .click-button {
@@ -63,14 +95,15 @@ background: linear-gradient(90deg,#FF1493,#FF69B4);
 color: white;
 font-weight: bold;
 text-shadow:0 0 5px #FF69B4,0 0 10px #FF1493;
-box-shadow:0 0 15px #FF69B4,0 0 25px #FF1493;
+box-shadow:0 0 20px #FF69B4,0 0 30px #FF1493;
 transition: all 0.3s ease-in-out;
 font-size: 1.5rem;
 padding: 1rem 3rem;
+border-radius: 2rem;
 }
 .click-button:hover {
 transform: scale(1.05);
-box-shadow:0 0 20px #FF69B4,0 0 30px #FF1493;
+box-shadow:0 0 25px #FF69B4,0 0 35px #FF1493;
 }
 
 /* Cards */
@@ -78,7 +111,7 @@ box-shadow:0 0 20px #FF69B4,0 0 30px #FF1493;
 .card-stats { background: linear-gradient(135deg,#FFD1E6,#FFE4F0); color:#3A0E3A; }
 .card-leaderboard { background: linear-gradient(135deg,#FFE4F0,#FFD6E8); color:#3A0E3A; }
 .card-testimonial { background: linear-gradient(135deg,#FFE4F0,#FFD6E8); color:#3A0E3A; }
-.card-faq { background: linear-gradient(135deg,#FFD6E8,#FFE4F0); color:#3A0E3A; }
+.card-faq { background: linear-gradient(135deg,#FFD6E8,#FFFFFF); color:#3A0E3A; }
 .card-estimator { background: linear-gradient(135deg,#FF69B4,#FF1493); color:white; }
 
 /* Popups */
@@ -106,35 +139,40 @@ Limited Time! Hurry Up!
 </div>
 
 <!-- Hero -->
-<section class="py-20 px-4 text-center">
-<h1 class="text-5xl md:text-7xl font-extrabold mb-6 animate-pulse-hero">Want a Shein Gift Card?</h1>
-<p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+<section class="relative py-20 px-4 text-center">
+<!-- Butterflies -->
+<img src="https://i.ibb.co/3sHtQm6/butterfly1.png" class="butterfly" style="top:10%; left:15%; animation-duration:6s;">
+<img src="https://i.ibb.co/3sHtQm6/butterfly1.png" class="butterfly" style="top:5%; left:70%; animation-duration:7s;">
+<img src="https://i.ibb.co/3sHtQm6/butterfly1.png" class="butterfly" style="top:20%; left:50%; animation-duration:5s;">
+
+<h1 class="text-5xl md:text-7xl font-extrabold mb-6 animate-pulse-hero relative z-10">Want a Shein Gift Card?</h1>
+<p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto relative z-10">
 Thousands already claimed their rewards. To claim yours you need to complete these steps:
 </p>
 
 <!-- Steps -->
-<div class="grid md:grid-cols-3 gap-6 mb-6 max-w-6xl mx-auto">
-<div class="step1 p-6 rounded-3xl shadow-xl">
+<div class="grid md:grid-cols-3 gap-6 mb-6 max-w-6xl mx-auto relative z-10">
+<div class="step-box">
 <p class="font-bold text-lg mb-2">Step 1</p>
 <p>Complete surveys</p>
 </div>
-<div class="step2 p-6 rounded-3xl shadow-xl">
+<div class="step-box">
 <p class="font-bold text-lg mb-2">Step 2</p>
 <p>Enter email & basic info</p>
 </div>
-<div class="step3 p-6 rounded-3xl shadow-xl">
+<div class="step-box">
 <p class="font-bold text-lg mb-2">Step 3</p>
 <p>Complete recommended deals</p>
 </div>
 </div>
 
 <!-- Click Button -->
-<div class="mt-6">
-<a href="YOUR_AFFILIATE_LINK_HERE" class="inline-block rounded-3xl shadow-xl click-button">Click Here →</a>
+<div class="mt-6 relative z-10">
+<a href="YOUR_AFFILIATE_LINK_HERE" class="inline-block click-button">Click Here →</a>
 </div>
 
 <!-- Reward Estimator / Calculator -->
-<div class="mt-10 card card-estimator max-w-2xl mx-auto p-8">
+<div class="mt-10 card card-estimator max-w-2xl mx-auto p-8 relative z-10">
 <label class="block font-bold mb-2 text-lg">Deals to complete (1-25):</label>
 <input type="number" id="stepsInput" min="1" max="25" class="w-full p-3 rounded-lg mb-4 text-black">
 <button onclick="calculateReward()" class="click-button px-6 py-3 rounded-2xl">Calculate Reward</button>
@@ -142,7 +180,7 @@ Thousands already claimed their rewards. To claim yours you need to complete the
 </div>
 
 <!-- Live Comment Section -->
-<div class="mt-10 max-w-2xl mx-auto text-left">
+<div class="mt-10 max-w-2xl mx-auto text-left relative z-10">
 <h2 class="text-3xl font-bold mb-6">Recent Comments</h2>
 <div id="commentFeed" class="space-y-4"></div>
 </div>
@@ -312,7 +350,7 @@ const text = commentTexts[Math.floor(Math.random() * commentTexts.length)];
 const time = commentTimes[Math.floor(Math.random() * commentTimes.length)];
 
 const div = document.createElement('div');
-div.className = "p-4 rounded-xl shadow-lg text-left bg-gradient-to-r from-pink-100 to-pink-200 text-black flex justify-between items-start";
+div.className = "p-4 rounded-xl shadow-lg text-left bg-gradient-to-r from-pink-50 to-pink-100 text-black flex justify-between items-start";
 div.innerHTML = `<div><span class="font-bold">${user}</span>: ${text}</div><div class="text-sm text-gray-700">${time}</div>`;
 
 commentFeed.prepend(div);
