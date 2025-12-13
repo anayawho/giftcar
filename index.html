@@ -10,7 +10,7 @@
 body {
 margin: 0;
 font-family: 'Roboto', sans-serif;
-background: linear-gradient(to bottom, #FFF5F8, #FFEAF2); /* Softer pastel pink gradient */
+background: linear-gradient(to bottom, #FFF5F8, #FFEAF2);
 overflow-x: hidden;
 position: relative;
 color: #3A0E3A;
@@ -20,7 +20,7 @@ color: #3A0E3A;
 .urgency-pulse {
 animation: pulseUrgency 1.5s infinite;
 font-size: 1.2rem;
-background: #FF85C1; /* Softer pastel red/pink */
+background: #FF85C1;
 color: white;
 padding: 0.5rem 0;
 text-align: center;
@@ -55,13 +55,14 @@ animation-timing-function: linear;
 /* Fancy Font for Headline */
 .hero-headline {
 font-family: 'Pacifico', cursive;
-font-weight: 400; /* Not bold */
-color: #D6336C; /* Rich pastel pink for luxury look */
+font-weight: 400;
+color: #D6336C;
+margin-top: -0.5rem;
 }
 
 /* Step Boxes - creative pastel pink */
 .step-box {
-background: linear-gradient(135deg,#FFE0EB,#FFD1E6); /* Soft pastel pink gradient */
+background: linear-gradient(135deg,#FFE0EB,#FFD1E6);
 color:#3A0E3A;
 border-radius: 2rem;
 padding: 2rem;
@@ -117,7 +118,7 @@ transition: transform 0.3s ease;
 
 /* Reward Estimator / Calculator Pastel Pink */
 .card-estimator {
-background: linear-gradient(135deg,#FFD1E6,#FFE4F2); /* Pastel pink gradient */
+background: linear-gradient(135deg,#FFD1E6,#FFE4F2);
 color:#3A0E3A;
 }
 
@@ -126,7 +127,7 @@ color:#3A0E3A;
 position: fixed;
 bottom: 20px;
 right: -350px;
-background-color: #FFB3D9CC;
+background-color: #ffffff; /* Changed to white */
 color: #3A0E3A;
 padding: 12px 18px;
 border-radius: 12px;
@@ -146,7 +147,7 @@ Limited Time! Hurry Up!
 </div>
 
 <!-- Hero -->
-<section class="relative py-20 px-4 text-center">
+<section class="relative py-16 px-4 text-center">
 <h1 class="text-5xl md:text-7xl mb-6 animate-pulse-hero hero-headline">Want a Shein Gift Card?</h1>
 <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
 Thousands already claimed their rewards. To claim yours you need to complete these steps:
@@ -293,7 +294,7 @@ leaderboardEl.appendChild(div);
 updateLeaderboard();
 setInterval(updateLeaderboard,1500);
 
-// Popups - stay 2 sec, next every 2.5 sec
+// Popups - stay 2 sec, next every 4.7 sec
 const popupEl=document.getElementById('popup');
 function showPopup(){
 const name=winners[Math.floor(Math.random()*winners.length)];
@@ -304,7 +305,7 @@ popupEl.style.opacity=1;
 setTimeout(()=>{popupEl.style.right='-350px';popupEl.style.opacity=0;},2000);
 }
 showPopup();
-setInterval(showPopup,2500);
+setInterval(showPopup,4700);
 
 // Snowflakes
 function createSnowflake(){
