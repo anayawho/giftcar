@@ -266,14 +266,15 @@ Thousands already claimed their rewards. To claim yours you need to complete the
 <div id="popup" class="popup"></div>
 
 <script>
-// FAQ Toggle
+document.addEventListener("DOMContentLoaded", function() {
+// --- FAQ Toggle ---
 document.querySelectorAll('.faq-item').forEach(item => {
 item.addEventListener('click', () => {
 item.querySelector('.faq-content').classList.toggle('hidden');
 });
 });
 
-// Leaderboard
+// --- Leaderboard ---
 const leaderboardEl = document.getElementById('leaderboard');
 const winners = ["Emma, NY","Lily, FL","Olivia, CA","Sophia, WA","Ava, TX","Mia, IL","Chloe S., GA","Isabella F., NJ"];
 const rewards = ["$1200","$850","$1500","$950","$1100","$700"];
@@ -294,34 +295,39 @@ leaderboardEl.appendChild(div);
 updateLeaderboard();
 setInterval(updateLeaderboard,1500);
 
-// Popups - stay 2 sec, next every 4.7 sec
-const popupEl=document.getElementById('popup');
+// --- Popups ---
+const popupEl = document.getElementById('popup');
+popupEl.style.zIndex = "9999";
 function showPopup(){
 const name=winners[Math.floor(Math.random()*winners.length)];
 const reward=rewards[Math.floor(Math.random()*rewards.length)];
 popupEl.textContent=`${name} just got ${reward}!`;
 popupEl.style.right='20px';
 popupEl.style.opacity=1;
-setTimeout(()=>{popupEl.style.right='-350px';popupEl.style.opacity=0;},2000);
+setTimeout(()=>{
+popupEl.style.right='-350px';
+popupEl.style.opacity=0;
+},2000);
 }
 showPopup();
 setInterval(showPopup,4700);
 
-// Snowflakes
+// --- Snowflakes ---
 function createSnowflake(){
-const snow=document.createElement('div');
-snow.className='snowflake';
-snow.textContent='❄';
-snow.style.left=Math.random()*window.innerWidth+'px';
-snow.style.fontSize=(Math.random()*15+10)+'px';
-snow.style.animationDuration=(Math.random()*5+5)+'s';
-snow.style.opacity=Math.random();
+const snow = document.createElement('div');
+snow.className = 'snowflake';
+snow.textContent = '❄';
+snow.style.left = Math.random()*window.innerWidth + 'px';
+snow.style.fontSize = (Math.random()*15+10) + 'px';
+snow.style.animationDuration = (Math.random()*5+5) + 's';
+snow.style.opacity = Math.random();
+snow.style.zIndex = 9999;
 document.body.appendChild(snow);
-setTimeout(()=>{snow.remove();},10000);
+setTimeout(()=>{ snow.remove(); }, 10000);
 }
 setInterval(createSnowflake,200);
 
-// Reward Estimator
+// --- Reward Estimator ---
 function calculateReward(){
 const steps = parseInt(document.getElementById('stepsInput').value);
 let reward = 0;
@@ -333,50 +339,33 @@ document.getElementById('rewardResult').textContent = `Estimated Reward: $${rewa
 document.getElementById('rewardResult').textContent = "Please enter a value between 1 and 25";
 }
 }
+window.calculateReward = calculateReward;
 
-// Live Comment Section - unique casual female comments
+// --- Live Comments ---
 const commentFeed = document.getElementById('commentFeed');
 const commentUsers = ["Emma W.", "Lily P.", "Olivia R.", "Sophia L.", "Ava T.", "Mia K.", "Chloe S.", "Isabella F.", "Harper G.", "Amelia J."];
 const commentPhrases = [
 "OMG I just got my gift card!",
-"Finally, my Shein wishlist is complete 😍",
+"Finally, my Shein wishlist is complete!",
 "Super fast and easy to claim!",
 "Can’t believe I got $1200 already!",
 "This was so smooth, highly recommend!",
 "I’m literally so excited, love this!",
-"Perfect timing for Christmas gifts 🎁",
+"Perfect timing for Christmas gifts!",
 "My dream garderobe is coming true!",
 "Wow, this is amazing, thank you!",
 "Seriously the best gift card experience ever!",
-"I wasn’t sure at first but it really works!",
 "Yay! just finished step 3 and got my reward",
 "This is so easy, literally 5 minutes!",
-"Can’t wait to shop all my favorite outfits!",
-"Everything worked perfectly, so happy!",
-"Finally I have my dream garderobe because of this Shein gift card!",
-"This Christmas is easy because of this gift card!",
-"Got my Shein wishlist fulfilled, amazing!",
-"The best gift card experience ever!",
-"Shopping spree time, thanks to this!"
+"Can’t wait to shop all my favorite outfits!"
 ];
 const commentTimes = ["1h ago", "2h ago", "3h ago", "4h ago", "5h ago", "6h ago"];
 
-function getRandomComment() {
-const user = commentUsers[Math.floor(Math.random() * commentUsers.length)];
-const text = commentPhrases[Math.floor(Math.random() * commentPhrases.length)];
-const time = commentTimes[Math.floor(Math.random() * commentTimes.length)];
-return { user, text, time };
-}
-
 function addComment() {
-const { user, text, time } = getRandomComment();
+const user = commentUsers[Math.floor(Math.random()*commentUsers.length)];
+const text = commentPhrases[Math.floor(Math.random()*commentPhrases.length)];
+const time = commentTimes[Math.floor(Math.random()*commentTimes.length)];
+
 const div = document.createElement('div');
 div.className = "p-4 rounded-xl shadow-lg text-left bg-gradient-to-r from-pink-50 to-pink-100 text-black flex justify-between items-start";
-div.innerHTML = `<div><span class="font-bold">${user}</span>: ${text}</div><div class="text-sm text-gray-700">${time}</div>`;
-commentFeed.prepend(div);
-if (commentFeed.childElementCount > 6) commentFeed.removeChild(commentFeed.lastChild);
-}
-
-// Initialize feed with 6 unique comments
-for(let i=0;i<6;i++){ addComment(); }
-// Add
+div.innerHTML = `<div><span class="font-bold">${user}</span>: ${text}</div><div class="text
