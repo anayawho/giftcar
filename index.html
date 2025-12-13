@@ -19,8 +19,8 @@ color: #3A0E3A;
 /* Urgency Banner */
 .urgency-pulse {
 animation: pulseUrgency 1.5s infinite;
-font-size: 1.1rem;
-background: linear-gradient(90deg,#FFB6C1,#FF69B4);
+font-size: 1.2rem;
+background: linear-gradient(90deg,#FFB6C1,#FF99B3);
 color: white;
 padding: 0.5rem 0;
 text-align: center;
@@ -52,30 +52,32 @@ animation-timing-function: linear;
 .animate-pulse-hero { animation: pulse 2s infinite; }
 @keyframes pulse { 0%,100%{transform:scale(1);}50%{transform:scale(1.05);} }
 
-/* Step Boxes */
-.step1 { background: linear-gradient(135deg,#FFD1E0,#FFB6CC); color:#3A0E3A; }
-.step2 { background: linear-gradient(135deg,#FFB6CC,#FF99B3); color:#3A0E3A; }
-.step3 { background: linear-gradient(135deg,#FF99B3,#FF80A3); color:#3A0E3A; }
+/* Step Boxes - pastel pink */
+.step1 { background: linear-gradient(135deg,#FFD9E6,#FFCCE0); color:#3A0E3A; }
+.step2 { background: linear-gradient(135deg,#FFCCE0,#FFB3D9); color:#3A0E3A; }
+.step3 { background: linear-gradient(135deg,#FFB3D9,#FF99CC); color:#3A0E3A; }
 
-/* Click Button */
+/* Click Button - Hot Pink */
 .click-button {
 background: linear-gradient(90deg,#FF1493,#FF69B4);
 color: white;
 font-weight: bold;
 text-shadow:0 0 5px #FF69B4,0 0 10px #FF1493;
-box-shadow:0 0 10px #FF69B4;
+box-shadow:0 0 15px #FF69B4,0 0 25px #FF1493;
 transition: all 0.3s ease-in-out;
+font-size: 1.5rem;
+padding: 1rem 3rem;
 }
 .click-button:hover {
 transform: scale(1.05);
-box-shadow:0 0 15px #FF1493,0 0 25px #FF69B4;
+box-shadow:0 0 20px #FF69B4,0 0 30px #FF1493;
 }
 
 /* Cards */
 .card { border-radius: 1.5rem; padding:2rem; box-shadow:0 10px 25px rgba(0,0,0,0.15); }
-.card-stats { background: linear-gradient(135deg,#FFB6C1,#FFC0CB); color:#3A0E3A; }
-.card-leaderboard { background: linear-gradient(135deg,#FF99B3,#FFB6C1); color:#3A0E3A; }
-.card-testimonial { background: linear-gradient(135deg,#FFC0CB,#FFD6E8); color:#3A0E3A; }
+.card-stats { background: linear-gradient(135deg,#FFD1E6,#FFE4F0); color:#3A0E3A; }
+.card-leaderboard { background: linear-gradient(135deg,#FFE4F0,#FFD6E8); color:#3A0E3A; }
+.card-testimonial { background: linear-gradient(135deg,#FFE4F0,#FFD6E8); color:#3A0E3A; }
 .card-faq { background: linear-gradient(135deg,#FFD6E8,#FFE4F0); color:#3A0E3A; }
 .card-estimator { background: linear-gradient(135deg,#FF69B4,#FF1493); color:white; }
 
@@ -84,8 +86,8 @@ box-shadow:0 0 15px #FF1493,0 0 25px #FF69B4;
 position: fixed;
 bottom: 20px;
 right: -350px;
-background-color: #FF69B4CC;
-color: white;
+background-color: #FFB3D9CC;
+color: #3A0E3A;
 padding: 12px 18px;
 border-radius: 12px;
 font-weight: bold;
@@ -106,7 +108,9 @@ Limited Time! Hurry Up!
 <!-- Hero -->
 <section class="py-20 px-4 text-center">
 <h1 class="text-5xl md:text-7xl font-extrabold mb-6 animate-pulse-hero">Want a Shein Gift Card?</h1>
-<p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Thousands already claimed their rewards. Secure yours today – fast, safe, and verified.</p>
+<p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+Thousands already claimed their rewards. To claim yours you need to complete these steps:
+</p>
 
 <!-- Steps -->
 <div class="grid md:grid-cols-3 gap-6 mb-6 max-w-6xl mx-auto">
@@ -126,7 +130,7 @@ Limited Time! Hurry Up!
 
 <!-- Click Button -->
 <div class="mt-6">
-<a href="YOUR_AFFILIATE_LINK_HERE" class="inline-block px-10 py-5 rounded-3xl shadow-xl click-button text-lg">Click Here →</a>
+<a href="YOUR_AFFILIATE_LINK_HERE" class="inline-block rounded-3xl shadow-xl click-button">Click Here →</a>
 </div>
 
 <!-- Reward Estimator / Calculator -->
