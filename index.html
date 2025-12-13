@@ -10,7 +10,7 @@
 body {
 margin: 0;
 font-family: 'Roboto', sans-serif;
-background: linear-gradient(to bottom, #FFFFFF, #FFE4F0);
+background: linear-gradient(to bottom, #FFF5F8, #FFEAF2); /* Softer pastel pink gradient */
 overflow-x: hidden;
 position: relative;
 color: #3A0E3A;
@@ -20,7 +20,7 @@ color: #3A0E3A;
 .urgency-pulse {
 animation: pulseUrgency 1.5s infinite;
 font-size: 1.2rem;
-background: linear-gradient(90deg,#FFD1E6,#FFB3D9);
+background: #FF85C1; /* Softer pastel red/pink */
 color: white;
 padding: 0.5rem 0;
 text-align: center;
@@ -50,31 +50,38 @@ animation-timing-function: linear;
 
 /* Hero Animation */
 .animate-pulse-hero { animation: pulse 2s infinite; }
-@keyframes pulse { 0%,100%{transform:scale(1);}50%{transform:scale(1.05);} }
+@keyframes pulse { 0%,100%{transform:scale(1);}50%{transform:scale(1.03);} }
 
 /* Fancy Font for Headline */
-.hero-headline { font-family: 'Pacifico', cursive; }
+.hero-headline {
+font-family: 'Pacifico', cursive;
+font-weight: 400; /* Not bold */
+color: #D6336C; /* Rich pastel pink for luxury look */
+}
 
-/* Step Boxes - creative */
+/* Step Boxes - creative pastel pink */
 .step-box {
-background: linear-gradient(135deg,#FFD9E6,#FFCCE0);
+background: linear-gradient(135deg,#FFE0EB,#FFD1E6); /* Soft pastel pink gradient */
 color:#3A0E3A;
 border-radius: 2rem;
 padding: 2rem;
-box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+box-shadow: 0 12px 20px rgba(0,0,0,0.12);
 position: relative;
 overflow: hidden;
-transition: transform 0.3s ease;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.step-box:hover { transform: translateY(-10px) scale(1.03); }
+.step-box:hover {
+transform: translateY(-8px) scale(1.02);
+box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+}
 .step-box::after {
 content: "";
 position: absolute;
 top: -20px;
 right: -20px;
-width: 60px;
-height: 60px;
-background: rgba(255,255,255,0.3);
+width: 50px;
+height: 50px;
+background: rgba(255,255,255,0.35);
 border-radius: 50%;
 }
 
@@ -86,8 +93,8 @@ font-weight: bold;
 text-shadow:0 0 5px #FF69B4,0 0 10px #FF1493;
 box-shadow:0 0 20px #FF69B4,0 0 30px #FF1493;
 transition: all 0.3s ease-in-out;
-font-size: 1.5rem;
-padding: 1rem 3rem;
+font-size: 1.6rem;
+padding: 1rem 3.5rem;
 border-radius: 2rem;
 }
 .click-button:hover {
@@ -96,11 +103,17 @@ box-shadow:0 0 25px #FF69B4,0 0 35px #FF1493;
 }
 
 /* Cards */
-.card { border-radius: 1.5rem; padding:2rem; box-shadow:0 10px 25px rgba(0,0,0,0.15); }
-.card-stats { background: linear-gradient(135deg,#FFD1E6,#FFE4F0); color:#3A0E3A; }
-.card-leaderboard { background: linear-gradient(135deg,#FFE4F0,#FFD6E8); color:#3A0E3A; }
-.card-testimonial { background: linear-gradient(135deg,#FFE4F0,#FFD6E8); color:#3A0E3A; }
-.card-faq { background: linear-gradient(135deg,#FFD6E8,#FFFFFF); color:#3A0E3A; }
+.card {
+border-radius: 1.5rem;
+padding:2rem;
+box-shadow:0 10px 25px rgba(0,0,0,0.12);
+transition: transform 0.3s ease;
+}
+.card:hover { transform: translateY(-5px); }
+.card-stats { background: linear-gradient(135deg,#FFE0EB,#FFEAF2); color:#3A0E3A; }
+.card-leaderboard { background: linear-gradient(135deg,#FFEAF2,#FFE0EB); color:#3A0E3A; }
+.card-testimonial { background: linear-gradient(135deg,#FFEAF2,#FFE0EB); color:#3A0E3A; }
+.card-faq { background: linear-gradient(135deg,#FFE4F2,#FFFFFF); color:#3A0E3A; }
 .card-estimator { background: linear-gradient(135deg,#FF69B4,#FF1493); color:white; }
 
 /* Popups */
@@ -129,7 +142,7 @@ Limited Time! Hurry Up!
 
 <!-- Hero -->
 <section class="relative py-20 px-4 text-center">
-<h1 class="text-5xl md:text-7xl font-extrabold mb-6 animate-pulse-hero hero-headline">Want a Shein Gift Card?</h1>
+<h1 class="text-5xl md:text-7xl mb-6 animate-pulse-hero hero-headline">Want a Shein Gift Card?</h1>
 <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
 Thousands already claimed their rewards. To claim yours you need to complete these steps:
 </p>
@@ -266,9 +279,9 @@ const reward = rewards[Math.floor(Math.random()*rewards.length)];
 const div=document.createElement('div');
 div.className="card card-leaderboard flex justify-between items-center p-6";
 div.innerHTML=`<div class="flex items-center gap-4">
-<div class="w-12 h-12 bg-pink-400 rounded-full flex items-center justify-center font-bold text-white">${name.split(',')[0].charAt(0)}${name.split(',')[1].charAt(1)}</div>
+<div class="w-12 h-12 bg-pink-300 rounded-full flex items-center justify-center font-bold text-white">${name.split(',')[0].charAt(0)}${name.split(',')[1].charAt(1)}</div>
 <p class="font-semibold">${name} claimed ${reward}</p></div>
-<div class="sparkle w-6 h-6 bg-pink-400 rounded-full"></div>`;
+<div class="sparkle w-6 h-6 bg-pink-300 rounded-full"></div>`;
 leaderboardEl.appendChild(div);
 }
 }
