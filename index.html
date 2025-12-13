@@ -114,7 +114,12 @@ transition: transform 0.3s ease;
 .card-leaderboard { background: linear-gradient(135deg,#FFEAF2,#FFE0EB); color:#3A0E3A; }
 .card-testimonial { background: linear-gradient(135deg,#FFEAF2,#FFE0EB); color:#3A0E3A; }
 .card-faq { background: linear-gradient(135deg,#FFE4F2,#FFFFFF); color:#3A0E3A; }
-.card-estimator { background: linear-gradient(135deg,#FF69B4,#FF1493); color:white; }
+
+/* Reward Estimator / Calculator Pastel Pink */
+.card-estimator {
+background: linear-gradient(135deg,#FFD1E6,#FFE4F2); /* Pastel pink gradient */
+color:#3A0E3A;
+}
 
 /* Popups */
 .popup {
@@ -165,14 +170,14 @@ Thousands already claimed their rewards. To claim yours you need to complete the
 
 <!-- Click Button -->
 <div class="mt-6">
-<a href="YOUR_AFFILIATE_LINK_HERE" class="inline-block click-button">Click Here →</a>
+<a href="https://trkio.org/aff_c?offer_id=1146&aff_id=64120" class="inline-block click-button">Click Here →</a>
 </div>
 
 <!-- Reward Estimator / Calculator -->
 <div class="mt-10 card card-estimator max-w-2xl mx-auto p-8">
 <label class="block font-bold mb-2 text-lg">Deals to complete (1-25):</label>
 <input type="number" id="stepsInput" min="1" max="25" class="w-full p-3 rounded-lg mb-4 text-black">
-<button onclick="calculateReward()" class="click-button px-6 py-3 rounded-2xl">Calculate Reward</button>
+<button onclick="calculateReward()" class="click-button px-6 py-3 rounded-2xl" style="background: linear-gradient(135deg,#FFD1E6,#FFE4F2); color:#3A0E3A; box-shadow:0 0 10px #FFD1E6,0 0 15px #FFE4F2; text-shadow:none;">Calculate Reward</button>
 <p class="mt-4 font-bold text-xl" id="rewardResult"></p>
 </div>
 
