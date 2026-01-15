@@ -22,13 +22,13 @@ color:#6a1f44;
 
 /* Glass cards */
 .glass{
-background:rgba(255,255,255,0.8);
+background:rgba(255,255,255,0.82);
 backdrop-filter:blur(16px);
 border-radius:1.6rem;
 box-shadow:0 30px 70px rgba(255,140,190,.25);
 }
 
-/* CTA */
+/* CTA button */
 .cta{
 background:linear-gradient(90deg,#ff4fa3,#ff86c6);
 color:#fff;
@@ -43,10 +43,10 @@ transform:scale(1.07);
 box-shadow:0 0 45px rgba(255,79,163,.9);
 }
 
-/* Butterfly animation */
+/* Butterflies */
 .butterfly{
 position:fixed;
-top:-120px;
+top:-140px;
 width:70px;
 opacity:.25;
 animation:flyDown linear infinite;
@@ -54,11 +54,11 @@ pointer-events:none;
 z-index:0;
 }
 @keyframes flyDown{
-from{transform:translateY(-140px) translateX(0) rotate(0deg);}
+from{transform:translateY(-160px) translateX(0) rotate(0deg);}
 to{transform:translateY(120vh) translateX(140px) rotate(15deg);}
 }
 
-/* Comments */
+/* Live comments */
 .comment{
 background:linear-gradient(90deg,#fff0f7,#ffe3ef);
 border-radius:1.2rem;
@@ -70,11 +70,11 @@ box-shadow:0 15px 35px rgba(255,120,180,.25);
 
 <body>
 
-<!-- Professional Butterfly SVGs -->
+<!-- Butterfly SVGs -->
 <script>
 const butterflySVG = `
 <svg viewBox="0 0 512 512" fill="#ff7bbd" xmlns="http://www.w3.org/2000/svg">
-<path d="M256 256c-36-88-112-160-200-144-40 8-56 64-32 104 32 56 104 80 168 40l64 0zm0 0c36-88 112-160 200-144 40 8 56 64 32 104-32 56-104 80-168 40l-64 0z"/>
+<path d="M256 256c-40-90-120-160-208-140-40 10-56 66-30 110 36 60 112 78 174 30h64zm0 0c40-90 120-160 208-140 40 10 56 66 30 110-36 60-112 78-174 30h-64z"/>
 </svg>`;
 for(let i=0;i<12;i++){
 const b=document.createElement('div');
@@ -93,44 +93,34 @@ document.body.appendChild(b);
 Want a Shein Gift Card?
 </h1>
 
-<p class="text-lg md:text-xl max-w-3xl mx-auto mb-4">
-Apply to receive exclusive Shein fashion rewards and upgrade your wardrobe.
-</p>
-
-<p class="font-semibold text-pink-600 mb-10">
+<p class="font-semibold text-pink-600 mb-8">
 Complete the steps below to be approved:
 </p>
 
-<!-- Steps -->
-<div class="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto text-sm">
+<!-- STEPS -->
+<div class="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto text-sm mb-14">
 <div class="glass p-4"><strong>1.</strong> Answer a few short questions</div>
 <div class="glass p-4"><strong>2.</strong> Enter email & basic info (name, address)</div>
 <div class="glass p-4"><strong>3.</strong> Complete recommended deals (apps, games)</div>
 </div>
-</section>
 
-<!-- OFFERS (HORIZONTAL) -->
-<section class="relative z-10 py-20 px-4">
-<h2 class="text-4xl font-bold text-center mb-12" style="font-family:'Playfair Display',serif;">
-Choose Your Gift Card
-</h2>
-
-<div class="flex flex-col md:flex-row gap-8 max-w-6xl mx-auto justify-center">
-<div class="glass p-8 text-center flex-1">
-<h3 class="text-3xl font-bold mb-3">$50</h3>
-<p class="mb-6">Everyday fashion essentials</p>
+<!-- OFFERS (IMMEDIATELY BELOW STEPS, HORIZONTAL) -->
+<div class="flex flex-col md:flex-row gap-6 max-w-5xl mx-auto justify-center">
+<div class="glass p-7 text-center flex-1">
+<h3 class="text-3xl font-bold mb-2">$50</h3>
+<p class="mb-5 text-sm">Quick approval option</p>
 <a href="#" class="cta">Apply Now →</a>
 </div>
 
-<div class="glass p-8 text-center flex-1">
-<h3 class="text-3xl font-bold mb-3">$100</h3>
-<p class="mb-6">Most selected option</p>
+<div class="glass p-7 text-center flex-1">
+<h3 class="text-3xl font-bold mb-2">$100</h3>
+<p class="mb-5 text-sm">Most popular choice</p>
 <a href="#" class="cta">Apply Now →</a>
 </div>
 
-<div class="glass p-8 text-center flex-1">
-<h3 class="text-3xl font-bold mb-3">$500</h3>
-<p class="mb-6">Ultimate wardrobe upgrade</p>
+<div class="glass p-7 text-center flex-1">
+<h3 class="text-3xl font-bold mb-2">$500</h3>
+<p class="mb-5 text-sm">Premium reward tier</p>
 <a href="#" class="cta">Apply Now →</a>
 </div>
 </div>
@@ -157,7 +147,7 @@ const texts=[
 "So smooth and easy",
 "Approved after finishing step 3",
 "Highly recommend completing the offers",
-"Already picked my outfits",
+"Already chose my outfits",
 "This actually works",
 "Girls finish the deals it’s worth it"
 ];
