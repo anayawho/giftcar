@@ -12,76 +12,78 @@
 body{
 margin:0;
 font-family:'Inter',sans-serif;
-background:linear-gradient(180deg,#ffe0ee,#fff1f8,#ffffff);
+background:
+radial-gradient(circle at top left,#ffd6e8,transparent 60%),
+radial-gradient(circle at bottom right,#ffeaf3,transparent 60%),
+linear-gradient(180deg,#fff5fa,#ffffff);
 overflow-x:hidden;
-color:#6b214f;
+color:#6a1f44;
 }
 
 /* Glass cards */
 .glass{
-background:rgba(255,255,255,0.75);
-backdrop-filter:blur(14px);
+background:rgba(255,255,255,0.8);
+backdrop-filter:blur(16px);
 border-radius:1.6rem;
-box-shadow:0 30px 60px rgba(255,120,180,.18);
+box-shadow:0 30px 70px rgba(255,140,190,.25);
 }
 
 /* CTA */
 .cta{
-background:linear-gradient(90deg,#ff4fa3,#ff8ec7);
+background:linear-gradient(90deg,#ff4fa3,#ff86c6);
 color:#fff;
 font-weight:600;
-padding:0.9rem 2.3rem;
+padding:0.9rem 2.4rem;
 border-radius:999px;
-box-shadow:0 0 25px rgba(255,79,163,.6);
-transition:.3s;
+box-shadow:0 0 30px rgba(255,79,163,.65);
+transition:.35s ease;
 }
 .cta:hover{
-transform:scale(1.06);
-box-shadow:0 0 40px rgba(255,79,163,.9);
+transform:scale(1.07);
+box-shadow:0 0 45px rgba(255,79,163,.9);
 }
 
 /* Butterfly animation */
 .butterfly{
 position:fixed;
 top:-120px;
-width:60px;
-opacity:.35;
-animation:floatDown linear infinite;
+width:70px;
+opacity:.25;
+animation:flyDown linear infinite;
 pointer-events:none;
 z-index:0;
 }
-@keyframes floatDown{
-from{transform:translateY(-120px) translateX(0) rotate(0deg);}
-to{transform:translateY(120vh) translateX(120px) rotate(12deg);}
+@keyframes flyDown{
+from{transform:translateY(-140px) translateX(0) rotate(0deg);}
+to{transform:translateY(120vh) translateX(140px) rotate(15deg);}
 }
 
 /* Comments */
 .comment{
-background:linear-gradient(90deg,#fff0f7,#ffe5f1);
-border-radius:1.1rem;
-padding:1rem 1.3rem;
-box-shadow:0 12px 25px rgba(255,120,180,.2);
+background:linear-gradient(90deg,#fff0f7,#ffe3ef);
+border-radius:1.2rem;
+padding:1rem 1.4rem;
+box-shadow:0 15px 35px rgba(255,120,180,.25);
 }
 </style>
 </head>
 
 <body>
 
-<!-- SVG Butterflies -->
+<!-- Professional Butterfly SVGs -->
 <script>
 const butterflySVG = `
-<svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M100 100C40 20 0 40 20 80C40 120 80 120 100 100Z" fill="#ff9ccf"/>
-<path d="M100 100C160 20 200 40 180 80C160 120 120 120 100 100Z" fill="#ff6fb1"/>
+<svg viewBox="0 0 512 512" fill="#ff7bbd" xmlns="http://www.w3.org/2000/svg">
+<path d="M256 256c-36-88-112-160-200-144-40 8-56 64-32 104 32 56 104 80 168 40l64 0zm0 0c36-88 112-160 200-144 40 8 56 64 32 104-32 56-104 80-168 40l-64 0z"/>
 </svg>`;
-for(let i=0;i<14;i++){
-const d=document.createElement('div');
-d.className='butterfly';
-d.innerHTML=butterflySVG;
-d.style.left=Math.random()*100+'vw';
-d.style.animationDuration=(Math.random()*22+20)+'s';
-d.style.transform=`scale(${Math.random()*0.6+0.6})`;
-document.body.appendChild(d);
+for(let i=0;i<12;i++){
+const b=document.createElement('div');
+b.className='butterfly';
+b.innerHTML=butterflySVG;
+b.style.left=Math.random()*100+'vw';
+b.style.animationDuration=(Math.random()*28+24)+'s';
+b.style.transform=`scale(${Math.random()*0.6+0.6})`;
+document.body.appendChild(b);
 }
 </script>
 
@@ -91,8 +93,8 @@ document.body.appendChild(d);
 Want a Shein Gift Card?
 </h1>
 
-<p class="text-lg md:text-xl max-w-3xl mx-auto mb-6">
-Do the steps below to claim it and receive exclusive Shein fashion rewards.
+<p class="text-lg md:text-xl max-w-3xl mx-auto mb-4">
+Apply to receive exclusive Shein fashion rewards and upgrade your wardrobe.
 </p>
 
 <p class="font-semibold text-pink-600 mb-10">
@@ -107,27 +109,27 @@ Complete the steps below to be approved:
 </div>
 </section>
 
-<!-- OFFERS -->
-<section class="relative z-10 py-20 px-4 text-center">
-<h2 class="text-4xl font-bold mb-12" style="font-family:'Playfair Display',serif;">
+<!-- OFFERS (HORIZONTAL) -->
+<section class="relative z-10 py-20 px-4">
+<h2 class="text-4xl font-bold text-center mb-12" style="font-family:'Playfair Display',serif;">
 Choose Your Gift Card
 </h2>
 
-<div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-<div class="glass p-8">
-<h3 class="text-3xl font-bold mb-4">$50 Gift Card</h3>
-<p class="mb-6">Perfect for everyday fashion</p>
+<div class="flex flex-col md:flex-row gap-8 max-w-6xl mx-auto justify-center">
+<div class="glass p-8 text-center flex-1">
+<h3 class="text-3xl font-bold mb-3">$50</h3>
+<p class="mb-6">Everyday fashion essentials</p>
 <a href="#" class="cta">Apply Now →</a>
 </div>
 
-<div class="glass p-8">
-<h3 class="text-3xl font-bold mb-4">$100 Gift Card</h3>
-<p class="mb-6">Most popular choice</p>
+<div class="glass p-8 text-center flex-1">
+<h3 class="text-3xl font-bold mb-3">$100</h3>
+<p class="mb-6">Most selected option</p>
 <a href="#" class="cta">Apply Now →</a>
 </div>
 
-<div class="glass p-8">
-<h3 class="text-3xl font-bold mb-4">$500 Gift Card</h3>
+<div class="glass p-8 text-center flex-1">
+<h3 class="text-3xl font-bold mb-3">$500</h3>
 <p class="mb-6">Ultimate wardrobe upgrade</p>
 <a href="#" class="cta">Apply Now →</a>
 </div>
@@ -156,8 +158,8 @@ const texts=[
 "Approved after finishing step 3",
 "Highly recommend completing the offers",
 "Already picked my outfits",
-"This is actually legit",
-"Girls do the steps it works"
+"This actually works",
+"Girls finish the deals it’s worth it"
 ];
 const container=document.getElementById('comments');
 
@@ -172,7 +174,7 @@ container.removeChild(container.lastChild);
 }
 }
 for(let i=0;i<4;i++) addComment();
-setInterval(addComment,2600);
+setInterval(addComment,2500);
 </script>
 
 </body>
