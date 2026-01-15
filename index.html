@@ -3,367 +3,181 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Want a Shein Gift Card?</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+<title>Shein Gift Card Application</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
+
 <style>
 body {
 margin: 0;
-font-family: 'Roboto', sans-serif;
-background: linear-gradient(to bottom, #FFF5F8, #FFEAF2);
+font-family: 'Poppins', sans-serif;
+background: linear-gradient(180deg, #ffd6e8, #ffeaf4, #fff);
 overflow-x: hidden;
-position: relative;
-color: #3A0E3A;
+color: #6b214f;
 }
 
-/* Urgency Banner */
-.urgency-pulse {
-animation: pulseUrgency 1.5s infinite;
-font-size: 1.2rem;
-background: #FF85C1;
-color: white;
-padding: 0.5rem 0;
-text-align: center;
-font-weight: bold;
-}
-@keyframes pulseUrgency {
-0%, 100% { opacity: 1; }
-50% { opacity: 0.8; }
-}
-
-/* Snowflakes */
-.snowflake {
+/* Butterflies */
+.butterfly {
 position: fixed;
-top: -10px;
-color: white;
-font-size: 1em;
-z-index: 9999;
-user-select: none;
+top: -40px;
+font-size: 24px;
+opacity: 0.4;
+animation: fly linear infinite;
 pointer-events: none;
-animation-name: fall;
-animation-timing-function: linear;
 }
-@keyframes fall {
-0% { transform: translateY(0) rotate(0deg); }
-100% { transform: translateY(100vh) rotate(360deg); }
-}
-
-/* Hero Animation */
-.animate-pulse-hero { animation: pulse 2s infinite; }
-@keyframes pulse { 0%,100%{transform:scale(1);}50%{transform:scale(1.03);} }
-
-/* Fancy Font for Headline */
-.hero-headline {
-font-family: 'Pacifico', cursive;
-font-weight: 400;
-color: #D6336C;
-margin-top: -0.5rem;
-}
-
-/* Step Boxes - creative pastel pink */
-.step-box {
-background: linear-gradient(135deg,#FFE0EB,#FFD1E6);
-color:#3A0E3A;
-border-radius: 2rem;
-padding: 2rem;
-box-shadow: 0 12px 20px rgba(0,0,0,0.12);
-position: relative;
-overflow: hidden;
-transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.step-box:hover {
-transform: translateY(-8px) scale(1.02);
-box-shadow: 0 15px 25px rgba(0,0,0,0.15);
-}
-.step-box::after {
-content: "";
-position: absolute;
-top: -20px;
-right: -20px;
-width: 50px;
-height: 50px;
-background: rgba(255,255,255,0.35);
-border-radius: 50%;
-}
-
-/* Click Button - Hot Pink */
-.click-button {
-background: linear-gradient(90deg,#FF1493,#FF69B4);
-color: white;
-font-weight: bold;
-text-shadow:0 0 5px #FF69B4,0 0 10px #FF1493;
-box-shadow:0 0 20px #FF69B4,0 0 30px #FF1493;
-transition: all 0.3s ease-in-out;
-font-size: 1.6rem;
-padding: 1rem 3.5rem;
-border-radius: 2rem;
-}
-.click-button:hover {
-transform: scale(1.05);
-box-shadow:0 0 25px #FF69B4,0 0 35px #FF1493;
+@keyframes fly {
+from { transform: translateY(-50px) translateX(0); }
+to { transform: translateY(110vh) translateX(80px); }
 }
 
 /* Cards */
 .card {
+background: rgba(255,255,255,0.75);
+backdrop-filter: blur(10px);
 border-radius: 1.5rem;
-padding:2rem;
-box-shadow:0 10px 25px rgba(0,0,0,0.12);
-transition: transform 0.3s ease;
-}
-.card:hover { transform: translateY(-5px); }
-.card-stats { background: linear-gradient(135deg,#FFE0EB,#FFEAF2); color:#3A0E3A; }
-.card-leaderboard { background: linear-gradient(135deg,#FFEAF2,#FFE0EB); color:#3A0E3A; }
-.card-testimonial { background: linear-gradient(135deg,#FFEAF2,#FFE0EB); color:#3A0E3A; }
-.card-faq { background: linear-gradient(135deg,#FFE4F2,#FFFFFF); color:#3A0E3A; }
-
-/* Reward Estimator / Calculator Pastel Pink */
-.card-estimator {
-background: linear-gradient(135deg,#FFD1E6,#FFE4F2);
-color:#3A0E3A;
+box-shadow: 0 20px 40px rgba(255,105,180,0.15);
 }
 
-/* Popups */
-.popup {
-position: fixed;
-bottom: 20px;
-right: -350px;
-background-color: #ffffff; /* Changed to white */
-color: #3A0E3A;
-padding: 12px 18px;
-border-radius: 12px;
-font-weight: bold;
-box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-transition: right 0.6s ease, opacity 0.6s ease;
-z-index: 9999;
-opacity: 0;
+/* CTA */
+.apply-btn {
+background: linear-gradient(90deg, #ff5fa2, #ff8fc7);
+color: white;
+font-weight: 600;
+padding: 0.9rem 2.2rem;
+border-radius: 999px;
+box-shadow: 0 0 18px rgba(255,95,162,0.6);
+transition: all 0.3s ease;
+}
+.apply-btn:hover {
+transform: scale(1.06);
+box-shadow: 0 0 30px rgba(255,95,162,0.9);
+}
+
+/* Live comments */
+.comment {
+background: linear-gradient(90deg,#fff0f7,#ffe2f0);
+border-radius: 1rem;
+padding: 0.9rem 1.2rem;
+box-shadow: 0 10px 25px rgba(255,105,180,0.15);
 }
 </style>
 </head>
+
 <body>
 
-<!-- Urgency Banner -->
-<div class="urgency-pulse">
-Limited Time! Hurry Up!
-</div>
+<!-- Butterflies -->
+<script>
+for(let i=0;i<18;i++){
+const b=document.createElement('div');
+b.className='butterfly';
+b.innerText='🦋';
+b.style.left=Math.random()*100+'vw';
+b.style.animationDuration=(Math.random()*20+15)+'s';
+document.body.appendChild(b);
+}
+</script>
 
-<!-- Hero -->
-<section class="relative py-16 px-4 text-center">
-<h1 class="text-5xl md:text-7xl mb-6 animate-pulse-hero hero-headline">Want a Shein Gift Card?</h1>
-<p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-Thousands already claimed their rewards. To claim yours you need to complete these steps:
+<!-- HERO -->
+<section class="text-center px-4 py-20">
+<h1 class="text-5xl md:text-6xl font-bold mb-6 text-pink-700">
+Want a Shein Gift Card?
+</h1>
+<p class="text-lg md:text-xl max-w-3xl mx-auto mb-6">
+Do the steps below to claim it and receive exclusive Shein rewards delivered straight to you.
+</p>
+
+<p class="font-semibold text-pink-600 mb-10">
+Complete the steps below to be approved:
 </p>
 
 <!-- Steps -->
-<div class="grid md:grid-cols-3 gap-6 mb-6 max-w-6xl mx-auto">
-<div class="step-box">
-<p class="font-bold text-lg mb-2">Step 1</p>
-<p>Complete surveys</p>
+<div class="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto text-sm">
+<div class="card p-4">
+<strong>1.</strong> Answer a few short questions
 </div>
-<div class="step-box">
-<p class="font-bold text-lg mb-2">Step 2</p>
-<p>Enter email & basic info</p>
+<div class="card p-4">
+<strong>2.</strong> Enter email & basic info (name, address)
 </div>
-<div class="step-box">
-<p class="font-bold text-lg mb-2">Step 3</p>
-<p>Complete recommended deals</p>
+<div class="card p-4">
+<strong>3.</strong> Complete recommended deals (apps, games)
 </div>
-</div>
-
-<!-- Click Button -->
-<div class="mt-6">
-<a href="https://trkio.org/aff_c?offer_id=1146&aff_id=64120" class="inline-block click-button">Click Here →</a>
-</div>
-
-<!-- Reward Estimator / Calculator -->
-<div class="mt-10 card card-estimator max-w-2xl mx-auto p-8">
-<label class="block font-bold mb-2 text-lg">Deals to complete (1-25):</label>
-<input type="number" id="stepsInput" min="1" max="25" class="w-full p-3 rounded-lg mb-4 text-black">
-<button onclick="calculateReward()" class="click-button px-6 py-3 rounded-2xl" style="background: linear-gradient(135deg,#FFD1E6,#FFE4F2); color:#3A0E3A; box-shadow:0 0 10px #FFD1E6,0 0 15px #FFE4F2; text-shadow:none;">Calculate Reward</button>
-<p class="mt-4 font-bold text-xl" id="rewardResult"></p>
-</div>
-
-<!-- Live Comment Section -->
-<div class="mt-10 max-w-2xl mx-auto text-left">
-<h2 class="text-3xl font-bold mb-6">Recent Comments</h2>
-<div id="commentFeed" class="space-y-4"></div>
 </div>
 </section>
 
-<!-- Stats / Milestones -->
+<!-- OFFERS -->
 <section class="py-20 px-4 text-center">
-<h2 class="text-4xl font-bold mb-12">Stats & Milestones</h2>
+<h2 class="text-4xl font-bold mb-12 text-pink-700">
+Choose Your Gift Card
+</h2>
+
 <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-<div class="card card-stats">
-<div class="text-6xl font-bold shimmer">12,540+</div>
-<p class="mt-3 font-semibold">Claims Completed</p>
+<div class="card p-8">
+<h3 class="text-3xl font-bold mb-4">$50 Shein Card</h3>
+<p class="mb-6">Perfect for quick fashion upgrades</p>
+<a href="#" class="apply-btn">Apply Now →</a>
 </div>
-<div class="card card-stats">
-<div class="text-5xl font-bold shimmer">7,860+</div>
-<p class="mt-3 font-semibold">Active Participants</p>
+
+<div class="card p-8">
+<h3 class="text-3xl font-bold mb-4">$100 Shein Card</h3>
+<p class="mb-6">Most popular choice</p>
+<a href="#" class="apply-btn">Apply Now →</a>
 </div>
-<div class="card card-stats">
-<div class="text-5xl font-bold shimmer">4,320+</div>
-<p class="mt-3 font-semibold">Deals Completed</p>
+
+<div class="card p-8">
+<h3 class="text-3xl font-bold mb-4">$500 Shein Card</h3>
+<p class="mb-6">For full wardrobe dreams</p>
+<a href="#" class="apply-btn">Apply Now →</a>
 </div>
 </div>
 </section>
 
-<!-- Live Leaderboard -->
-<section class="py-20 px-4 text-center">
-<h2 class="text-4xl font-bold mb-12">Recent Winners</h2>
-<div class="grid md:grid-cols-1 gap-4 max-w-4xl mx-auto" id="leaderboard"></div>
+<!-- LIVE COMMENTS -->
+<section class="py-20 px-4">
+<h2 class="text-3xl font-bold text-center mb-10 text-pink-700">
+Live Comments from Applicants
+</h2>
+
+<div id="comments" class="max-w-3xl mx-auto space-y-4"></div>
 </section>
 
-<!-- Testimonials -->
-<section class="py-20 px-4 text-center">
-<h2 class="text-4xl font-bold mb-12">Testimonials</h2>
-<div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-<div class="card card-testimonial hover:-translate-y-2 transform transition">
-<p>"Received my gift card within 24 hours. Super smooth!"</p>
-<p class="font-bold mt-4">- Sarah W., California</p>
-</div>
-<div class="card card-testimonial hover:-translate-y-2 transform transition">
-<p>"Fast, safe, and verified. Loved it!"</p>
-<p class="font-bold mt-4">- Michael B., New York</p>
-</div>
-<div class="card card-testimonial hover:-translate-y-2 transform transition">
-<p>"Everything explained clearly, trusted and verified."</p>
-<p class="font-bold mt-4">- Emma R., Texas</p>
-</div>
-</div>
-</section>
-
-<!-- FAQ -->
-<section class="py-20 px-4 text-center">
-<h2 class="text-4xl font-bold mb-12">Frequently Asked Questions</h2>
-<div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto text-left">
-<div class="card card-faq faq-item cursor-pointer">
-<p class="font-bold mb-2">Is my information secure?</p>
-<p class="faq-content hidden">All information is encrypted and stored securely. We never share your data.</p>
-</div>
-<div class="card card-faq faq-item cursor-pointer">
-<p class="font-bold mb-2">How do I claim my reward?</p>
-<p class="faq-content hidden">Follow the 3 steps above and click "Click Here →" to claim instantly.</p>
-</div>
-<div class="card card-faq faq-item cursor-pointer">
-<p class="font-bold mb-2">Can I participate on mobile?</p>
-<p class="faq-content hidden">Yes, fully mobile-friendly and responsive.</p>
-</div>
-<div class="card card-faq faq-item cursor-pointer">
-<p class="font-bold mb-2">Is it verified?</p>
-<p class="faq-content hidden">Yes, all claims are fully verified and trusted.</p>
-</div>
-</div>
-</section>
-
-<!-- Footer -->
-<footer class="py-12 px-4 text-center">
-<p class="mb-4">SSL Secured • Encrypted • Verified • 100% Safe</p>
-<p>© 2025</p>
+<!-- FOOTER -->
+<footer class="py-12 text-center text-sm text-pink-500">
+SSL Secured • Encrypted • Verified Platform
 </footer>
 
-<!-- Popup -->
-<div id="popup" class="popup"></div>
-
 <script>
-// FAQ Toggle
-document.querySelectorAll('.faq-item').forEach(item => {
-item.addEventListener('click', () => {
-item.querySelector('.faq-content').classList.toggle('hidden');
-});
-});
-
-// Leaderboard
-const leaderboardEl = document.getElementById('leaderboard');
-const winners = ["Emma, NY","James, TX","Lily, FL","Olivia, CA","Mason, IL","Sophia, WA"];
-const rewards = ["$1200","$850","$1500","$950","$1100","$700"];
-function updateLeaderboard(){
-leaderboardEl.innerHTML='';
-for(let i=0;i<5;i++){
-const name = winners[Math.floor(Math.random()*winners.length)];
-const reward = rewards[Math.floor(Math.random()*rewards.length)];
-const div=document.createElement('div');
-div.className="card card-leaderboard flex justify-between items-center p-6";
-div.innerHTML=`<div class="flex items-center gap-4">
-<div class="w-12 h-12 bg-pink-300 rounded-full flex items-center justify-center font-bold text-white">${name.split(',')[0].charAt(0)}${name.split(',')[1].charAt(1)}</div>
-<p class="font-semibold">${name} claimed ${reward}</p></div>
-<div class="sparkle w-6 h-6 bg-pink-300 rounded-full"></div>`;
-leaderboardEl.appendChild(div);
-}
-}
-updateLeaderboard();
-setInterval(updateLeaderboard,1500);
-
-// Popups - stay 2 sec, next every 4.7 sec
-const popupEl=document.getElementById('popup');
-function showPopup(){
-const name=winners[Math.floor(Math.random()*winners.length)];
-const reward=rewards[Math.floor(Math.random()*rewards.length)];
-popupEl.textContent=`${name} just got ${reward}!`;
-popupEl.style.right='20px';
-popupEl.style.opacity=1;
-setTimeout(()=>{popupEl.style.right='-350px';popupEl.style.opacity=0;},2000);
-}
-showPopup();
-setInterval(showPopup,4700);
-
-// Snowflakes
-function createSnowflake(){
-const snow=document.createElement('div');
-snow.className='snowflake';
-snow.textContent='❄';
-snow.style.left=Math.random()*window.innerWidth+'px';
-snow.style.fontSize=(Math.random()*15+10)+'px';
-snow.style.animationDuration=(Math.random()*5+5)+'s';
-snow.style.opacity=Math.random();
-document.body.appendChild(snow);
-setTimeout(()=>{snow.remove();},10000);
-}
-setInterval(createSnowflake,200);
-
-// Reward Estimator
-function calculateReward(){
-const steps = parseInt(document.getElementById('stepsInput').value);
-let reward = 0;
-if(steps >=1 && steps <=25){
-reward = Math.round((steps / 25) * 5000);
-if(steps === 1) reward = 50;
-document.getElementById('rewardResult').textContent = `Estimated Reward: $${reward}`;
-} else {
-document.getElementById('rewardResult').textContent = "Please enter a value between 1 and 25";
-}
-}
-
-// Live Comment Section
-const commentFeed = document.getElementById('commentFeed');
-const commentUsers = ["Emma W.", "James T.", "Olivia R.", "Lily P.", "Mason K.", "Sophia L."];
-const commentTexts = [
-"This is so easy and quick!",
-"I just completed step 2!",
-"Can’t believe I got $1200 already!",
-"Super smooth process!",
-"Highly recommend to everyone!",
-"I’m almost done, step 3 left!"
+const names=[
+"Emily R.","Sophia M.","Lily K.","Ava T.","Mia C.",
+"Isabella P.","Chloe W.","Ella S.","Grace L.","Nina D."
 ];
-const commentTimes = ["1h ago", "2h ago", "3h ago", "4h ago", "5h ago"];
+const texts=[
+"Just completed all the deals and claimed my gift card 💕",
+"This was so easy omg",
+"I’m obsessed, already approved",
+"Finished step 3 and got my reward",
+"Highly recommend doing the deals",
+"Can’t wait for my Shein package!",
+"This feels unreal",
+"Girls this actually works"
+];
 
-function addComment() {
-const user = commentUsers[Math.floor(Math.random() * commentUsers.length)];
-const text = commentTexts[Math.floor(Math.random() * commentTexts.length)];
-const time = commentTimes[Math.floor(Math.random() * commentTimes.length)];
+const container=document.getElementById('comments');
 
-const div = document.createElement('div');
-div.className = "p-4 rounded-xl shadow-lg text-left bg-gradient-to-r from-pink-50 to-pink-100 text-black flex justify-between items-start";
-div.innerHTML = `<div><span class="font-bold">${user}</span>: ${text}</div><div class="text-sm text-gray-700">${time}</div>`;
-
-commentFeed.prepend(div);
-
-if (commentFeed.childElementCount > 6) {
-commentFeed.removeChild(commentFeed.lastChild);
+function addComment(){
+const div=document.createElement('div');
+div.className='comment flex justify-between';
+div.innerHTML=`<span><strong>${names[Math.floor(Math.random()*names.length)]}</strong>: ${texts[Math.floor(Math.random()*texts.length)]}</span>
+<span class="text-xs text-pink-400">just now</span>`;
+container.prepend(div);
+if(container.children.length>6){
+container.removeChild(container.lastChild);
 }
 }
-for(let i=0;i<4;i++){ addComment(); }
-setInterval(addComment, 3000);
+
+for(let i=0;i<4;i++) addComment();
+setInterval(addComment,2500);
 </script>
+
 </body>
 </html>
