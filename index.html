@@ -20,69 +20,69 @@ overflow-x:hidden;
 color:#6a1f44;
 }
 
-/* Glass cards */
+/* Glass card */
 .glass{
-background:rgba(255,255,255,0.82);
-backdrop-filter:blur(16px);
-border-radius:1.6rem;
-box-shadow:0 30px 70px rgba(255,140,190,.25);
+background:rgba(255,255,255,0.85);
+backdrop-filter:blur(14px);
+border-radius:1.3rem;
+box-shadow:0 22px 55px rgba(255,140,190,.25);
 }
 
-/* CTA button */
+/* CTA */
 .cta{
 background:linear-gradient(90deg,#ff4fa3,#ff86c6);
 color:#fff;
 font-weight:600;
-padding:0.9rem 2.4rem;
+padding:0.6rem 1.8rem;
 border-radius:999px;
-box-shadow:0 0 30px rgba(255,79,163,.65);
-transition:.35s ease;
+box-shadow:0 0 22px rgba(255,79,163,.6);
+transition:.3s;
 }
 .cta:hover{
-transform:scale(1.07);
-box-shadow:0 0 45px rgba(255,79,163,.9);
+transform:scale(1.05);
+box-shadow:0 0 35px rgba(255,79,163,.9);
 }
 
 /* Butterflies */
 .butterfly{
 position:fixed;
 top:-140px;
-width:70px;
-opacity:.25;
+width:65px;
+opacity:.22;
 animation:flyDown linear infinite;
 pointer-events:none;
 z-index:0;
 }
 @keyframes flyDown{
 from{transform:translateY(-160px) translateX(0) rotate(0deg);}
-to{transform:translateY(120vh) translateX(140px) rotate(15deg);}
+to{transform:translateY(120vh) translateX(140px) rotate(14deg);}
 }
 
-/* Live comments */
+/* Comments */
 .comment{
 background:linear-gradient(90deg,#fff0f7,#ffe3ef);
-border-radius:1.2rem;
-padding:1rem 1.4rem;
-box-shadow:0 15px 35px rgba(255,120,180,.25);
+border-radius:1.1rem;
+padding:0.9rem 1.2rem;
+box-shadow:0 12px 28px rgba(255,120,180,.25);
 }
 </style>
 </head>
 
 <body>
 
-<!-- Butterfly SVGs -->
+<!-- Butterflies -->
 <script>
 const butterflySVG = `
 <svg viewBox="0 0 512 512" fill="#ff7bbd" xmlns="http://www.w3.org/2000/svg">
 <path d="M256 256c-40-90-120-160-208-140-40 10-56 66-30 110 36 60 112 78 174 30h64zm0 0c40-90 120-160 208-140 40 10 56 66 30 110-36 60-112 78-174 30h-64z"/>
 </svg>`;
-for(let i=0;i<12;i++){
+for(let i=0;i<10;i++){
 const b=document.createElement('div');
 b.className='butterfly';
 b.innerHTML=butterflySVG;
 b.style.left=Math.random()*100+'vw';
-b.style.animationDuration=(Math.random()*28+24)+'s';
-b.style.transform=`scale(${Math.random()*0.6+0.6})`;
+b.style.animationDuration=(Math.random()*30+28)+'s';
+b.style.transform=`scale(${Math.random()*0.5+0.6})`;
 document.body.appendChild(b);
 }
 </script>
@@ -98,30 +98,27 @@ Complete the steps below to be approved:
 </p>
 
 <!-- STEPS -->
-<div class="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto text-sm mb-14">
+<div class="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto text-sm mb-10">
 <div class="glass p-4"><strong>1.</strong> Answer a few short questions</div>
-<div class="glass p-4"><strong>2.</strong> Enter email & basic info (name, address)</div>
-<div class="glass p-4"><strong>3.</strong> Complete recommended deals (apps, games)</div>
+<div class="glass p-4"><strong>2.</strong> Enter email & basic info</div>
+<div class="glass p-4"><strong>3.</strong> Complete recommended deals</div>
 </div>
 
-<!-- OFFERS (IMMEDIATELY BELOW STEPS, HORIZONTAL) -->
-<div class="flex flex-col md:flex-row gap-6 max-w-5xl mx-auto justify-center">
-<div class="glass p-7 text-center flex-1">
-<h3 class="text-3xl font-bold mb-2">$50</h3>
-<p class="mb-5 text-sm">Quick approval option</p>
-<a href="#" class="cta">Apply Now →</a>
+<!-- OFFERS — SMALL, ONE LINE -->
+<div class="flex gap-4 justify-center max-w-4xl mx-auto">
+<div class="glass px-6 py-4 text-center flex-1">
+<h3 class="text-xl font-bold">$50</h3>
+<a href="#" class="cta mt-3 inline-block">Apply →</a>
 </div>
 
-<div class="glass p-7 text-center flex-1">
-<h3 class="text-3xl font-bold mb-2">$100</h3>
-<p class="mb-5 text-sm">Most popular choice</p>
-<a href="#" class="cta">Apply Now →</a>
+<div class="glass px-6 py-4 text-center flex-1">
+<h3 class="text-xl font-bold">$100</h3>
+<a href="#" class="cta mt-3 inline-block">Apply →</a>
 </div>
 
-<div class="glass p-7 text-center flex-1">
-<h3 class="text-3xl font-bold mb-2">$500</h3>
-<p class="mb-5 text-sm">Premium reward tier</p>
-<a href="#" class="cta">Apply Now →</a>
+<div class="glass px-6 py-4 text-center flex-1">
+<h3 class="text-xl font-bold">$500</h3>
+<a href="#" class="cta mt-3 inline-block">Apply →</a>
 </div>
 </div>
 </section>
@@ -135,6 +132,24 @@ Live Comments from Applicants
 <div id="comments" class="max-w-3xl mx-auto space-y-4"></div>
 </section>
 
+<!-- FAQ -->
+<section class="relative z-10 py-20 px-4">
+<h2 class="text-3xl font-bold text-center mb-10" style="font-family:'Playfair Display',serif;">
+Frequently Asked Questions
+</h2>
+
+<div class="max-w-3xl mx-auto space-y-4 text-sm">
+<div class="glass p-5">
+<strong>When do I receive my gift card?</strong>
+<p class="mt-2">Your Shein gift card is delivered immediately after completing the required deals.</p>
+</div>
+<div class="glass p-5">
+<strong>Is my information safe?</strong>
+<p class="mt-2">Yes. All information is encrypted and securely processed. Your data is never sold.</p>
+</div>
+</div>
+</section>
+
 <!-- FOOTER -->
 <footer class="relative z-10 py-12 text-center text-sm text-pink-500">
 SSL Secured • Encrypted • Verified Platform
@@ -144,12 +159,11 @@ SSL Secured • Encrypted • Verified Platform
 const names=["Emily R.","Sophia M.","Lily K.","Ava T.","Mia C.","Isabella P.","Chloe W.","Ella S.","Grace L.","Nina D."];
 const texts=[
 "Just completed all the deals and claimed my gift card",
-"So smooth and easy",
+"So easy and worth it",
 "Approved after finishing step 3",
 "Highly recommend completing the offers",
-"Already chose my outfits",
-"This actually works",
-"Girls finish the deals it’s worth it"
+"Already shopping on Shein",
+"This actually works"
 ];
 const container=document.getElementById('comments');
 
@@ -164,7 +178,7 @@ container.removeChild(container.lastChild);
 }
 }
 for(let i=0;i<4;i++) addComment();
-setInterval(addComment,2500);
+setInterval(addComment,2600);
 </script>
 
 </body>
