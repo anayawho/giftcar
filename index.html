@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shein Gift Card</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
 :root{
- --pink:#f6a8c8;
- --deep:#8a2d5e;
- --soft:#fff6fa;
+ --pink:#ff8fb8;
+ --pink-soft:#fff0f6;
+ --deep:#7a1f47;
 }
 
 *{box-sizing:border-box}
@@ -19,38 +19,37 @@
 body{
  margin:0;
  font-family:'Inter',sans-serif;
- background:
- linear-gradient(180deg,#fff1f7 0%,#ffffff 40%,#fff7fb 100%);
- color:#5a1f3d;
+ background:linear-gradient(180deg,#fff3f8 0%,#ffffff 40%,#fff6fb 100%);
+ color:#4a1732;
  overflow-x:hidden;
 }
 
 /* HERO */
 .hero{
- padding:120px 20px 80px;
+ padding:80px 16px 60px;
  text-align:center;
  position:relative;
 }
 
 .hero h1{
  font-family:'Playfair Display',serif;
- font-size:clamp(2.8rem,5vw,4rem);
- margin-bottom:16px;
+ font-size:clamp(2.2rem,6vw,3.5rem);
+ margin-bottom:12px;
 }
 
 .hero p{
- font-size:1.05rem;
+ font-size:1rem;
  color:#a04573;
+ margin-bottom:30px;
 }
 
 /* STEPS */
 .steps{
- max-width:900px;
- margin:40px auto 30px;
  display:flex;
- justify-content:center;
- gap:28px;
+ flex-direction:column;
+ gap:10px;
  font-size:.95rem;
+ margin-bottom:30px;
 }
 .step{
  opacity:.85;
@@ -58,35 +57,23 @@ body{
 
 /* OFFERS */
 .offers{
- max-width:900px;
- margin:40px auto;
  display:flex;
- justify-content:space-between;
- border-top:1px solid #f2c3d7;
- border-bottom:1px solid #f2c3d7;
+ flex-direction:column;
+ gap:14px;
+ margin:20px auto;
 }
 
 .offer{
- flex:1;
- padding:32px 10px;
- text-align:center;
- position:relative;
-}
-
-.offer:not(:last-child)::after{
- content:"";
- position:absolute;
- right:0;
- top:25%;
- height:50%;
- width:1px;
- background:#f2c3d7;
+ background:white;
+ border-radius:18px;
+ padding:22px;
+ box-shadow:0 12px 28px rgba(0,0,0,.06);
 }
 
 .offer h3{
  font-family:'Playfair Display',serif;
- font-size:2.2rem;
- margin:0 0 6px;
+ font-size:1.9rem;
+ margin:0;
 }
 
 .offer span{
@@ -96,52 +83,52 @@ body{
 
 .offer a{
  display:inline-block;
- margin-top:18px;
- padding:10px 34px;
+ margin-top:14px;
+ padding:12px 36px;
  border-radius:999px;
  background:linear-gradient(90deg,#ff6fae,#ff9ccc);
  color:white;
  text-decoration:none;
  font-weight:500;
- box-shadow:0 10px 30px rgba(255,111,174,.45);
- transition:.3s;
+ box-shadow:0 10px 28px rgba(255,111,174,.45);
 }
-.offer a:hover{transform:translateY(-2px)}
 
 /* LIVE COMMENTS */
 .live{
- max-width:700px;
- margin:90px auto;
+ padding:60px 16px;
  text-align:center;
 }
+
 .live h2{
  font-family:'Playfair Display',serif;
- margin-bottom:30px;
+ margin-bottom:24px;
 }
 
 .comment{
- background:#fff;
- padding:16px 22px;
- border-radius:16px;
- margin-bottom:14px;
- box-shadow:0 12px 30px rgba(0,0,0,.05);
+ background:white;
+ padding:14px 18px;
+ border-radius:14px;
+ margin-bottom:12px;
+ box-shadow:0 10px 22px rgba(0,0,0,.05);
  font-size:.9rem;
 }
 
 /* FAQ */
 .faq{
- max-width:700px;
- margin:80px auto 100px;
+ padding:60px 16px 80px;
 }
+
 .faq h2{
  font-family:'Playfair Display',serif;
  text-align:center;
- margin-bottom:30px;
+ margin-bottom:26px;
 }
+
 .faq-item{
  border-bottom:1px solid #f2c3d7;
- padding:18px 0;
+ padding:16px 0;
 }
+
 .faq-item strong{
  display:block;
  margin-bottom:6px;
@@ -150,28 +137,46 @@ body{
 /* BUTTERFLIES */
 .butterfly{
  position:fixed;
- top:-120px;
- width:60px;
+ top:-80px;
+ width:50px;
  opacity:.12;
- animation:float 35s linear infinite;
+ animation:float 40s linear infinite;
  pointer-events:none;
 }
+
 @keyframes float{
- to{transform:translateY(120vh) translateX(120px)}
+ to{transform:translateY(120vh) translateX(100px)}
+}
+
+/* DESKTOP */
+@media(min-width:768px){
+ .steps{
+ flex-direction:row;
+ justify-content:center;
+ gap:26px;
+ }
+
+ .offers{
+ flex-direction:row;
+ max-width:900px;
+ }
+
+ .offer{
+ flex:1;
+ }
 }
 </style>
 </head>
 
 <body>
 
-<!-- Butterflies -->
 <script>
-for(let i=0;i<8;i++){
+for(let i=0;i<6;i++){
  const b=document.createElement('img');
  b.src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%23f3a0c1" d="M256 256c-40-90-120-160-208-140-40 10-56 66-30 110 36 60 112 78 174 30h64zm0 0c40-90 120-160 208-140 40 10 56 66 30 110-36 60-112 78-174 30h-64z"/></svg>';
  b.className='butterfly';
  b.style.left=Math.random()*100+'vw';
- b.style.animationDuration=(30+Math.random()*20)+'s';
+ b.style.animationDuration=(35+Math.random()*15)+'s';
  document.body.appendChild(b);
 }
 </script>
@@ -207,9 +212,9 @@ for(let i=0;i<8;i++){
 
 <section class="live">
  <h2>Live Comments</h2>
- <div class="comment"><strong>Emily R.</strong> — completed the deals and got my card </div>
- <div class="comment"><strong>Sophia M.</strong> — worth it, don’t skip step 3</div>
- <div class="comment"><strong>Lily K.</strong> — already shopping on Shein</div>
+ <div class="comment"><strong>Emily R.</strong> — completed all deals and claimed my card</div>
+ <div class="comment"><strong>Sophia M.</strong> — don’t skip step 3 </div>
+ <div class="comment"><strong>Lily K.</strong> — shopping already</div>
 </section>
 
 <section class="faq">
@@ -220,7 +225,7 @@ for(let i=0;i<8;i++){
  </div>
  <div class="faq-item">
  <strong>Is my information safe?</strong>
- Yes — all data is encrypted and securely processed.
+ Yes, everything is encrypted and secure.
  </div>
 </section>
 
