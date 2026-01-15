@@ -3,67 +3,161 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shein Gift Card Application</title>
+<title>Shein Gift Card</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
+:root{
+ --pink:#f6a8c8;
+ --deep:#8a2d5e;
+ --soft:#fff6fa;
+}
+
+*{box-sizing:border-box}
+
 body{
-margin:0;
-font-family:'Inter',sans-serif;
-background:
-radial-gradient(circle at top left,#ffd6e8,transparent 60%),
-radial-gradient(circle at bottom right,#ffeaf3,transparent 60%),
-linear-gradient(180deg,#fff5fa,#ffffff);
-overflow-x:hidden;
-color:#6a1f44;
+ margin:0;
+ font-family:'Inter',sans-serif;
+ background:
+ linear-gradient(180deg,#fff1f7 0%,#ffffff 40%,#fff7fb 100%);
+ color:#5a1f3d;
+ overflow-x:hidden;
 }
 
-/* Glass card */
-.glass{
-background:rgba(255,255,255,0.85);
-backdrop-filter:blur(14px);
-border-radius:1.3rem;
-box-shadow:0 22px 55px rgba(255,140,190,.25);
+/* HERO */
+.hero{
+ padding:120px 20px 80px;
+ text-align:center;
+ position:relative;
 }
 
-/* CTA */
-.cta{
-background:linear-gradient(90deg,#ff4fa3,#ff86c6);
-color:#fff;
-font-weight:600;
-padding:0.6rem 1.8rem;
-border-radius:999px;
-box-shadow:0 0 22px rgba(255,79,163,.6);
-transition:.3s;
-}
-.cta:hover{
-transform:scale(1.05);
-box-shadow:0 0 35px rgba(255,79,163,.9);
+.hero h1{
+ font-family:'Playfair Display',serif;
+ font-size:clamp(2.8rem,5vw,4rem);
+ margin-bottom:16px;
 }
 
-/* Butterflies */
-.butterfly{
-position:fixed;
-top:-140px;
-width:65px;
-opacity:.22;
-animation:flyDown linear infinite;
-pointer-events:none;
-z-index:0;
-}
-@keyframes flyDown{
-from{transform:translateY(-160px) translateX(0) rotate(0deg);}
-to{transform:translateY(120vh) translateX(140px) rotate(14deg);}
+.hero p{
+ font-size:1.05rem;
+ color:#a04573;
 }
 
-/* Comments */
+/* STEPS */
+.steps{
+ max-width:900px;
+ margin:40px auto 30px;
+ display:flex;
+ justify-content:center;
+ gap:28px;
+ font-size:.95rem;
+}
+.step{
+ opacity:.85;
+}
+
+/* OFFERS */
+.offers{
+ max-width:900px;
+ margin:40px auto;
+ display:flex;
+ justify-content:space-between;
+ border-top:1px solid #f2c3d7;
+ border-bottom:1px solid #f2c3d7;
+}
+
+.offer{
+ flex:1;
+ padding:32px 10px;
+ text-align:center;
+ position:relative;
+}
+
+.offer:not(:last-child)::after{
+ content:"";
+ position:absolute;
+ right:0;
+ top:25%;
+ height:50%;
+ width:1px;
+ background:#f2c3d7;
+}
+
+.offer h3{
+ font-family:'Playfair Display',serif;
+ font-size:2.2rem;
+ margin:0 0 6px;
+}
+
+.offer span{
+ font-size:.85rem;
+ color:#a15b7e;
+}
+
+.offer a{
+ display:inline-block;
+ margin-top:18px;
+ padding:10px 34px;
+ border-radius:999px;
+ background:linear-gradient(90deg,#ff6fae,#ff9ccc);
+ color:white;
+ text-decoration:none;
+ font-weight:500;
+ box-shadow:0 10px 30px rgba(255,111,174,.45);
+ transition:.3s;
+}
+.offer a:hover{transform:translateY(-2px)}
+
+/* LIVE COMMENTS */
+.live{
+ max-width:700px;
+ margin:90px auto;
+ text-align:center;
+}
+.live h2{
+ font-family:'Playfair Display',serif;
+ margin-bottom:30px;
+}
+
 .comment{
-background:linear-gradient(90deg,#fff0f7,#ffe3ef);
-border-radius:1.1rem;
-padding:0.9rem 1.2rem;
-box-shadow:0 12px 28px rgba(255,120,180,.25);
+ background:#fff;
+ padding:16px 22px;
+ border-radius:16px;
+ margin-bottom:14px;
+ box-shadow:0 12px 30px rgba(0,0,0,.05);
+ font-size:.9rem;
+}
+
+/* FAQ */
+.faq{
+ max-width:700px;
+ margin:80px auto 100px;
+}
+.faq h2{
+ font-family:'Playfair Display',serif;
+ text-align:center;
+ margin-bottom:30px;
+}
+.faq-item{
+ border-bottom:1px solid #f2c3d7;
+ padding:18px 0;
+}
+.faq-item strong{
+ display:block;
+ margin-bottom:6px;
+}
+
+/* BUTTERFLIES */
+.butterfly{
+ position:fixed;
+ top:-120px;
+ width:60px;
+ opacity:.12;
+ animation:float 35s linear infinite;
+ pointer-events:none;
+}
+@keyframes float{
+ to{transform:translateY(120vh) translateX(120px)}
 }
 </style>
 </head>
@@ -72,114 +166,63 @@ box-shadow:0 12px 28px rgba(255,120,180,.25);
 
 <!-- Butterflies -->
 <script>
-const butterflySVG = `
-<svg viewBox="0 0 512 512" fill="#ff7bbd" xmlns="http://www.w3.org/2000/svg">
-<path d="M256 256c-40-90-120-160-208-140-40 10-56 66-30 110 36 60 112 78 174 30h64zm0 0c40-90 120-160 208-140 40 10 56 66 30 110-36 60-112 78-174 30h-64z"/>
-</svg>`;
-for(let i=0;i<10;i++){
-const b=document.createElement('div');
-b.className='butterfly';
-b.innerHTML=butterflySVG;
-b.style.left=Math.random()*100+'vw';
-b.style.animationDuration=(Math.random()*30+28)+'s';
-b.style.transform=`scale(${Math.random()*0.5+0.6})`;
-document.body.appendChild(b);
+for(let i=0;i<8;i++){
+ const b=document.createElement('img');
+ b.src='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%23f3a0c1" d="M256 256c-40-90-120-160-208-140-40 10-56 66-30 110 36 60 112 78 174 30h64zm0 0c40-90 120-160 208-140 40 10 56 66 30 110-36 60-112 78-174 30h-64z"/></svg>';
+ b.className='butterfly';
+ b.style.left=Math.random()*100+'vw';
+ b.style.animationDuration=(30+Math.random()*20)+'s';
+ document.body.appendChild(b);
 }
 </script>
 
-<!-- HERO -->
-<section class="relative z-10 text-center px-4 py-24">
-<h1 class="text-5xl md:text-6xl font-bold mb-6" style="font-family:'Playfair Display',serif;">
-Want a Shein Gift Card?
-</h1>
+<section class="hero">
+ <h1>Want a Shein Gift Card?</h1>
+ <p>Complete the steps below to be approved</p>
 
-<p class="font-semibold text-pink-600 mb-8">
-Complete the steps below to be approved:
-</p>
+ <div class="steps">
+ <div class="step">1. Answer a few short questions</div>
+ <div class="step">2. Enter email & basic info</div>
+ <div class="step">3. Complete recommended deals</div>
+ </div>
 
-<!-- STEPS -->
-<div class="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto text-sm mb-10">
-<div class="glass p-4"><strong>1.</strong> Answer a few short questions</div>
-<div class="glass p-4"><strong>2.</strong> Enter email & basic info</div>
-<div class="glass p-4"><strong>3.</strong> Complete recommended deals</div>
-</div>
-
-<!-- OFFERS — SMALL, ONE LINE -->
-<div class="flex gap-4 justify-center max-w-4xl mx-auto">
-<div class="glass px-6 py-4 text-center flex-1">
-<h3 class="text-xl font-bold">$50</h3>
-<a href="#" class="cta mt-3 inline-block">Apply →</a>
-</div>
-
-<div class="glass px-6 py-4 text-center flex-1">
-<h3 class="text-xl font-bold">$100</h3>
-<a href="#" class="cta mt-3 inline-block">Apply →</a>
-</div>
-
-<div class="glass px-6 py-4 text-center flex-1">
-<h3 class="text-xl font-bold">$500</h3>
-<a href="#" class="cta mt-3 inline-block">Apply →</a>
-</div>
-</div>
+ <div class="offers">
+ <div class="offer">
+ <h3>$50</h3>
+ <span>Quick reward</span><br>
+ <a href="#">Apply</a>
+ </div>
+ <div class="offer">
+ <h3>$100</h3>
+ <span>Most chosen</span><br>
+ <a href="#">Apply</a>
+ </div>
+ <div class="offer">
+ <h3>$500</h3>
+ <span>Premium</span><br>
+ <a href="#">Apply</a>
+ </div>
+ </div>
 </section>
 
-<!-- LIVE COMMENTS -->
-<section class="relative z-10 py-20 px-4">
-<h2 class="text-3xl font-bold text-center mb-10" style="font-family:'Playfair Display',serif;">
-Live Comments from Applicants
-</h2>
-
-<div id="comments" class="max-w-3xl mx-auto space-y-4"></div>
+<section class="live">
+ <h2>Live Comments</h2>
+ <div class="comment"><strong>Emily R.</strong> — completed the deals and got my card </div>
+ <div class="comment"><strong>Sophia M.</strong> — worth it, don’t skip step 3</div>
+ <div class="comment"><strong>Lily K.</strong> — already shopping on Shein</div>
 </section>
 
-<!-- FAQ -->
-<section class="relative z-10 py-20 px-4">
-<h2 class="text-3xl font-bold text-center mb-10" style="font-family:'Playfair Display',serif;">
-Frequently Asked Questions
-</h2>
-
-<div class="max-w-3xl mx-auto space-y-4 text-sm">
-<div class="glass p-5">
-<strong>When do I receive my gift card?</strong>
-<p class="mt-2">Your Shein gift card is delivered immediately after completing the required deals.</p>
-</div>
-<div class="glass p-5">
-<strong>Is my information safe?</strong>
-<p class="mt-2">Yes. All information is encrypted and securely processed. Your data is never sold.</p>
-</div>
-</div>
+<section class="faq">
+ <h2>FAQ</h2>
+ <div class="faq-item">
+ <strong>When do I receive my gift card?</strong>
+ Right after completing the required deals.
+ </div>
+ <div class="faq-item">
+ <strong>Is my information safe?</strong>
+ Yes — all data is encrypted and securely processed.
+ </div>
 </section>
-
-<!-- FOOTER -->
-<footer class="relative z-10 py-12 text-center text-sm text-pink-500">
-SSL Secured • Encrypted • Verified Platform
-</footer>
-
-<script>
-const names=["Emily R.","Sophia M.","Lily K.","Ava T.","Mia C.","Isabella P.","Chloe W.","Ella S.","Grace L.","Nina D."];
-const texts=[
-"Just completed all the deals and claimed my gift card",
-"So easy and worth it",
-"Approved after finishing step 3",
-"Highly recommend completing the offers",
-"Already shopping on Shein",
-"This actually works"
-];
-const container=document.getElementById('comments');
-
-function addComment(){
-const div=document.createElement('div');
-div.className='comment flex justify-between';
-div.innerHTML=`<span><strong>${names[Math.floor(Math.random()*names.length)]}</strong>: ${texts[Math.floor(Math.random()*texts.length)]}</span>
-<span class="text-xs text-pink-400">just now</span>`;
-container.prepend(div);
-if(container.children.length>6){
-container.removeChild(container.lastChild);
-}
-}
-for(let i=0;i<4;i++) addComment();
-setInterval(addComment,2600);
-</script>
 
 </body>
 </html>
