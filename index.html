@@ -5,86 +5,94 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shein Gift Card Application</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
-body {
-margin: 0;
-font-family: 'Poppins', sans-serif;
-background: linear-gradient(180deg, #ffd6e8, #ffeaf4, #fff);
-overflow-x: hidden;
-color: #6b214f;
+body{
+margin:0;
+font-family:'Inter',sans-serif;
+background:linear-gradient(180deg,#ffe0ee,#fff1f8,#ffffff);
+overflow-x:hidden;
+color:#6b214f;
 }
 
-/* Butterflies */
-.butterfly {
-position: fixed;
-top: -40px;
-font-size: 24px;
-opacity: 0.4;
-animation: fly linear infinite;
-pointer-events: none;
-}
-@keyframes fly {
-from { transform: translateY(-50px) translateX(0); }
-to { transform: translateY(110vh) translateX(80px); }
-}
-
-/* Cards */
-.card {
-background: rgba(255,255,255,0.75);
-backdrop-filter: blur(10px);
-border-radius: 1.5rem;
-box-shadow: 0 20px 40px rgba(255,105,180,0.15);
+/* Glass cards */
+.glass{
+background:rgba(255,255,255,0.75);
+backdrop-filter:blur(14px);
+border-radius:1.6rem;
+box-shadow:0 30px 60px rgba(255,120,180,.18);
 }
 
 /* CTA */
-.apply-btn {
-background: linear-gradient(90deg, #ff5fa2, #ff8fc7);
-color: white;
-font-weight: 600;
-padding: 0.9rem 2.2rem;
-border-radius: 999px;
-box-shadow: 0 0 18px rgba(255,95,162,0.6);
-transition: all 0.3s ease;
+.cta{
+background:linear-gradient(90deg,#ff4fa3,#ff8ec7);
+color:#fff;
+font-weight:600;
+padding:0.9rem 2.3rem;
+border-radius:999px;
+box-shadow:0 0 25px rgba(255,79,163,.6);
+transition:.3s;
 }
-.apply-btn:hover {
-transform: scale(1.06);
-box-shadow: 0 0 30px rgba(255,95,162,0.9);
+.cta:hover{
+transform:scale(1.06);
+box-shadow:0 0 40px rgba(255,79,163,.9);
 }
 
-/* Live comments */
-.comment {
-background: linear-gradient(90deg,#fff0f7,#ffe2f0);
-border-radius: 1rem;
-padding: 0.9rem 1.2rem;
-box-shadow: 0 10px 25px rgba(255,105,180,0.15);
+/* Butterfly animation */
+.butterfly{
+position:fixed;
+top:-120px;
+width:60px;
+opacity:.35;
+animation:floatDown linear infinite;
+pointer-events:none;
+z-index:0;
+}
+@keyframes floatDown{
+from{transform:translateY(-120px) translateX(0) rotate(0deg);}
+to{transform:translateY(120vh) translateX(120px) rotate(12deg);}
+}
+
+/* Comments */
+.comment{
+background:linear-gradient(90deg,#fff0f7,#ffe5f1);
+border-radius:1.1rem;
+padding:1rem 1.3rem;
+box-shadow:0 12px 25px rgba(255,120,180,.2);
 }
 </style>
 </head>
 
 <body>
 
-<!-- Butterflies -->
+<!-- SVG Butterflies -->
 <script>
-for(let i=0;i<18;i++){
-const b=document.createElement('div');
-b.className='butterfly';
-b.innerText='🦋';
-b.style.left=Math.random()*100+'vw';
-b.style.animationDuration=(Math.random()*20+15)+'s';
-document.body.appendChild(b);
+const butterflySVG = `
+<svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M100 100C40 20 0 40 20 80C40 120 80 120 100 100Z" fill="#ff9ccf"/>
+<path d="M100 100C160 20 200 40 180 80C160 120 120 120 100 100Z" fill="#ff6fb1"/>
+</svg>`;
+for(let i=0;i<14;i++){
+const d=document.createElement('div');
+d.className='butterfly';
+d.innerHTML=butterflySVG;
+d.style.left=Math.random()*100+'vw';
+d.style.animationDuration=(Math.random()*22+20)+'s';
+d.style.transform=`scale(${Math.random()*0.6+0.6})`;
+document.body.appendChild(d);
 }
 </script>
 
 <!-- HERO -->
-<section class="text-center px-4 py-20">
-<h1 class="text-5xl md:text-6xl font-bold mb-6 text-pink-700">
+<section class="relative z-10 text-center px-4 py-24">
+<h1 class="text-5xl md:text-6xl font-bold mb-6" style="font-family:'Playfair Display',serif;">
 Want a Shein Gift Card?
 </h1>
+
 <p class="text-lg md:text-xl max-w-3xl mx-auto mb-6">
-Do the steps below to claim it and receive exclusive Shein rewards delivered straight to you.
+Do the steps below to claim it and receive exclusive Shein fashion rewards.
 </p>
 
 <p class="font-semibold text-pink-600 mb-10">
@@ -93,48 +101,42 @@ Complete the steps below to be approved:
 
 <!-- Steps -->
 <div class="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto text-sm">
-<div class="card p-4">
-<strong>1.</strong> Answer a few short questions
-</div>
-<div class="card p-4">
-<strong>2.</strong> Enter email & basic info (name, address)
-</div>
-<div class="card p-4">
-<strong>3.</strong> Complete recommended deals (apps, games)
-</div>
+<div class="glass p-4"><strong>1.</strong> Answer a few short questions</div>
+<div class="glass p-4"><strong>2.</strong> Enter email & basic info (name, address)</div>
+<div class="glass p-4"><strong>3.</strong> Complete recommended deals (apps, games)</div>
 </div>
 </section>
 
 <!-- OFFERS -->
-<section class="py-20 px-4 text-center">
-<h2 class="text-4xl font-bold mb-12 text-pink-700">
+<section class="relative z-10 py-20 px-4 text-center">
+<h2 class="text-4xl font-bold mb-12" style="font-family:'Playfair Display',serif;">
 Choose Your Gift Card
 </h2>
 
 <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-<div class="card p-8">
-<h3 class="text-3xl font-bold mb-4">$50 Shein Card</h3>
-<p class="mb-6">Perfect for quick fashion upgrades</p>
-<a href="#" class="apply-btn">Apply Now →</a>
+<div class="glass p-8">
+<h3 class="text-3xl font-bold mb-4">$50 Gift Card</h3>
+<p class="mb-6">Perfect for everyday fashion</p>
+<a href="#" class="cta">Apply Now →</a>
 </div>
 
-<div class="card p-8">
-<h3 class="text-3xl font-bold mb-4">$100 Shein Card</h3>
+<div class="glass p-8">
+<h3 class="text-3xl font-bold mb-4">$100 Gift Card</h3>
 <p class="mb-6">Most popular choice</p>
-<a href="#" class="apply-btn">Apply Now →</a>
+<a href="#" class="cta">Apply Now →</a>
 </div>
 
-<div class="card p-8">
-<h3 class="text-3xl font-bold mb-4">$500 Shein Card</h3>
-<p class="mb-6">For full wardrobe dreams</p>
-<a href="#" class="apply-btn">Apply Now →</a>
+<div class="glass p-8">
+<h3 class="text-3xl font-bold mb-4">$500 Gift Card</h3>
+<p class="mb-6">Ultimate wardrobe upgrade</p>
+<a href="#" class="cta">Apply Now →</a>
 </div>
 </div>
 </section>
 
 <!-- LIVE COMMENTS -->
-<section class="py-20 px-4">
-<h2 class="text-3xl font-bold text-center mb-10 text-pink-700">
+<section class="relative z-10 py-20 px-4">
+<h2 class="text-3xl font-bold text-center mb-10" style="font-family:'Playfair Display',serif;">
 Live Comments from Applicants
 </h2>
 
@@ -142,26 +144,21 @@ Live Comments from Applicants
 </section>
 
 <!-- FOOTER -->
-<footer class="py-12 text-center text-sm text-pink-500">
+<footer class="relative z-10 py-12 text-center text-sm text-pink-500">
 SSL Secured • Encrypted • Verified Platform
 </footer>
 
 <script>
-const names=[
-"Emily R.","Sophia M.","Lily K.","Ava T.","Mia C.",
-"Isabella P.","Chloe W.","Ella S.","Grace L.","Nina D."
-];
+const names=["Emily R.","Sophia M.","Lily K.","Ava T.","Mia C.","Isabella P.","Chloe W.","Ella S.","Grace L.","Nina D."];
 const texts=[
-"Just completed all the deals and claimed my gift card 💕",
-"This was so easy omg",
-"I’m obsessed, already approved",
-"Finished step 3 and got my reward",
-"Highly recommend doing the deals",
-"Can’t wait for my Shein package!",
-"This feels unreal",
-"Girls this actually works"
+"Just completed all the deals and claimed my gift card",
+"So smooth and easy",
+"Approved after finishing step 3",
+"Highly recommend completing the offers",
+"Already picked my outfits",
+"This is actually legit",
+"Girls do the steps it works"
 ];
-
 const container=document.getElementById('comments');
 
 function addComment(){
@@ -174,9 +171,8 @@ if(container.children.length>6){
 container.removeChild(container.lastChild);
 }
 }
-
 for(let i=0;i<4;i++) addComment();
-setInterval(addComment,2500);
+setInterval(addComment,2600);
 </script>
 
 </body>
