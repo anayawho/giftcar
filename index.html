@@ -266,7 +266,7 @@ pointer-events:none;
 <footer class="py-12 px-4 text-center"><p class="mb-4">SSL Secured • Encrypted • Verified • 100% Safe</p><p>© 2025</p></footer>
 
 <script>
-// Immediately spawn bubbles and continuously
+// Immediately spawn bubbles continuously
 const bubblesContainer = document.getElementById('bubbles');
 
 function createBubble() {
@@ -280,17 +280,17 @@ function createBubble() {
  bubble.style.animationDuration = (50 + Math.random() * 30) + 's';
  bubblesContainer.appendChild(bubble);
 
- // Remove bubble after animation
+ // Remove bubble after animation ends
  bubble.addEventListener('animationend', () => {
  bubble.remove();
  });
 }
 
-// Create initial bubbles immediately
+// Spawn 30 bubbles instantly on load
 for (let i = 0; i < 30; i++) createBubble();
 
-// Continuously spawn new bubbles every 1 second
-setInterval(createBubble, 1000);
+// Continuously spawn new bubbles every 0.5s
+setInterval(createBubble, 500);
 
 // FAQ toggle
 document.querySelectorAll('.faq-item').forEach(item=>{
