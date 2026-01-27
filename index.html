@@ -12,229 +12,186 @@ margin: 0;
 font-family: 'Roboto', sans-serif;
 background: linear-gradient(to bottom, #FFF5F8, #FFEAF2);
 overflow-x: hidden;
-color: #3A0E3A;
 position: relative;
+color: #3A0E3A;
 }
 
 /* Urgency Banner */
 .urgency-pulse {
 animation: pulseUrgency 1.5s infinite;
 font-size: 1.2rem;
-background: #F7C9D6;
-color: #3A0E3A;
+background: #FF85C1;
+color: white;
 padding: 0.5rem 0;
 text-align: center;
 font-weight: bold;
 }
-@keyframes pulseUrgency {0%,100%{opacity:1;}50%{opacity:0.8;}}
-
-/* Hero Font */
-.hero-headline { font-family:'Pacifico',cursive; font-weight:400; color:#D6336C; margin-top:-0.5rem; }
-
-/* Apply Sections */
-.apply-section-wrapper {
-display: flex;
-justify-content: center;
-gap: 1rem;
-flex-wrap: wrap;
-margin-bottom: 1rem;
-}
-.apply-section {
-background: linear-gradient(145deg,#FFD1E6,#FFE4F2);
-color: #3A0E3A;
-border-radius: 2rem;
-padding: 1rem 1.5rem;
-text-align: center;
-min-width: 140px;
-flex: 1 1 140px;
-max-width: 180px;
-display: flex;
-flex-direction: column;
-align-items: center;
-position: relative;
-box-shadow: 0 10px 25px rgba(255,182,193,0.25);
-transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.apply-section:hover {
-transform: translateY(-8px) scale(1.05);
-box-shadow:0 15px 30px rgba(255,182,193,0.35);
-}
-.apply-section::before, .apply-section::after {
-content: "★";
-position: absolute;
-font-size:1.2rem;
-color: rgba(214,51,108,0.6);
-}
-.apply-section::before { top:-8px; left:-8px; }
-.apply-section::after { bottom:-8px; right:-8px; }
-
-.apply-subtext {
-font-size: 0.85rem;
-margin-bottom: 0.5rem;
-font-weight: 500;
-}
-.apply-button {
-background: linear-gradient(90deg,#FFD1E6,#FFE4F2);
-color: #3A0E3A;
-font-weight: bold;
-padding: 0.75rem 1.5rem;
-border-radius: 1.5rem;
-box-shadow:0 0 15px rgba(255,182,193,0.4),0 0 25px rgba(255,192,203,0.3);
-font-size: 0.95rem;
-text-decoration:none;
-transition: transform 0.2s, box-shadow 0.2s;
-}
-.apply-button:hover {
-transform: scale(1.05);
-box-shadow:0 0 20px rgba(255,182,193,0.6),0 0 30px rgba(255,192,203,0.5);
+@keyframes pulseUrgency {
+0%, 100% { opacity: 1; }
+50% { opacity: 0.8; }
 }
 
-/* Step Boxes */
+/* Hero Animation */
+.animate-pulse-hero { animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{transform:scale(1);}50%{transform:scale(1.03);} }
+
+/* Fancy Font for Headline */
+.hero-headline {
+font-family: 'Pacifico', cursive;
+font-weight: 400;
+color: #D6336C;
+margin-top: -0.5rem;
+}
+
+/* Step Boxes - creative pastel pink */
 .step-box {
 background: linear-gradient(135deg,#FFE0EB,#FFD1E6);
 color:#3A0E3A;
 border-radius: 2rem;
-padding: 1.8rem 1.5rem;
-box-shadow: 0 12px 25px rgba(255,182,193,0.2);
-text-align: center;
-transition: transform 0.3s ease, box-shadow 0.3s ease;
+padding: 2rem;
+box-shadow: 0 12px 20px rgba(0,0,0,0.12);
 position: relative;
 overflow: hidden;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .step-box:hover {
-transform: translateY(-7px) scale(1.03);
-box-shadow: 0 18px 30px rgba(255,182,193,0.3);
+transform: translateY(-8px) scale(1.02);
+box-shadow: 0 15px 25px rgba(0,0,0,0.15);
 }
 .step-box::after {
-content:"";
-position:absolute;
-top:-15px; right:-15px;
-width:35px; height:35px;
-background: rgba(255,255,255,0.3);
-border-radius:50%;
+content: "";
+position: absolute;
+top: -20px;
+right: -20px;
+width: 50px;
+height: 50px;
+background: rgba(255,255,255,0.35);
+border-radius: 50%;
 }
-.step-box p { font-size: 0.95rem; }
 
-/* Instruction Text */
-.instructions-text { font-size: 1rem; font-weight:500; margin-bottom:1rem; }
-
-/* Click Button */
+/* Click Button - Hot Pink */
 .click-button {
-background: linear-gradient(90deg,#FFD1E6,#FFE4F2);
-color:#3A0E3A;
-font-weight:bold;
-text-shadow:none;
-box-shadow:0 0 15px rgba(255,182,193,0.35),0 0 25px rgba(255,192,203,0.3);
-font-size:1.6rem;
-padding:1rem 3.5rem;
-border-radius:2rem;
-transition: transform 0.3s, box-shadow 0.3s;
+background: linear-gradient(90deg,#FF1493,#FF69B4);
+color: white;
+font-weight: bold;
+text-shadow:0 0 5px #FF69B4,0 0 10px #FF1493;
+box-shadow:0 0 20px #FF69B4,0 0 30px #FF1493;
+transition: all 0.3s ease-in-out;
+font-size: 1.6rem;
+padding: 1rem 3.5rem;
+border-radius: 2rem;
 }
-.click-button:hover { transform: scale(1.05); box-shadow:0 0 20px rgba(255,182,193,0.5),0 0 30px rgba(255,192,203,0.45); }
+.click-button:hover {
+transform: scale(1.05);
+box-shadow:0 0 25px #FF69B4,0 0 35px #FF1493;
+}
 
 /* Cards */
-.card { border-radius:1.5rem; padding:2rem; box-shadow:0 10px 20px rgba(0,0,0,0.12); transition: transform 0.3s; }
+.card {
+border-radius: 1.5rem;
+padding:2rem;
+box-shadow:0 10px 25px rgba(0,0,0,0.12);
+transition: transform 0.3s ease;
+}
 .card:hover { transform: translateY(-5px); }
-.card-stats { background: linear-gradient(135deg,#FFE0EB,#FFD1E6); color:#3A0E3A; }
-.card-leaderboard { background: linear-gradient(135deg,#FFE0EB,#FFD1E6); color:#3A0E3A; }
-.card-testimonial { background: linear-gradient(135deg,#FFE0EB,#FFD1E6); color:#3A0E3A; }
-.card-faq { background: linear-gradient(135deg,#FFE0EB,#FFD1E6); color:#3A0E3A; }
-.card-estimator { background: linear-gradient(135deg,#FFE0EB,#FFD1E6); color:#3A0E3A; }
+.card-stats { background: linear-gradient(135deg,#FFE0EB,#FFEAF2); color:#3A0E3A; }
+.card-leaderboard { background: linear-gradient(135deg,#FFEAF2,#FFE0EB); color:#3A0E3A; }
+.card-testimonial { background: linear-gradient(135deg,#FFEAF2,#FFE0EB); color:#3A0E3A; }
+.card-faq { background: linear-gradient(135deg,#FFE4F2,#FFFFFF); color:#3A0E3A; }
+
+/* Reward Estimator / Calculator Pastel Pink */
+.card-estimator {
+background: linear-gradient(135deg,#FFD1E6,#FFE4F2);
+color:#3A0E3A;
+}
 
 /* Popups */
 .popup {
 position: fixed;
-bottom:20px;
-right:-350px;
-background-color:#ffffff;
-color:#3A0E3A;
-padding:12px 18px;
-border-radius:12px;
-font-weight:bold;
-box-shadow:0 4px 12px rgba(0,0,0,0.2);
-transition:right 0.6s ease,opacity 0.6s ease;
-z-index:9999;
-opacity:0;
+bottom: 20px;
+right: -350px;
+background-color: #ffffff;
+color: #3A0E3A;
+padding: 12px 18px;
+border-radius: 12px;
+font-weight: bold;
+box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+transition: right 0.6s ease, opacity 0.6s ease;
+z-index: 9999;
+opacity: 0;
 }
-
-/* Bubbles */
-.bubble {
-position:absolute;
-border-radius:50%;
-background: radial-gradient(circle,#FFD1E6,#FFE0EB);
-opacity:0.15;
-pointer-events:none;
-z-index:0;
-animation: floatBubble 20s linear infinite;
-}
-@keyframes floatBubble {0%{transform:translateY(100vh);}100%{transform:translateY(-100vh);}}
 </style>
 </head>
 <body>
 
-<!-- Background Bubbles -->
-<div id="bubbles"></div>
+<!-- Urgency Banner -->
+<div class="urgency-pulse">
+Limited Time! Hurry Up!
+</div>
 
-<div class="urgency-pulse">Limited Time! Hurry Up!</div>
-
+<!-- Hero -->
 <section class="relative py-16 px-4 text-center">
 <h1 class="text-5xl md:text-7xl mb-6 animate-pulse-hero hero-headline">Want a Shein Gift Card?</h1>
-
-<!-- Apply Sections -->
-<div class="apply-section-wrapper">
-<div class="apply-section">
-<span class="apply-subtext">Must complete 4-5 deals</span>
-<a href="https://trkio.org/aff_c?offer_id=1146&aff_id=64120" class="apply-button">Apply for $150 →</a>
-</div>
-<div class="apply-section">
-<span class="apply-subtext">Must complete 8+ deals</span>
-<a href="https://trkio.org/aff_c?offer_id=1146&aff_id=64120" class="apply-button">Apply for $450 →</a>
-</div>
-</div>
-
-<p class="instructions-text">You must complete these steps to claim it:</p>
+<p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+Thousands already claimed their rewards. To claim yours you need to complete these steps:
+</p>
 
 <!-- Steps -->
 <div class="grid md:grid-cols-3 gap-6 mb-6 max-w-6xl mx-auto">
-<div class="step-box"><p class="font-bold mb-1">Step 1</p><p>Complete surveys</p></div>
-<div class="step-box"><p class="font-bold mb-1">Step 2</p><p>Enter email & basic info</p></div>
-<div class="step-box"><p class="font-bold mb-1">Step 3</p><p>Complete recommended deals (install apps or games)</p></div>
+<div class="step-box">
+<p class="font-bold text-lg mb-2">Step 1</p>
+<p>Complete surveys</p>
+</div>
+<div class="step-box">
+<p class="font-bold text-lg mb-2">Step 2</p>
+<p>Enter email & basic info</p>
+</div>
+<div class="step-box">
+<p class="font-bold text-lg mb-2">Step 3</p>
+<p>Complete recommended deals</p>
+</div>
 </div>
 
+<!-- Click Button -->
 <div class="mt-6">
 <a href="https://trkio.org/aff_c?offer_id=1146&aff_id=64120" class="inline-block click-button">Click Here →</a>
 </div>
 
-<!-- Reward Estimator -->
+<!-- Reward Estimator / Calculator -->
 <div class="mt-10 card card-estimator max-w-2xl mx-auto p-8">
-<label class="block font-bold mb-2 text-lg">Deals to complete (4-25):</label>
-<input type="number" id="stepsInput" min="4" max="25" class="w-full p-3 rounded-lg mb-4 text-black" placeholder="You must complete 4+ deals to claim it">
-<button onclick="calculateReward()" class="click-button px-6 py-3 rounded-2xl">Calculate Reward</button>
+<label class="block font-bold mb-2 text-lg">Deals to complete (1-25):</label>
+<input type="number" id="stepsInput" min="1" max="25" class="w-full p-3 rounded-lg mb-4 text-black">
+<button onclick="calculateReward()" class="click-button px-6 py-3 rounded-2xl" style="background: linear-gradient(135deg,#FFD1E6,#FFE4F2); color:#3A0E3A; box-shadow:0 0 10px #FFD1E6,0 0 15px #FFE4F2; text-shadow:none;">Calculate Reward</button>
 <p class="mt-4 font-bold text-xl" id="rewardResult"></p>
 </div>
 
-<!-- FAQ below calculator -->
-<section class="py-10 px-4 text-center">
-<h2 class="text-4xl font-bold mb-6">Frequently Asked Questions</h2>
-<div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto text-left">
-<div class="card card-faq faq-item cursor-pointer"><p class="font-bold mb-2">Is my information secure?</p><p class="faq-content hidden">All information is encrypted and stored securely. We never share your data.</p></div>
-<div class="card card-faq faq-item cursor-pointer"><p class="font-bold mb-2">How do I claim my reward?</p><p class="faq-content hidden">Follow the 3 steps above and click "Click Here →" to claim instantly.</p></div>
-<div class="card card-faq faq-item cursor-pointer"><p class="font-bold mb-2">Can I participate on mobile?</p><p class="faq-content hidden">Yes, fully mobile-friendly and responsive.</p></div>
-<div class="card card-faq faq-item cursor-pointer"><p class="font-bold mb-2">Is it verified?</p><p class="faq-content hidden">Yes, all claims are fully verified and trusted.</p></div>
+<!-- Live Comment Section -->
+<div class="mt-10 max-w-2xl mx-auto text-left">
+<h2 class="text-3xl font-bold mb-6">Recent Comments</h2>
+<div id="commentFeed" class="space-y-4"></div>
 </div>
 </section>
 
-<!-- Stats & Milestones -->
+<!-- Stats / Milestones -->
 <section class="py-20 px-4 text-center">
 <h2 class="text-4xl font-bold mb-12">Stats & Milestones</h2>
 <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-<div class="card card-stats"><div class="text-6xl font-bold shimmer">12,540+</div><p class="mt-3 font-semibold">Claims Completed</p></div>
-<div class="card card-stats"><div class="text-5xl font-bold shimmer">7,860+</div><p class="mt-3 font-semibold">Active Participants</p></div>
-<div class="card card-stats"><div class="text-5xl font-bold shimmer">4,320+</div><p class="mt-3 font-semibold">Deals Completed</p></div>
+<div class="card card-stats">
+<div class="text-6xl font-bold shimmer">12,540+</div>
+<p class="mt-3 font-semibold">Claims Completed</p>
+</div>
+<div class="card card-stats">
+<div class="text-5xl font-bold shimmer">7,860+</div>
+<p class="mt-3 font-semibold">Active Participants</p>
+</div>
+<div class="card card-stats">
+<div class="text-5xl font-bold shimmer">4,320+</div>
+<p class="mt-3 font-semibold">Deals Completed</p>
+</div>
 </div>
 </section>
 
-<!-- Leaderboard -->
+<!-- Live Leaderboard -->
 <section class="py-20 px-4 text-center">
 <h2 class="text-4xl font-bold mb-12">Recent Winners</h2>
 <div class="grid md:grid-cols-1 gap-4 max-w-4xl mx-auto" id="leaderboard"></div>
@@ -244,73 +201,138 @@ animation: floatBubble 20s linear infinite;
 <section class="py-20 px-4 text-center">
 <h2 class="text-4xl font-bold mb-12">Testimonials</h2>
 <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-<div class="card card-testimonial hover:-translate-y-2 transform transition"><p>"Received my gift card within 24 hours. Super smooth!"</p><p class="font-bold mt-4">- Sarah W., California</p></div>
-<div class="card card-testimonial hover:-translate-y-2 transform transition"><p>"Fast, safe, and verified. Loved it!"</p><p class="font-bold mt-4">- Michael B., New York</p></div>
-<div class="card card-testimonial hover:-translate-y-2 transform transition"><p>"Everything explained clearly, trusted and verified."</p><p class="font-bold mt-4">- Emma R., Texas</p></div>
+<div class="card card-testimonial hover:-translate-y-2 transform transition">
+<p>"Received my gift card within 24 hours. Super smooth!"</p>
+<p class="font-bold mt-4">- Sarah W., California</p>
+</div>
+<div class="card card-testimonial hover:-translate-y-2 transform transition">
+<p>"Fast, safe, and verified. Loved it!"</p>
+<p class="font-bold mt-4">- Michael B., New York</p>
+</div>
+<div class="card card-testimonial hover:-translate-y-2 transform transition">
+<p>"Everything explained clearly, trusted and verified."</p>
+<p class="font-bold mt-4">- Emma R., Texas</p>
+</div>
 </div>
 </section>
 
-<footer class="py-12 px-4 text-center"><p class="mb-4">SSL Secured • Encrypted • Verified • 100% Safe</p><p>© 2025</p></footer>
+<!-- FAQ -->
+<section class="py-20 px-4 text-center">
+<h2 class="text-4xl font-bold mb-12">Frequently Asked Questions</h2>
+<div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto text-left">
+<div class="card card-faq faq-item cursor-pointer">
+<p class="font-bold mb-2">Is my information secure?</p>
+<p class="faq-content hidden">All information is encrypted and stored securely. We never share your data.</p>
+</div>
+<div class="card card-faq faq-item cursor-pointer">
+<p class="font-bold mb-2">How do I claim my reward?</p>
+<p class="faq-content hidden">Follow the 3 steps above and click "Click Here →" to claim instantly.</p>
+</div>
+<div class="card card-faq faq-item cursor-pointer">
+<p class="font-bold mb-2">Can I participate on mobile?</p>
+<p class="faq-content hidden">Yes, fully mobile-friendly and responsive.</p>
+</div>
+<div class="card card-faq faq-item cursor-pointer">
+<p class="font-bold mb-2">Is it verified?</p>
+<p class="faq-content hidden">Yes, all claims are fully verified and trusted.</p>
+</div>
+</div>
+</section>
 
+<!-- Footer -->
+<footer class="py-12 px-4 text-center">
+<p class="mb-4">SSL Secured • Encrypted • Verified • 100% Safe</p>
+<p>© 2025</p>
+</footer>
+
+<!-- Popup -->
 <div id="popup" class="popup"></div>
 
 <script>
-// Create Bubbles
-for(let i=0;i<15;i++){
-const bubble=document.createElement('div');
-bubble.className='bubble';
-bubble.style.width=(Math.random()*40+20)+'px';
-bubble.style.height=(Math.random()*40+20)+'px';
-bubble.style.left=Math.random()*window.innerWidth+'px';
-bubble.style.animationDuration=(30+Math.random()*20)+'s';
-document.body.appendChild(bubble);
-}
-
-// FAQ toggle
-document.querySelectorAll('.faq-item').forEach(item=>{item.addEventListener('click',()=>{item.querySelector('.faq-content').classList.toggle('hidden');});});
+// FAQ Toggle
+document.querySelectorAll('.faq-item').forEach(item => {
+item.addEventListener('click', () => {
+item.querySelector('.faq-content').classList.toggle('hidden');
+});
+});
 
 // Leaderboard
-const leaderboardEl=document.getElementById('leaderboard');
-const winners=["Emma, NY","James, TX","Lily, FL","Olivia, CA","Mason, IL","Sophia, WA"];
-const rewards=["$1200","$850","$1500","$950","$1100","$700"];
+const leaderboardEl = document.getElementById('leaderboard');
+const winners = ["Emma, NY","James, TX","Lily, FL","Olivia, CA","Mason, IL","Sophia, WA"];
+const rewards = ["$1200","$850","$1500","$950","$1100","$700"];
 function updateLeaderboard(){
 leaderboardEl.innerHTML='';
 for(let i=0;i<5;i++){
-const name=winners[Math.floor(Math.random()*winners.length)];
-const reward=rewards[Math.floor(Math.random()*rewards.length)];
+const name = winners[Math.floor(Math.random()*winners.length)];
+const reward = rewards[Math.floor(Math.random()*rewards.length)];
 const div=document.createElement('div');
 div.className="card card-leaderboard flex justify-between items-center p-6";
-div.innerHTML=`<div class="flex items-center gap-4"><div class="w-12 h-12 bg-pink-200 rounded-full flex items-center justify-center font-bold text-white">${name.split(',')[0].charAt(0)}${name.split(',')[1].charAt(0)}</div><p class="font-semibold">${name} claimed ${reward}</p></div>`;
+div.innerHTML=`<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-pink-300 rounded-full flex items-center justify-center font-bold text-white">${name.split(',')[0].charAt(0)}${name.split(',')[1].charAt(1)}</div>
+<p class="font-semibold">${name} claimed ${reward}</p></div>
+<div class="sparkle w-6 h-6 bg-pink-300 rounded-full"></div>`;
 leaderboardEl.appendChild(div);
 }
 }
-updateLeaderboard(); setInterval(updateLeaderboard,1500);
+updateLeaderboard();
+setInterval(updateLeaderboard,1500);
 
-// Reward calculator
+// Popups - stay 2 sec, next every 4.7 sec
+const popupEl=document.getElementById('popup');
+function showPopup(){
+const name=winners[Math.floor(Math.random()*winners.length)];
+const reward=rewards[Math.floor(Math.random()*rewards.length)];
+popupEl.textContent=`${name} just got ${reward}!`;
+popupEl.style.right='20px';
+popupEl.style.opacity=1;
+setTimeout(()=>{popupEl.style.right='-350px';popupEl.style.opacity=0;},2000);
+}
+showPopup();
+setInterval(showPopup,4700);
+
+// Reward Estimator
 function calculateReward(){
-const steps=parseInt(document.getElementById('stepsInput').value);
-if(steps < 4){document.getElementById('rewardResult').textContent="You must complete 4+ deals to claim it"; return;}
-const reward=Math.round((steps/4)*150);
-document.getElementById('rewardResult').textContent=`Estimated Reward: $${reward}`;
+const steps = parseInt(document.getElementById('stepsInput').value);
+let reward = 0;
+if(steps >=1 && steps <=25){
+reward = Math.round((steps / 25) * 5000);
+if(steps === 1) reward = 50;
+document.getElementById('rewardResult').textContent = `Estimated Reward: $${reward}`;
+} else {
+document.getElementById('rewardResult').textContent = "Please enter a value between 1 and 25";
+}
 }
 
-// Recent comments
-const commentFeed=document.getElementById('commentFeed');
-const commentUsers=["Emma W.","James T.","Olivia R.","Lily P.","Mason K.","Sophia L."];
-const commentTexts=["This is so easy and quick!","I just completed step 2!","Can’t believe I got $1200 already!","Super smooth process!","Highly recommend to everyone!","I’m almost done, step 3 left!"];
-const commentTimes=["1h ago","2h ago","3h ago","4h ago","5h ago"];
-function addComment(){
-const user=commentUsers[Math.floor(Math.random()*commentUsers.length)];
-const text=commentTexts[Math.floor(Math.random()*commentTexts.length)];
-const time=commentTimes[Math.floor(Math.random()*commentTimes.length)];
-const div=document.createElement('div');
-div.className="p-4 rounded-xl shadow-lg text-left bg-gradient-to-r from-pink-50 to-pink-100 text-black flex justify-between items-start";
-div.innerHTML=`<div><span class="font-bold">${user}</span>: ${text}</div><div class="text-sm text-gray-700">${time}</div>`;
+// Live Comment Section
+const commentFeed = document.getElementById('commentFeed');
+const commentUsers = ["Emma W.", "James T.", "Olivia R.", "Lily P.", "Mason K.", "Sophia L."];
+const commentTexts = [
+"This is so easy and quick!",
+"I just completed step 2!",
+"Can’t believe I got $1200 already!",
+"Super smooth process!",
+"Highly recommend to everyone!",
+"I’m almost done, step 3 left!"
+];
+const commentTimes = ["1h ago", "2h ago", "3h ago", "4h ago", "5h ago"];
+
+function addComment() {
+const user = commentUsers[Math.floor(Math.random() * commentUsers.length)];
+const text = commentTexts[Math.floor(Math.random() * commentTexts.length)];
+const time = commentTimes[Math.floor(Math.random() * commentTimes.length)];
+
+const div = document.createElement('div');
+div.className = "p-4 rounded-xl shadow-lg text-left bg-gradient-to-r from-pink-50 to-pink-100 text-black flex justify-between items-start";
+div.innerHTML = `<div><span class="font-bold">${user}</span>: ${text}</div><div class="text-sm text-gray-700">${time}</div>`;
+
 commentFeed.prepend(div);
-if(commentFeed.childElementCount>6){commentFeed.removeChild(commentFeed.lastChild);}
+
+if (commentFeed.childElementCount > 6) {
+commentFeed.removeChild(commentFeed.lastChild);
 }
-for(let i=0;i<4;i++){addComment();}
-setInterval(addComment,3000);
+}
+for(let i=0;i<4;i++){ addComment(); }
+setInterval(addComment, 3000);
 </script>
 </body>
 </html>
