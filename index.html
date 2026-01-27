@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Want a Shein Gift Card?</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 
@@ -18,14 +19,13 @@ color:#3A0E3A;
 
 /* Banner */
 .urgency-pulse{
-animation:pulseUrgency 1.5s infinite;
+animation:pulse 1.5s infinite;
 background:#F7C9D6;
-color:#3A0E3A;
-padding:.5rem;
+padding:.6rem;
 text-align:center;
 font-weight:bold;
 }
-@keyframes pulseUrgency{0%,100%{opacity:1;}50%{opacity:.8;}}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.8;}}
 
 /* Headline */
 .hero-headline{
@@ -33,26 +33,46 @@ font-family:'Pacifico',cursive;
 color:#D6336C;
 }
 
+/* Bubbles */
+#bubbles{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:0;
+}
+.bubble{
+position:absolute;
+border-radius:50%;
+background:radial-gradient(circle,#FF9DB5,#FFD6E8);
+opacity:.5;
+animation:fall linear infinite;
+}
+@keyframes fall{
+0%{transform:translateY(-120px);}
+100%{transform:translateY(120vh);}
+}
+
 /* Apply Sections */
 .apply-section-wrapper{
 display:flex;
 justify-content:center;
 gap:1rem;
-flex-wrap:nowrap;
-margin-bottom:1rem;
+flex-wrap:wrap;
 }
 .apply-section{
 background:linear-gradient(145deg,#FFD1E6,#FFE4F2);
 border-radius:2rem;
-padding:1rem;
+padding:1rem 1.5rem;
 min-width:150px;
 max-width:180px;
 text-align:center;
-box-shadow:0 10px 20px rgba(255,182,193,.3);
+box-shadow:0 10px 25px rgba(255,182,193,.35);
 position:relative;
 }
-.apply-section::before,
-.apply-section::after{
+.apply-section::before,.apply-section::after{
 content:"★";
 position:absolute;
 color:#D6336C;
@@ -71,7 +91,7 @@ font-weight:bold;
 box-shadow:0 0 15px rgba(255,182,193,.5);
 }
 
-/* Steps */
+/* Step Boxes */
 .step-box{
 background:linear-gradient(135deg,#FFE0EB,#FFD1E6);
 border-radius:2rem;
@@ -80,7 +100,11 @@ box-shadow:0 12px 25px rgba(255,182,193,.25);
 }
 
 /* Cards */
-.card{border-radius:1.5rem;padding:2rem;box-shadow:0 10px 20px rgba(0,0,0,.12);}
+.card{
+border-radius:1.5rem;
+padding:2rem;
+box-shadow:0 10px 20px rgba(0,0,0,.12);
+}
 .card-stats,.card-leaderboard,.card-testimonial,.card-faq,.card-estimator{
 background:linear-gradient(135deg,#FFE0EB,#FFD1E6);
 }
@@ -105,28 +129,7 @@ border-radius:12px;
 box-shadow:0 4px 12px rgba(0,0,0,.2);
 transition:.6s;
 opacity:0;
-}
-
-/* Bubbles */
-#bubbles{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-pointer-events:none;
-z-index:0;
-}
-.bubble{
-position:absolute;
-border-radius:50%;
-background:radial-gradient(circle,#FFB3C1,#FFD6E8);
-opacity:.45;
-animation:fall linear infinite;
-}
-@keyframes fall{
-0%{transform:translateY(-80px);}
-100%{transform:translateY(110vh);}
+z-index:9999;
 }
 </style>
 </head>
@@ -138,16 +141,17 @@ animation:fall linear infinite;
 <div class="urgency-pulse">Limited Time! Hurry Up!</div>
 
 <section class="py-16 px-4 text-center relative z-10">
+
 <h1 class="text-5xl md:text-7xl mb-6 hero-headline">Want a Shein Gift Card?</h1>
 
-<div class="apply-section-wrapper">
+<div class="apply-section-wrapper mb-4">
 <div class="apply-section">
-<p>Must complete 4-5 deals</p>
-<a href="https://trkio.org/aff_c?offer_id=1146&aff_id=64120" class="apply-button">Apply for $150 →</a>
+<p>Must complete 4–5 deals</p>
+<a href="#" class="apply-button">Apply for $150 →</a>
 </div>
 <div class="apply-section">
 <p>Must complete 8+ deals</p>
-<a href="https://trkio.org/aff_c?offer_id=1146&aff_id=64120" class="apply-button">Apply for $450 →</a>
+<a href="#" class="apply-button">Apply for $450 →</a>
 </div>
 </div>
 
@@ -160,23 +164,70 @@ animation:fall linear infinite;
 </div>
 
 <div class="mt-6">
-<a href="https://trkio.org/aff_c?offer_id=1146&aff_id=64120" class="click-button inline-block">Click Here →</a>
+<a href="#" class="click-button inline-block">Click Here →</a>
 </div>
 
+<!-- Calculator -->
 <div class="mt-10 card card-estimator max-w-2xl mx-auto">
-<label class="font-bold">Deals to complete (4-70):</label>
+<label class="font-bold">Deals to complete (4–70):</label>
 <input type="number" id="stepsInput" min="4" max="70" class="w-full p-2 rounded mt-2">
 <button onclick="calculateReward()" class="click-button mt-4">Calculate Reward</button>
 <p id="rewardResult" class="mt-4 font-bold"></p>
 </div>
 
+<!-- FAQ -->
 <section class="py-10">
-<h2 class="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
+<h2 class="text-3xl font-bold mb-4 text-center">Frequently Asked Questions</h2>
 <div class="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto text-left">
-<div class="card card-faq faq-item"><b>How do I claim my reward?</b><p class="faq-content hidden">Complete 3 simple steps: answer surveys, enter email & basic info, do recommended deals (such as installing games and apps)</p></div>
-<div class="card card-faq faq-item"><b>Can I apply from desktop?</b><p class="faq-content hidden">Desktop applications are not supported; please use mobile.</p></div>
-<div class="card card-faq faq-item"><b>Do I have to pay anything for the gift card?</b><p class="faq-content hidden">No payment is required.</p></div>
-<div class="card card-faq faq-item"><b>When will I receive the gift card?</b><p class="faq-content hidden">Right after completing 4+ deals, it will be sent to your email.</p></div>
+
+<div class="card card-faq faq-item">
+<b>How do I claim my reward?</b>
+<p class="faq-content hidden">
+Complete 3 simple steps: answer surveys, enter email & basic info, do recommended deals (such as installing games and apps)
+</p>
+</div>
+
+<div class="card card-faq faq-item">
+<b>Can I apply from desktop?</b>
+<p class="faq-content hidden">Desktop applications are not supported. Please use mobile.</p>
+</div>
+
+<div class="card card-faq faq-item">
+<b>Do I have to pay anything for the gift card?</b>
+<p class="faq-content hidden">No payment is required.</p>
+</div>
+
+<div class="card card-faq faq-item">
+<b>When will I receive the gift card?</b>
+<p class="faq-content hidden">Right after completing 4+ deals, it will be sent to your email.</p>
+</div>
+
+</div>
+</section>
+
+<!-- Stats -->
+<section class="py-20 text-center">
+<h2 class="text-4xl font-bold mb-12">Stats & Milestones</h2>
+<div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+<div class="card card-stats"><div class="text-5xl font-bold">12,540+</div><p>Claims Completed</p></div>
+<div class="card card-stats"><div class="text-5xl font-bold">7,860+</div><p>Active Participants</p></div>
+<div class="card card-stats"><div class="text-5xl font-bold">4,320+</div><p>Deals Completed</p></div>
+</div>
+</section>
+
+<!-- Leaderboard -->
+<section class="py-20 text-center">
+<h2 class="text-4xl font-bold mb-12">Recent Winners</h2>
+<div class="grid gap-4 max-w-4xl mx-auto" id="leaderboard"></div>
+</section>
+
+<!-- Testimonials -->
+<section class="py-20 text-center">
+<h2 class="text-4xl font-bold mb-12">Testimonials</h2>
+<div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+<div class="card card-testimonial">"Received my gift card within 24 hours!"<p class="mt-2 font-bold">- Sarah W.</p></div>
+<div class="card card-testimonial">"Fast, safe and verified!"<p class="mt-2 font-bold">- Michael B.</p></div>
+<div class="card card-testimonial">"Everything explained clearly."<p class="mt-2 font-bold">- Emma R.</p></div>
 </div>
 </section>
 
@@ -188,36 +239,49 @@ animation:fall linear infinite;
 <div id="popup" class="popup"></div>
 
 <script>
-// Elegant bubbles
-const bubblesContainer=document.getElementById("bubbles");
-for(let i=0;i<10;i++){
-const bubble=document.createElement("div");
-bubble.className="bubble";
-const size=Math.random()*40+20;
-bubble.style.width=size+"px";
-bubble.style.height=size*0.9+"px";
-bubble.style.left=Math.random()*100+"vw";
-bubble.style.animationDuration=(12+Math.random()*10)+"s";
-bubblesContainer.appendChild(bubble);
+// Bubbles
+const bubbles=document.getElementById("bubbles");
+for(let i=0;i<9;i++){
+const b=document.createElement("div");
+b.className="bubble";
+let size=Math.random()*40+20;
+b.style.width=size+"px";
+b.style.height=size+"px";
+b.style.left=Math.random()*100+"vw";
+b.style.animationDuration=(12+Math.random()*10)+"s";
+bubbles.appendChild(b);
 }
 
 // FAQ toggle
 document.querySelectorAll(".faq-item").forEach(item=>{
-item.addEventListener("click",()=>{
-item.querySelector(".faq-content").classList.toggle("hidden");
-});
+item.onclick=()=>item.querySelector(".faq-content").classList.toggle("hidden");
 });
 
-// Reward calculator
+// Calculator
 function calculateReward(){
 const steps=parseInt(document.getElementById("stepsInput").value);
 if(steps<4){
-document.getElementById("rewardResult").textContent="You must complete 4+ deals to claim it";
+rewardResult.textContent="You must complete 4+ deals to claim it";
 return;
 }
-const reward=Math.round((steps/4)*150);
-document.getElementById("rewardResult").textContent="Estimated Reward: $"+reward;
+rewardResult.textContent="Estimated Reward: $"+Math.round((steps/4)*150);
 }
+
+// Leaderboard
+const leaderboard=document.getElementById("leaderboard");
+const winners=["Emma NY","Lily CA","Sophia TX","Olivia FL","Mia WA"];
+const rewards=["$150","$300","$450","$600","$750"];
+function updateLeaderboard(){
+leaderboard.innerHTML="";
+for(let i=0;i<5;i++){
+const div=document.createElement("div");
+div.className="card card-leaderboard";
+div.textContent=winners[Math.floor(Math.random()*winners.length)]+" claimed "+rewards[Math.floor(Math.random()*rewards.length)];
+leaderboard.appendChild(div);
+}
+}
+updateLeaderboard();
+setInterval(updateLeaderboard,2000);
 </script>
 
 </body>
