@@ -27,8 +27,7 @@ body {
  font-weight: bold;
 }
 @keyframes pulseUrgency {
- 0%, 100% { opacity: 1; }
- 50% { opacity: 0.8; }
+ 0%,100% {opacity:1;} 50% {opacity:0.8;}
 }
 
 /* Hero Animation */
@@ -36,12 +35,7 @@ body {
 @keyframes pulse { 0%,100%{transform:scale(1);}50%{transform:scale(1.03);} }
 
 /* Fancy Font for Headline */
-.hero-headline {
- font-family: 'Pacifico', cursive;
- font-weight: 400;
- color: #D6336C;
- margin-top: -0.5rem;
-}
+.hero-headline { font-family:'Pacifico',cursive; font-weight:400; color:#D6336C; margin-top:-0.5rem; }
 
 /* Step Boxes */
 .step-box {
@@ -54,17 +48,13 @@ body {
  overflow: hidden;
  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.step-box:hover {
- transform: translateY(-8px) scale(1.02);
- box-shadow: 0 15px 25px rgba(0,0,0,0.15);
-}
+.step-box:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 15px 25px rgba(0,0,0,0.15); }
 .step-box::after {
  content: "";
  position: absolute;
  top: -20px;
  right: -20px;
- width: 50px;
- height: 50px;
+ width: 50px; height: 50px;
  background: rgba(255,255,255,0.35);
  border-radius: 50%;
 }
@@ -81,38 +71,32 @@ body {
  padding: 1rem 3.5rem;
  border-radius: 2rem;
 }
-.click-button:hover {
- transform: scale(1.05);
- box-shadow:0 0 25px #FF69B4,0 0 35px #FF1493;
-}
+.click-button:hover { transform: scale(1.05); box-shadow:0 0 25px #FF69B4,0 0 35px #FF1493; }
 
 /* Small Horizontal Apply Sections */
-.apply-sections{
+.apply-container {
  display:flex;
  justify-center;
- gap:15px;
+ gap:20px;
+ margin:1rem 0;
  flex-wrap:wrap;
- margin:1.5rem 0 1rem;
 }
-.apply-section{
- flex: 0 0 200px;
- background:linear-gradient(135deg,#FFC0DA,#FFA6D8);
- padding:1rem 1.5rem;
+.apply-box{
+ flex:0 0 auto;
+ width:180px;
+ padding:1rem;
  border-radius:1.5rem;
+ background:linear-gradient(135deg,#FFC0DA,#FFA6D8);
  text-align:center;
  font-weight:600;
  box-shadow:0 8px 20px rgba(0,0,0,0.08);
- cursor:pointer;
  transition:.3s ease;
 }
-.apply-section:hover{
- transform:translateY(-5px) scale(1.02);
- box-shadow:0 12px 25px rgba(0,0,0,0.12);
-}
-.apply-section a{
+.apply-box:hover { transform:translateY(-4px) scale(1.02); box-shadow:0 12px 25px rgba(0,0,0,0.12); }
+.apply-box a{
  display:block;
- margin-top:10px;
- padding:0.5rem 1.5rem;
+ margin-top:8px;
+ padding:0.4rem 1.2rem;
  border-radius:2rem;
  background:linear-gradient(135deg,#E6B7D6,#F6CFE4);
  color:#4B0A4B;
@@ -120,13 +104,10 @@ body {
  text-decoration:none;
  transition:.3s ease;
 }
-.apply-section a:hover{
- transform:scale(1.05);
- box-shadow:0 0 20px rgba(230,183,214,.9);
-}
+.apply-box a:hover{ transform:scale(1.05); box-shadow:0 0 20px rgba(230,183,214,.9); }
 
 /* Cards */
-.card { border-radius: 1.5rem; padding:2rem; box-shadow:0 10px 25px rgba(0,0,0,0.12); transition: transform 0.3s ease; }
+.card { border-radius:1.5rem; padding:2rem; box-shadow:0 10px 25px rgba(0,0,0,0.12); transition: transform 0.3s ease; }
 .card:hover { transform: translateY(-5px); }
 .card-stats { background: linear-gradient(135deg,#FFE0EB,#FFEAF2); color:#3A0E3A; }
 .card-leaderboard { background: linear-gradient(135deg,#FFEAF2,#FFE0EB); color:#3A0E3A; }
@@ -136,71 +117,42 @@ body {
 
 /* Popups */
 .popup {
- position: fixed;
- bottom: 20px;
- right: -350px;
- background-color: #ffffff;
- color: #3A0E3A;
- padding: 12px 18px;
- border-radius: 12px;
- font-weight: bold;
- box-shadow: 0 4px 12px rgba(0,0,0,0.2);
- transition: right 0.6s ease, opacity 0.6s ease;
- z-index: 9999;
- opacity: 0;
-}
-
-/* Bubbles */
-.bubble{
- position:absolute;
- border-radius:50%;
- background:radial-gradient(circle,#F4C2D7,#D9A7C7);
- opacity:0.25;
- pointer-events:none;
+ position: fixed; bottom: 20px; right: -350px;
+ background-color: #fff; color:#3A0E3A;
+ padding: 12px 18px; border-radius: 12px;
+ font-weight:bold; box-shadow:0 4px 12px rgba(0,0,0,0.2);
+ transition:right 0.6s ease, opacity 0.6s ease; z-index:9999; opacity:0;
 }
 </style>
 </head>
 <body>
 
 <!-- Urgency Banner -->
-<div class="urgency-pulse">
-Limited Time! Hurry Up!
-</div>
+<div class="urgency-pulse">Limited Time! Hurry Up!</div>
 
-<!-- Hero -->
+<!-- Hero Section -->
 <section class="relative py-16 px-4 text-center">
 <h1 class="text-5xl md:text-7xl mb-6 animate-pulse-hero hero-headline">Want a Shein Gift Card?</h1>
 
-<!-- New Horizontal Apply Sections -->
-<div class="apply-sections">
- <div class="apply-section">
- Apply for $150 gift card<br>(must complete 4-5 deals)
+<!-- Horizontal Apply Sections -->
+<div class="apply-container">
+ <div class="apply-box">
+ Apply for $150 gift card<br>(4-5 deals)
  <a href="https://trkio.org/aff_c?offer_id=1146&aff_id=64120">Apply →</a>
  </div>
- <div class="apply-section">
- Apply for $450 gift card<br>(must complete 8+ deals)
+ <div class="apply-box">
+ Apply for $450 gift card<br>(8+ deals)
  <a href="https://trkio.org/aff_c?offer_id=1146&aff_id=64120">Apply →</a>
  </div>
 </div>
 
-<p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-You must complete these steps to claim it:
-</p>
+<p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">You must complete these steps to claim it:</p>
 
 <!-- Steps -->
 <div class="grid md:grid-cols-3 gap-6 mb-6 max-w-6xl mx-auto">
-<div class="step-box">
-<p class="font-bold text-lg mb-2">Step 1</p>
-<p>Complete surveys</p>
-</div>
-<div class="step-box">
-<p class="font-bold text-lg mb-2">Step 2</p>
-<p>Enter email & basic info</p>
-</div>
-<div class="step-box">
-<p class="font-bold text-lg mb-2">Step 3</p>
-<p>Complete 4-5 deals (install apps or games)</p>
-</div>
+<div class="step-box"><p class="font-bold text-lg mb-2">Step 1</p><p>Complete surveys</p></div>
+<div class="step-box"><p class="font-bold text-lg mb-2">Step 2</p><p>Enter email & basic info</p></div>
+<div class="step-box"><p class="font-bold text-lg mb-2">Step 3</p><p>Complete recommended deals</p></div>
 </div>
 
 <!-- Original Apply Button Below Steps -->
@@ -208,21 +160,21 @@ You must complete these steps to claim it:
 <a href="https://trkio.org/aff_c?offer_id=1146&aff_id=64120" class="inline-block click-button">Click Here →</a>
 </div>
 
-<!-- Reward Estimator / Calculator -->
+<!-- Reward Calculator -->
 <div class="mt-10 card card-estimator max-w-2xl mx-auto p-8">
 <label class="block font-bold mb-2 text-lg">Deals to complete (4-25):</label>
 <input type="number" id="stepsInput" min="4" max="25" class="w-full p-3 rounded-lg mb-4 text-black">
-<button onclick="calculateReward()" class="click-button px-6 py-3 rounded-2xl" style="background: linear-gradient(135deg,#FFD1E6,#FFE4F2); color:#3A0E3A; box-shadow:0 0 10px #FFD1E6,0 0 15px #FFE4F2; text-shadow:none;">Calculate Reward</button>
+<button onclick="calculateReward()" class="click-button px-6 py-3 rounded-2xl" style="background: linear-gradient(135deg,#FFD1E6,#FFE4F2); color:#3A0E3A;">Calculate Reward</button>
 <p class="mt-4 font-bold text-xl" id="rewardResult"></p>
 </div>
 
-<!-- The rest of original content: comments, stats, leaderboard, testimonials, FAQ, footer, popup -->
-
+<!-- Recent Comments -->
 <section class="mt-10 max-w-2xl mx-auto text-left">
 <h2 class="text-3xl font-bold mb-6">Recent Comments</h2>
 <div id="commentFeed" class="space-y-4"></div>
 </section>
 
+<!-- Stats -->
 <section class="py-20 px-4 text-center">
 <h2 class="text-4xl font-bold mb-12">Stats & Milestones</h2>
 <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -232,20 +184,32 @@ You must complete these steps to claim it:
 </div>
 </section>
 
+<!-- Recent Winners -->
 <section class="py-20 px-4 text-center">
 <h2 class="text-4xl font-bold mb-12">Recent Winners</h2>
 <div class="grid md:grid-cols-1 gap-4 max-w-4xl mx-auto" id="leaderboard"></div>
 </section>
 
+<!-- Testimonials -->
 <section class="py-20 px-4 text-center">
 <h2 class="text-4xl font-bold mb-12">Testimonials</h2>
 <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-<div class="card card-testimonial hover:-translate-y-2 transform transition"><p>"Received my gift card within 24 hours. Super smooth!"</p><p class="font-bold mt-4">- Sarah W., California</p></div>
-<div class="card card-testimonial hover:-translate-y-2 transform transition"><p>"Fast, safe, and verified. Loved it!"</p><p class="font-bold mt-4">- Michael B., New York</p></div>
-<div class="card card-testimonial hover:-translate-y-2 transform transition"><p>"Everything explained clearly, trusted and verified."</p><p class="font-bold mt-4">- Emma R., Texas</p></div>
+<div class="card card-testimonial hover:-translate-y-2 transform transition">
+<p>"Received my gift card within 24 hours. Super smooth!"</p>
+<p class="font-bold mt-4">- Sarah W., California</p>
+</div>
+<div class="card card-testimonial hover:-translate-y-2 transform transition">
+<p>"Fast, safe, and verified. Loved it!"</p>
+<p class="font-bold mt-4">- Michael B., New York</p>
+</div>
+<div class="card card-testimonial hover:-translate-y-2 transform transition">
+<p>"Everything explained clearly, trusted and verified."</p>
+<p class="font-bold mt-4">- Emma R., Texas</p>
+</div>
 </div>
 </section>
 
+<!-- FAQ -->
 <section class="py-20 px-4 text-center">
 <h2 class="text-4xl font-bold mb-12">Frequently Asked Questions</h2>
 <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto text-left">
@@ -268,41 +232,40 @@ You must complete these steps to claim it:
 </div>
 </section>
 
+<!-- Footer -->
 <footer class="py-12 px-4 text-center">
 <p class="mb-4">SSL Secured • Encrypted • Verified • 100% Safe</p>
 <p>© 2025</p>
 </footer>
 
+<!-- Popup -->
 <div id="popup" class="popup"></div>
 
 <script>
 // FAQ Toggle
-document.querySelectorAll('.faq-item').forEach(item => {
-item.addEventListener('click', () => {
+document.querySelectorAll('.faq-item').forEach(item=>{
+item.addEventListener('click',()=>{
 item.querySelector('.faq-content').classList.toggle('hidden');
 });
 });
 
 // Leaderboard
-const leaderboardEl = document.getElementById('leaderboard');
-const winners = ["Emma, NY","James, TX","Lily, FL","Olivia, CA","Mason, IL","Sophia, WA"];
-const rewards = ["$1200","$850","$1500","$950","$1100","$700"];
+const leaderboardEl=document.getElementById('leaderboard');
+const winners=["Emma, NY","James, TX","Lily, FL","Olivia, CA","Mason, IL","Sophia, WA"];
+const rewards=["$1200","$850","$1500","$950","$1100","$700"];
 function updateLeaderboard(){
 leaderboardEl.innerHTML='';
 for(let i=0;i<5;i++){
-const name = winners[Math.floor(Math.random()*winners.length)];
-const reward = rewards[Math.floor(Math.random()*rewards.length)];
+const name=winners[Math.floor(Math.random()*winners.length)];
+const reward=rewards[Math.floor(Math.random()*rewards.length)];
 const div=document.createElement('div');
 div.className="card card-leaderboard flex justify-between items-center p-6";
 div.innerHTML=`<div class="flex items-center gap-4">
 <div class="w-12 h-12 bg-pink-300 rounded-full flex items-center justify-center font-bold text-white">${name.split(',')[0].charAt(0)}${name.split(',')[1].charAt(1)}</div>
-<p class="font-semibold">${name} claimed ${reward}</p></div>
-<div class="sparkle w-6 h-6 bg-pink-300 rounded-full"></div>`;
+<p class="font-semibold">${name} claimed ${reward}</p></div>`;
 leaderboardEl.appendChild(div);
-}
-}
-updateLeaderboard();
-setInterval(updateLeaderboard,1500);
+}}
+updateLeaderboard(); setInterval(updateLeaderboard,1500);
 
 // Popups
 const popupEl=document.getElementById('popup');
@@ -312,69 +275,39 @@ const reward=rewards[Math.floor(Math.random()*rewards.length)];
 popupEl.textContent=`${name} just got ${reward}!`;
 popupEl.style.right='20px';
 popupEl.style.opacity=1;
-setTimeout(()=>{popupEl.style.right='-350px';popupEl.style.opacity=0;},2000);
+setTimeout(()=>{popupEl.style.right='-350px'; popupEl.style.opacity=0;},2000);
 }
-showPopup();
-setInterval(showPopup,4700);
+showPopup(); setInterval(showPopup,4700);
 
-// Bubbles
-for(let i=0;i<10;i++){
- const bubble=document.createElement('div');
- bubble.className='bubble';
- bubble.style.width=10+Math.random()*60+'px';
- bubble.style.height=bubble.style.width;
- bubble.style.left=Math.random()*window.innerWidth+'px';
- bubble.style.top=Math.random()*window.innerHeight+'px';
- bubble.dataset.speed=(Math.random()*0.3+0.1).toString();
- document.body.appendChild(bubble);
-}
-const bubbles=document.querySelectorAll('.bubble');
-bubbles.forEach(bubble=>{
- bubble.dataset.initialTop=bubble.offsetTop;
-});
-window.addEventListener('scroll',()=>{
- const scrollTop=window.scrollY;
- bubbles.forEach(bubble=>{
- const speed=parseFloat(bubble.dataset.speed)||0.2;
- const initialTop=parseFloat(bubble.dataset.initialTop);
- bubble.style.top = initialTop + scrollTop*speed + 'px';
- });
-});
-
-// Reward Estimator
+// Reward Calculator
 function calculateReward(){
-const steps = parseInt(document.getElementById('stepsInput').value);
-let reward = 0;
-if(steps >=4 && steps <=25){
-reward = steps * 37.5; // 4 deals = $150
-document.getElementById('rewardResult').textContent = `Estimated Reward: $${reward}`;
-} else {
-document.getElementById('rewardResult').textContent = "Please enter a value between 4 and 25";
-}
+const steps=parseInt(document.getElementById('stepsInput').value);
+if(steps>=4 && steps<=25){
+let reward=Math.round(steps*37.5); // 4 deals = $150
+document.getElementById('rewardResult').textContent=`Estimated Reward: $${reward}`;
+} else {document.getElementById('rewardResult').textContent="Please enter a value between 4 and 25";}
 }
 
-// Live Comment Section
-const commentFeed = document.getElementById('commentFeed');
-const commentUsers = ["Emma W.", "James T.", "Olivia R.", "Lily P.", "Mason K.", "Sophia L."];
-const commentTexts = [
-"This is so easy and quick!",
-"I just completed step 2!",
-"Can’t believe I got $1200 already!",
-"Super smooth process!",
-"Highly recommend to everyone!",
-"I’m almost done, step 3 left!"
+// Comments
+const commentFeed=document.getElementById('commentFeed');
+const commentUsers=["Emma W.","James T.","Olivia R.","Lily P.","Mason K.","Sophia L."];
+const commentTexts=[
+"This is so easy and quick!","I just completed step 2!","Can’t believe I got $1200 already!","Super smooth process!","Highly recommend to everyone!","I’m almost done, step 3 left!"
 ];
-const commentTimes = ["1h ago", "2h ago", "3h ago", "4h ago", "5h ago"];
-function addComment() {
-const user = commentUsers[Math.floor(Math.random() * commentUsers.length)];
-const text = commentTexts[Math.floor(Math.random() * commentTexts.length)];
-const time = commentTimes[Math.floor(Math.random() * commentTimes.length)];
-const div = document.createElement('div');
-div.className = "p-4 rounded-xl shadow-lg text-left bg-gradient-to-r from-pink-50 to-pink-100 text-black flex justify-between items-start";
-div.innerHTML = `<div><span class="font-bold">${user}</span>: ${text}</div><div class="text-sm text-gray-700">${time}</div>`;
+const commentTimes=["1h ago","2h ago","3h ago","4h ago","5h ago"];
+function addComment(){
+const user=commentUsers[Math.floor(Math.random()*commentUsers.length)];
+const text=commentTexts[Math.floor(Math.random()*commentTexts.length)];
+const time=commentTimes[Math.floor(Math.random()*commentTimes.length)];
+const div=document.createElement('div');
+div.className="p-4 rounded-xl shadow-lg text-left bg-gradient-to-r from-pink-50 to-pink-100 text-black flex justify-between items-start";
+div.innerHTML=`<div><span class="font-bold">${user}</span>: ${text}</div><div class="text-sm text-gray-700">${time}</div>`;
 commentFeed.prepend(div);
-if (commentFeed.childElementCount > 6) {
-commentFeed.removeChild(commentFeed.lastChild);
+if(commentFeed.childElementCount>6){commentFeed.removeChild(commentFeed.lastChild);}
 }
-}
-for(let
+for(let i=0;i<4;i++){addComment();}
+setInterval(addComment,3000);
+</script>
+
+</body>
+</html>
