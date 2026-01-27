@@ -257,19 +257,33 @@ animation: floatBubble linear infinite;
 <footer class="py-12 px-4 text-center"><p class="mb-4">SSL Secured • Encrypted • Verified • 100% Safe</p><p>© 2025</p></footer>
 
 <script>
-// Elegant slow bubbles
+// Continuous elegant bubbles
 const bubblesContainer = document.getElementById('bubbles');
-for(let i=0;i<15;i++){
- const bubble=document.createElement('div');
- bubble.className='bubble';
- const size = Math.random()*30 + 20;
- bubble.style.width=size+'px';
- bubble.style.height=size+'px';
- bubble.style.left=Math.random()*100+'vw';
- bubble.style.animationDuration=(50 + Math.random()*30)+'s';
- bubble.style.top='-'+Math.random()*100+'px';
+
+function createBubble() {
+ const bubble = document.createElement('div');
+ bubble.className = 'bubble';
+ const size = Math.random() * 30 + 20;
+ bubble.style.width = size + 'px';
+ bubble.style.height = size + 'px';
+ bubble.style.left = Math.random() * 100 + 'vw';
+ bubble.style.top = '-50px';
+ bubble.style.animationDuration = (50 + Math.random() * 30) + 's';
  bubblesContainer.appendChild(bubble);
+
+ // Remove bubble after animation ends
+ bubble.addEventListener('animationend', () => {
+ bubble.remove();
+ });
 }
+
+// Create initial bubbles immediately
+for (let i = 0; i < 15; i++) {
+ createBubble();
+}
+
+// Continuously generate new bubbles
+setInterval(createBubble, 1500);
 
 // FAQ toggle
 document.querySelectorAll('.faq-item').forEach(item=>{
