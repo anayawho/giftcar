@@ -61,9 +61,8 @@ body {
  display: flex;
  justify-content: center;
  gap: 1rem;
- flex-wrap: nowrap;
+ flex-wrap: wrap;
  margin-bottom: 1rem;
- overflow-x: auto;
 }
 .apply-section {
  background: linear-gradient(135deg,#F5C6D1,#F8D6E3);
@@ -71,17 +70,35 @@ body {
  border-radius: 1.5rem;
  padding: 1rem 1.5rem;
  text-align: center;
- min-width: 140px;
+ min-width: 160px;
  font-weight: bold;
- font-size: 1rem;
+ flex: 1 1 140px;
+ max-width: 200px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
  box-shadow:0 0 15px rgba(245,198,209,0.3),0 0 20px rgba(248,214,227,0.25);
- flex-shrink: 0;
 }
 .apply-subtext {
- display:block;
- font-size:0.75rem;
- font-weight:400;
- margin-top:0.3rem;
+ font-size:0.9rem;
+ margin-bottom: 0.5rem;
+}
+
+/* Eye-catching Apply Button */
+.apply-button {
+ background: linear-gradient(90deg,#FFB6C1,#FFC0CB);
+ color: #3A0E3A;
+ font-weight: bold;
+ padding: 0.8rem 1.5rem;
+ border-radius: 1.5rem;
+ box-shadow: 0 0 15px rgba(255,182,193,0.5), 0 0 25px rgba(255,192,203,0.4);
+ font-size: 1rem;
+ text-decoration: none;
+ transition: transform 0.2s, box-shadow 0.2s;
+}
+.apply-button:hover {
+ transform: scale(1.05);
+ box-shadow:0 0 20px rgba(255,182,193,0.7),0 0 30px rgba(255,192,203,0.5);
 }
 
 /* Click Button */
@@ -147,14 +164,14 @@ body {
 
  <!-- Apply Sections Horizontal -->
  <div class="apply-section-wrapper">
- <a href="https://trkio.org/aff_c?offer_id=1146&aff_id=64120" class="apply-section">
- Apply for $150
+ <div class="apply-section">
  <span class="apply-subtext">Must complete 4-5 deals</span>
- </a>
- <a href="https://trkio.org/aff_c?offer_id=1146&aff_id=64120" class="apply-section">
- Apply for $450
+ <a href="https://trkio.org/aff_c?offer_id=1146&aff_id=64120" class="apply-button">Apply for $150 →</a>
+ </div>
+ <div class="apply-section">
  <span class="apply-subtext">Must complete 8+ deals</span>
- </a>
+ <a href="https://trkio.org/aff_c?offer_id=1146&aff_id=64120" class="apply-button">Apply for $450 →</a>
+ </div>
  </div>
 
  <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto font-semibold">You must complete these steps to claim it:</p>
@@ -318,7 +335,7 @@ function calculateReward(){
  }
 }
 
-// Comments section
+// Comments
 const commentFeed = document.getElementById('commentFeed');
 const commentUsers = ["Emma W.", "James T.", "Olivia R.", "Lily P.", "Mason K.", "Sophia L."];
 const commentTexts = [
@@ -340,8 +357,4 @@ function addComment() {
  commentFeed.prepend(div);
  if (commentFeed.childElementCount > 6) { commentFeed.removeChild(commentFeed.lastChild); }
 }
-for(let i=0;i<4;i++){ addComment(); }
-setInterval(addComment, 3000);
-</script>
-</body>
-</html>
+for(let i=0;i<
