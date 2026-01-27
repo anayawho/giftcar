@@ -12,7 +12,6 @@ margin: 0;
 font-family: 'Roboto', sans-serif;
 background: linear-gradient(to bottom, #FFF5F8, #FFEAF2);
 overflow-x: hidden;
-position: relative;
 color: #3A0E3A;
 }
 
@@ -28,35 +27,10 @@ font-weight: bold;
 }
 @keyframes pulseUrgency {0%,100%{opacity:1;}50%{opacity:0.8;}}
 
-/* Hero Animation */
-.animate-pulse-hero { animation: pulse 2s infinite; }
-@keyframes pulse {0%,100%{transform:scale(1);}50%{transform:scale(1.03);}}
-
 /* Hero Font */
 .hero-headline { font-family:'Pacifico',cursive; font-weight:400; color:#D6336C; margin-top:-0.5rem; }
 
-/* Step Boxes */
-.step-box {
-background: linear-gradient(135deg,#FFE0EB,#FFD1E6);
-color:#3A0E3A;
-border-radius: 2rem;
-padding: 1.5rem;
-box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-position: relative;
-overflow: hidden;
-transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.step-box:hover { transform: translateY(-5px) scale(1.02); box-shadow:0 12px 20px rgba(0,0,0,0.12);}
-.step-box::after {
-content:"";
-position:absolute;
-top:-15px; right:-15px;
-width:40px; height:40px;
-background: rgba(255,255,255,0.25);
-border-radius:50%;
-}
-
-/* Apply Sections - Beautiful redesign */
+/* Apply Sections */
 .apply-section-wrapper {
 display: flex;
 justify-content: center;
@@ -65,7 +39,7 @@ flex-wrap: wrap;
 margin-bottom: 1rem;
 }
 .apply-section {
-background: linear-gradient(145deg,#FFD6E1,#FFE4F2);
+background: linear-gradient(145deg,#FFD1E6,#FFE4F2);
 color: #3A0E3A;
 border-radius: 2rem;
 padding: 1rem 1.5rem;
@@ -77,23 +51,23 @@ display: flex;
 flex-direction: column;
 align-items: center;
 position: relative;
-box-shadow: 0 8px 20px rgba(255,182,193,0.2);
+box-shadow: 0 10px 25px rgba(255,182,193,0.25);
 transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .apply-section:hover {
-transform: translateY(-5px) scale(1.05);
-box-shadow:0 12px 25px rgba(255,182,193,0.3);
+transform: translateY(-8px) scale(1.05);
+box-shadow:0 15px 30px rgba(255,182,193,0.35);
 }
 .apply-section::before {
 content: "★";
 position: absolute;
-top:-10px;
-right:-10px;
+top:-8px;
+right:-8px;
 font-size:1.2rem;
 color: rgba(214,51,108,0.6);
 }
 .apply-subtext {
-font-size: 0.9rem;
+font-size: 0.85rem;
 margin-bottom: 0.5rem;
 font-weight: 500;
 }
@@ -101,17 +75,48 @@ font-weight: 500;
 background: linear-gradient(90deg,#FFD1E6,#FFE4F2);
 color: #3A0E3A;
 font-weight: bold;
-padding: 0.7rem 1.5rem;
+padding: 0.75rem 1.5rem;
 border-radius: 1.5rem;
-box-shadow:0 0 12px rgba(255,182,193,0.4),0 0 20px rgba(255,192,203,0.3);
+box-shadow:0 0 15px rgba(255,182,193,0.4),0 0 25px rgba(255,192,203,0.3);
 font-size: 0.95rem;
 text-decoration:none;
 transition: transform 0.2s, box-shadow 0.2s;
 }
 .apply-button:hover {
 transform: scale(1.05);
-box-shadow:0 0 18px rgba(255,182,193,0.6),0 0 25px rgba(255,192,203,0.5);
+box-shadow:0 0 20px rgba(255,182,193,0.6),0 0 30px rgba(255,192,203,0.5);
 }
+
+/* Step Boxes - Elegant Floating Design */
+.step-box {
+background: linear-gradient(135deg,#FFE0EB,#FFD1E6);
+color:#3A0E3A;
+border-radius: 2rem;
+padding: 1.8rem 1.5rem;
+box-shadow: 0 12px 25px rgba(255,182,193,0.2);
+text-align: center;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+position: relative;
+overflow: hidden;
+}
+.step-box:hover {
+transform: translateY(-7px) scale(1.03);
+box-shadow: 0 18px 30px rgba(255,182,193,0.3);
+}
+.step-box::after {
+content:"";
+position:absolute;
+top:-15px; right:-15px;
+width:35px; height:35px;
+background: rgba(255,255,255,0.3);
+border-radius:50%;
+}
+
+/* Smaller step text */
+.step-box p { font-size: 0.95rem; }
+
+/* Smaller instruction text */
+.instructions-text { font-size: 1rem; font-weight:500; margin-bottom:1rem; }
 
 /* Click Button */
 .click-button {
@@ -119,13 +124,13 @@ background: linear-gradient(90deg,#FFD1E6,#FFE4F2);
 color:#3A0E3A;
 font-weight:bold;
 text-shadow:none;
-box-shadow:0 0 12px rgba(255,182,193,0.4),0 0 20px rgba(255,192,203,0.3);
+box-shadow:0 0 15px rgba(255,182,193,0.35),0 0 25px rgba(255,192,203,0.3);
 font-size:1.6rem;
 padding:1rem 3.5rem;
 border-radius:2rem;
 transition: transform 0.3s, box-shadow 0.3s;
 }
-.click-button:hover { transform: scale(1.05); box-shadow:0 0 18px rgba(255,182,193,0.6),0 0 25px rgba(255,192,203,0.5); }
+.click-button:hover { transform: scale(1.05); box-shadow:0 0 20px rgba(255,182,193,0.5),0 0 30px rgba(255,192,203,0.45); }
 
 /* Cards */
 .card { border-radius:1.5rem; padding:2rem; box-shadow:0 10px 20px rgba(0,0,0,0.12); transition: transform 0.3s; }
@@ -134,8 +139,6 @@ transition: transform 0.3s, box-shadow 0.3s;
 .card-leaderboard { background: linear-gradient(135deg,#FFE0EB,#FFD1E6); color:#3A0E3A; }
 .card-testimonial { background: linear-gradient(135deg,#FFE0EB,#FFD1E6); color:#3A0E3A; }
 .card-faq { background: linear-gradient(135deg,#FFE0EB,#FFD1E6); color:#3A0E3A; }
-
-/* Reward Estimator */
 .card-estimator { background: linear-gradient(135deg,#FFE0EB,#FFD1E6); color:#3A0E3A; }
 
 /* Popups */
@@ -154,7 +157,7 @@ z-index:9999;
 opacity:0;
 }
 
-/* Bubbles */
+/* Elegant Bubbles */
 .bubble {
 position:absolute;
 border-radius:50%;
@@ -172,7 +175,7 @@ z-index:0;
 <section class="relative py-16 px-4 text-center">
 <h1 class="text-5xl md:text-7xl mb-6 animate-pulse-hero hero-headline">Want a Shein Gift Card?</h1>
 
-<!-- Apply Sections Horizontal -->
+<!-- Apply Sections -->
 <div class="apply-section-wrapper">
 <div class="apply-section">
 <span class="apply-subtext">Must complete 4-5 deals</span>
@@ -184,33 +187,18 @@ z-index:0;
 </div>
 </div>
 
-<p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto font-semibold">You must complete these steps to claim it:</p>
+<p class="instructions-text">You must complete these steps to claim it:</p>
 
 <!-- Steps -->
 <div class="grid md:grid-cols-3 gap-6 mb-6 max-w-6xl mx-auto">
-<div class="step-box">
-<p class="font-bold text-base mb-2">Step 1</p>
-<p>Complete surveys</p>
-</div>
-<div class="step-box">
-<p class="font-bold text-base mb-2">Step 2</p>
-<p>Enter email & basic info</p>
-</div>
-<div class="step-box">
-<p class="font-bold text-base mb-2">Step 3</p>
-<p>Complete recommended deals</p>
-</div>
+<div class="step-box"><p class="font-bold mb-1">Step 1</p><p>Complete surveys</p></div>
+<div class="step-box"><p class="font-bold mb-1">Step 2</p><p>Enter email & basic info</p></div>
+<div class="step-box"><p class="font-bold mb-1">Step 3</p><p>Complete recommended deals</p></div>
 </div>
 
 <div class="mt-6">
 <a href="https://trkio.org/aff_c?offer_id=1146&aff_id=64120" class="inline-block click-button">Click Here →</a>
 </div>
-
-<!-- Bubbles -->
-<div class="bubble" style="width:80px;height:80px;left:10%;top:50px;"></div>
-<div class="bubble" style="width:50px;height:50px;left:70%;top:120px;"></div>
-<div class="bubble" style="width:60px;height:60px;left:40%;top:200px;"></div>
-</section>
 
 <!-- Reward Estimator -->
 <div class="mt-10 card card-estimator max-w-2xl mx-auto p-8">
@@ -257,19 +245,14 @@ z-index:0;
 </div>
 </section>
 
-<footer class="py-12 px-4 text-center">
-<p class="mb-4">SSL Secured • Encrypted • Verified • 100% Safe</p>
-<p>© 2025</p>
-</footer>
+<footer class="py-12 px-4 text-center"><p class="mb-4">SSL Secured • Encrypted • Verified • 100% Safe</p><p>© 2025</p></footer>
 
 <div id="popup" class="popup"></div>
 
 <script>
 // FAQ toggle
 document.querySelectorAll('.faq-item').forEach(item=>{
-item.addEventListener('click',()=>{
-item.querySelector('.faq-content').classList.toggle('hidden');
-});
+item.addEventListener('click',()=>{item.querySelector('.faq-content').classList.toggle('hidden');});
 });
 
 // Leaderboard
@@ -289,18 +272,15 @@ leaderboardEl.appendChild(div);
 }
 updateLeaderboard(); setInterval(updateLeaderboard,1500);
 
-// Reward calculator starting from 4 deals
+// Reward calculator
 function calculateReward(){
 const steps=parseInt(document.getElementById('stepsInput').value);
-if(steps < 4){
-document.getElementById('rewardResult').textContent="You must complete 4+ deals to claim it";
-return;
-}
-const reward=Math.round((steps/4)*150); // 4 deals=$150, scale
+if(steps < 4){document.getElementById('rewardResult').textContent="You must complete 4+ deals to claim it"; return;}
+const reward=Math.round((steps/4)*150);
 document.getElementById('rewardResult').textContent=`Estimated Reward: $${reward}`;
 }
 
-// Comments
+// Recent comments
 const commentFeed=document.getElementById('commentFeed');
 const commentUsers=["Emma W.","James T.","Olivia R.","Lily P.","Mason K.","Sophia L."];
 const commentTexts=["This is so easy and quick!","I just completed step 2!","Can’t believe I got $1200 already!","Super smooth process!","Highly recommend to everyone!","I’m almost done, step 3 left!"];
