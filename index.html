@@ -59,18 +59,19 @@ animation:fall linear infinite;
 .apply-section-wrapper{
 display:flex;
 justify-content:center;
-gap:1rem;
+gap:.6rem;
 flex-wrap:nowrap;
 overflow-x:auto;
 }
 .apply-section{
 background:linear-gradient(145deg,#FFD1E6,#FFE4F2);
-border-radius:2rem;
-padding:1rem 1.5rem;
-min-width:160px;
+border-radius:1.8rem;
+padding:.8rem 1rem;
+min-width:135px;
 text-align:center;
-box-shadow:0 10px 25px rgba(255,182,193,.35);
+box-shadow:0 8px 18px rgba(255,182,193,.35);
 position:relative;
+font-size:.9rem;
 }
 .apply-section::before,.apply-section::after{
 content:"★";
@@ -83,12 +84,13 @@ opacity:.6;
 
 .apply-button{
 display:inline-block;
-margin-top:.5rem;
+margin-top:.4rem;
 background:linear-gradient(90deg,#FFD1E6,#FFE4F2);
-padding:.7rem 1.4rem;
+padding:.5rem 1.1rem;
 border-radius:1.5rem;
 font-weight:bold;
-box-shadow:0 0 15px rgba(255,182,193,.5);
+box-shadow:0 0 12px rgba(255,182,193,.5);
+font-size:.85rem;
 }
 
 /* Step Boxes */
@@ -144,7 +146,7 @@ z-index:9999;
 
 <h1 class="text-5xl md:text-7xl mb-6 hero-headline">Want a Shein Gift Card?</h1>
 
-<!-- Apply Sections (always horizontal) -->
+<!-- Apply Sections -->
 <div class="apply-section-wrapper mb-4">
 <div class="apply-section">
 <p>Must complete 4–5 deals</p>
@@ -156,7 +158,7 @@ z-index:9999;
 </div>
 </div>
 
-<p>You must complete these steps to claim it:</p>
+<p class="mt-2">You must complete these steps to claim it:</p>
 
 <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mt-4">
 <div class="step-box"><b>Step 1</b><p>Complete surveys</p></div>
@@ -171,6 +173,7 @@ z-index:9999;
 <!-- Calculator -->
 <div class="mt-10 card card-estimator max-w-2xl mx-auto">
 <label class="font-bold">Deals to complete (4–70):</label>
+<p class="text-sm mt-1">You must complete 4+ deals to claim it</p>
 <input type="number" id="stepsInput" min="4" max="70" class="w-full p-2 rounded mt-2">
 <button onclick="calculateReward()" class="click-button mt-4">Calculate Reward</button>
 <p id="rewardResult" class="mt-4 font-bold"></p>
