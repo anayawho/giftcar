@@ -30,7 +30,7 @@ font-weight: bold;
 
 /* Hero Animation */
 .animate-pulse-hero { animation: pulse 2s infinite; }
-@keyframes pulse { 0%,100%{transform:scale(1);}50%{transform:scale(1.03);} }
+@keyframes pulse {0%,100%{transform:scale(1);}50%{transform:scale(1.03);}}
 
 /* Hero Font */
 .hero-headline { font-family:'Pacifico',cursive; font-weight:400; color:#D6336C; margin-top:-0.5rem; }
@@ -56,7 +56,7 @@ background: rgba(255,255,255,0.25);
 border-radius:50%;
 }
 
-/* Apply Sections */
+/* Apply Sections - Beautiful redesign */
 .apply-section-wrapper {
 display: flex;
 justify-content: center;
@@ -65,9 +65,9 @@ flex-wrap: wrap;
 margin-bottom: 1rem;
 }
 .apply-section {
-background: linear-gradient(135deg,#FFE0EB,#FFD1E6);
+background: linear-gradient(145deg,#FFD6E1,#FFE4F2);
 color: #3A0E3A;
-border-radius: 1.5rem;
+border-radius: 2rem;
 padding: 1rem 1.5rem;
 text-align: center;
 min-width: 140px;
@@ -76,11 +76,26 @@ max-width: 180px;
 display: flex;
 flex-direction: column;
 align-items: center;
-box-shadow:0 0 10px rgba(255,182,193,0.3),0 0 15px rgba(255,192,203,0.25);
+position: relative;
+box-shadow: 0 8px 20px rgba(255,182,193,0.2);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.apply-section:hover {
+transform: translateY(-5px) scale(1.05);
+box-shadow:0 12px 25px rgba(255,182,193,0.3);
+}
+.apply-section::before {
+content: "★";
+position: absolute;
+top:-10px;
+right:-10px;
+font-size:1.2rem;
+color: rgba(214,51,108,0.6);
 }
 .apply-subtext {
 font-size: 0.9rem;
 margin-bottom: 0.5rem;
+font-weight: 500;
 }
 .apply-button {
 background: linear-gradient(90deg,#FFD1E6,#FFE4F2);
@@ -199,17 +214,22 @@ z-index:0;
 
 <!-- Reward Estimator -->
 <div class="mt-10 card card-estimator max-w-2xl mx-auto p-8">
-<label class="block font-bold mb-2 text-lg">Deals to complete (1-25):</label>
-<input type="number" id="stepsInput" min="1" max="25" class="w-full p-3 rounded-lg mb-4 text-black">
-<button onclick="calculateReward()" class="click-button px-6 py-3 rounded-2xl" style="background: linear-gradient(135deg,#FFE0EB,#FFD1E6); color:#3A0E3A;">Calculate Reward</button>
+<label class="block font-bold mb-2 text-lg">Deals to complete (4-25):</label>
+<input type="number" id="stepsInput" min="4" max="25" class="w-full p-3 rounded-lg mb-4 text-black" placeholder="You must complete 4+ deals to claim it">
+<button onclick="calculateReward()" class="click-button px-6 py-3 rounded-2xl">Calculate Reward</button>
 <p class="mt-4 font-bold text-xl" id="rewardResult"></p>
 </div>
 
-<!-- Recent Comments -->
-<div class="mt-10 max-w-2xl mx-auto text-left">
-<h2 class="text-3xl font-bold mb-6">Recent Comments</h2>
-<div id="commentFeed" class="space-y-4"></div>
+<!-- FAQ below calculator -->
+<section class="py-10 px-4 text-center">
+<h2 class="text-4xl font-bold mb-6">Frequently Asked Questions</h2>
+<div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto text-left">
+<div class="card card-faq faq-item cursor-pointer"><p class="font-bold mb-2">Is my information secure?</p><p class="faq-content hidden">All information is encrypted and stored securely. We never share your data.</p></div>
+<div class="card card-faq faq-item cursor-pointer"><p class="font-bold mb-2">How do I claim my reward?</p><p class="faq-content hidden">Follow the 3 steps above and click "Click Here →" to claim instantly.</p></div>
+<div class="card card-faq faq-item cursor-pointer"><p class="font-bold mb-2">Can I participate on mobile?</p><p class="faq-content hidden">Yes, fully mobile-friendly and responsive.</p></div>
+<div class="card card-faq faq-item cursor-pointer"><p class="font-bold mb-2">Is it verified?</p><p class="faq-content hidden">Yes, all claims are fully verified and trusted.</p></div>
 </div>
+</section>
 
 <!-- Stats & Milestones -->
 <section class="py-20 px-4 text-center">
@@ -234,17 +254,6 @@ z-index:0;
 <div class="card card-testimonial hover:-translate-y-2 transform transition"><p>"Received my gift card within 24 hours. Super smooth!"</p><p class="font-bold mt-4">- Sarah W., California</p></div>
 <div class="card card-testimonial hover:-translate-y-2 transform transition"><p>"Fast, safe, and verified. Loved it!"</p><p class="font-bold mt-4">- Michael B., New York</p></div>
 <div class="card card-testimonial hover:-translate-y-2 transform transition"><p>"Everything explained clearly, trusted and verified."</p><p class="font-bold mt-4">- Emma R., Texas</p></div>
-</div>
-</section>
-
-<!-- FAQ -->
-<section class="py-20 px-4 text-center">
-<h2 class="text-4xl font-bold mb-12">Frequently Asked Questions</h2>
-<div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto text-left">
-<div class="card card-faq faq-item cursor-pointer"><p class="font-bold mb-2">Is my information secure?</p><p class="faq-content hidden">All information is encrypted and stored securely. We never share your data.</p></div>
-<div class="card card-faq faq-item cursor-pointer"><p class="font-bold mb-2">How do I claim my reward?</p><p class="faq-content hidden">Follow the 3 steps above and click "Click Here →" to claim instantly.</p></div>
-<div class="card card-faq faq-item cursor-pointer"><p class="font-bold mb-2">Can I participate on mobile?</p><p class="faq-content hidden">Yes, fully mobile-friendly and responsive.</p></div>
-<div class="card card-faq faq-item cursor-pointer"><p class="font-bold mb-2">Is it verified?</p><p class="faq-content hidden">Yes, all claims are fully verified and trusted.</p></div>
 </div>
 </section>
 
@@ -280,16 +289,15 @@ leaderboardEl.appendChild(div);
 }
 updateLeaderboard(); setInterval(updateLeaderboard,1500);
 
-// Reward calculator
+// Reward calculator starting from 4 deals
 function calculateReward(){
 const steps=parseInt(document.getElementById('stepsInput').value);
-let reward=0;
-if(steps>=1 && steps<=25){
-reward=Math.round((steps/25)*5000);
-document.getElementById('rewardResult').textContent=`Estimated Reward: $${reward}`;
-}else{
-document.getElementById('rewardResult').textContent="Please enter a value between 1 and 25";
+if(steps < 4){
+document.getElementById('rewardResult').textContent="You must complete 4+ deals to claim it";
+return;
 }
+const reward=Math.round((steps/4)*150); // 4 deals=$150, scale
+document.getElementById('rewardResult').textContent=`Estimated Reward: $${reward}`;
 }
 
 // Comments
@@ -310,6 +318,5 @@ if(commentFeed.childElementCount>6){commentFeed.removeChild(commentFeed.lastChil
 for(let i=0;i<4;i++){addComment();}
 setInterval(addComment,3000);
 </script>
-
 </body>
 </html>
