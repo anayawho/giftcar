@@ -162,8 +162,8 @@ opacity:0;
 .bubble {
 position:absolute;
 border-radius:50%;
-background: radial-gradient(circle,#FFD1E6,#FFE0EB);
-opacity:0.15;
+background: radial-gradient(circle,#FFB3C1,#FFCEE2);
+opacity:0.3;
 animation: floatBubble linear infinite;
 }
 @keyframes floatBubble {0%{transform:translateY(-50px);}100%{transform:translateY(100vh);}}
@@ -206,8 +206,8 @@ animation: floatBubble linear infinite;
 
 <!-- Reward Estimator -->
 <div class="mt-10 card card-estimator max-w-2xl mx-auto p-8">
-<label class="block font-bold mb-2 text-lg">Deals to complete (4-25):</label>
-<input type="number" id="stepsInput" min="4" max="25" class="w-full p-3 rounded-lg mb-4 text-black" placeholder="You must complete 4+ deals to claim it">
+<label class="block font-bold mb-2 text-lg">Deals to complete (4-70):</label>
+<input type="number" id="stepsInput" min="4" max="70" class="w-full p-3 rounded-lg mb-4 text-black" placeholder="You must complete 4+ deals to claim it">
 <button onclick="calculateReward()" class="click-button px-6 py-3 rounded-2xl">Calculate Reward</button>
 <p class="mt-4 font-bold text-xl" id="rewardResult"></p>
 </div>
@@ -257,7 +257,7 @@ animation: floatBubble linear infinite;
 <script>
 // Create bubbles at top
 const bubblesContainer = document.getElementById('bubbles');
-for(let i=0;i<15;i++){
+for(let i=0;i<20;i++){
 const bubble=document.createElement('div');
 bubble.className='bubble';
 bubble.style.width=(Math.random()*40+20)+'px';
