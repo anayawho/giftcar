@@ -15,7 +15,6 @@ body {
  color: #3A0E3A;
  position: relative;
 }
-
 /* Urgency Banner */
 .urgency-pulse {
  animation: pulseUrgency 1.5s infinite;
@@ -176,7 +175,7 @@ animation: floatBubble linear infinite;
 pointer-events:none;
 }
 @keyframes floatBubble {
-0% { transform: translateY(-100px) scale(0.5); opacity:0.2; }
+0% { transform: translateY(0px) scale(0.5); opacity:0.2; }
 50% { opacity:0.3; }
 100% { transform: translateY(110vh) scale(1); opacity:0.25; }
 }
@@ -266,35 +265,9 @@ pointer-events:none;
 <footer class="py-12 px-4 text-center"><p class="mb-4">SSL Secured • Encrypted • Verified • 100% Safe</p><p>© 2025</p></footer>
 
 <script>
-// Immediately spawn bubbles continuously
-const bubblesContainer = document.getElementById('bubbles');
-
-function createBubble() {
- const bubble = document.createElement('div');
- bubble.className = 'bubble';
- const size = Math.random() * 30 + 20;
- bubble.style.width = size + 'px';
- bubble.style.height = size + 'px';
- bubble.style.left = Math.random() * 100 + 'vw';
- bubble.style.top = '-50px';
- bubble.style.animationDuration = (50 + Math.random() * 30) + 's';
- bubblesContainer.appendChild(bubble);
-
- // Remove bubble after animation ends
- bubble.addEventListener('animationend', () => {
- bubble.remove();
- });
-}
-
-// Spawn 30 bubbles instantly on load
-for (let i = 0; i < 30; i++) createBubble();
-
-// Continuously spawn new bubbles every 0.5s
-setInterval(createBubble, 500);
-
 // FAQ toggle
 document.querySelectorAll('.faq-item').forEach(item=>{
-item.addEventListener('click',()=>{item.querySelector('.faq-content').classList.toggle('hidden');});
+ item.addEventListener('click',()=>{item.querySelector('.faq-content').classList.toggle('hidden');});
 });
 
 // Leaderboard
@@ -302,25 +275,50 @@ const leaderboardEl=document.getElementById('leaderboard');
 const winners=["Emma, NY","James, TX","Lily, FL","Olivia, CA","Mason, IL","Sophia, WA"];
 const rewards=["$1200","$850","$1500","$950","$1100","$700"];
 function updateLeaderboard(){
-leaderboardEl.innerHTML='';
-for(let i=0;i<5;i++){
-const name=winners[Math.floor(Math.random()*winners.length)];
-const reward=rewards[Math.floor(Math.random()*rewards.length)];
-const div=document.createElement('div');
-div.className="card card-leaderboard flex justify-between items-center p-6";
-div.innerHTML=`<div class="flex items-center gap-4"><div class="w-12 h-12 bg-pink-200 rounded-full flex items-center justify-center font-bold text-white">${name.split(',')[0].charAt(0)}${name.split(',')[1].charAt(0)}</div><p class="font-semibold">${name} claimed ${reward}</p></div>`;
-leaderboardEl.appendChild(div);
-}
+ leaderboardEl.innerHTML='';
+ for(let i=0;i<5;i++){
+ const name=winners[Math.floor(Math.random()*winners.length)];
+ const reward=rewards[Math.floor(Math.random()*rewards.length)];
+ const div=document.createElement('div');
+ div.className="card card-leaderboard flex justify-between items-center p-6";
+ div.innerHTML=`<div class="flex items-center gap-4"><div class="w-12 h-12 bg-pink-200 rounded-full flex items-center justify-center font-bold text-white">${name.split(',')[0].charAt(0)}${name.split(',')[1].charAt(0)}</div><p class="font-semibold">${name} claimed ${reward}</p></div>`;
+ leaderboardEl.appendChild(div);
+ }
 }
 updateLeaderboard(); setInterval(updateLeaderboard,1500);
 
 // Reward calculator
 function calculateReward(){
-const steps=parseInt(document.getElementById('stepsInput').value);
-if(steps < 4){document.getElementById('rewardResult').textContent="You must complete 4+ deals to claim it"; return;}
-const reward=Math.round((steps/4)*150);
-document.getElementById('rewardResult').textContent=`Estimated Reward: $${reward}`;
+ const steps=parseInt(document.getElementById('stepsInput').value);
+ if(steps < 4){document.getElementById('rewardResult').textContent="You must complete 4+ deals to claim it"; return;}
+ const reward=Math.round((steps/4)*150);
+ document.getElementById('rewardResult').textContent=`Estimated Reward: $${reward}`;
 }
+
+// ---------------- BUBBLES ----------------
+const bubblesContainer = document.getElementById('bubbles');
+
+function createBubble(topPosition = -50) {
+ const bubble = document.createElement('div');
+ bubble.className = 'bubble';
+ const size = Math.random() * 30 + 20;
+ bubble.style.width = size + 'px';
+ bubble.style.height = size + 'px';
+ bubble.style.left = Math.random() * 100 + 'vw';
+ bubble.style.top = topPosition + 'px';
+ bubble.style.animationDuration = (50 + Math.random() * 30) + 's';
+ bubblesContainer.appendChild(bubble);
+ bubble.addEventListener('animationend', () => bubble.remove());
+}
+
+// Spawn bubbles already on the screen randomly
+for(let i = 0; i < 30; i++){
+ const randomTop = Math.random() * window.innerHeight; // anywhere on screen
+ createBubble(randomTop);
+}
+
+// Spawn new bubbles continuously
+setInterval(() => createBubble(), 500);
 </script>
 </body>
 </html>
