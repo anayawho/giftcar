@@ -62,35 +62,42 @@ body {
 }
 .step-box p { font-size: 0.95rem; }
 
-/* Instruction Text - DESIGN ONLY */
+/* Instruction Text - Beautiful Design */
 .instructions-text {
- font-size: 1.1rem;
- font-weight: 700;
- margin-bottom: 1rem;
+ font-size: 1.25rem;
+ font-weight: 800;
+ margin-bottom: 1.5rem;
  display: inline-block;
- padding: 0.5rem 1.2rem;
- border-radius: 2rem;
- background: linear-gradient(90deg,#FFD1E6,#FFE4F2);
- box-shadow: 0 0 12px rgba(255,182,193,0.4);
- color: #D6336C;
- letter-spacing: 0.5px;
+ padding: 0.7rem 1.8rem;
+ border-radius: 3rem;
+ background: linear-gradient(135deg, #FF7BA9, #FF9BCB);
+ color: #fff;
+ text-shadow: 0 0 8px rgba(255,255,255,0.7), 0 2px 6px rgba(0,0,0,0.15);
+ box-shadow: 0 4px 18px rgba(255,123,169,0.5);
+ letter-spacing: 0.8px;
+ animation: glowText 2.5s ease-in-out infinite alternate;
+}
+@keyframes glowText {
+ 0% { box-shadow: 0 4px 12px rgba(255,123,169,0.4), 0 0 4px rgba(255,255,255,0.4); }
+ 100% { box-shadow: 0 6px 20px rgba(255,123,169,0.6), 0 0 12px rgba(255,255,255,0.6); }
 }
 
-/* Click Button */
+/* Click Button - More Eye-catching */
 .click-button {
- background: linear-gradient(90deg,#FFD1E6,#FFE4F2);
- color:#3A0E3A;
+ background: linear-gradient(135deg,#FF6EB4,#FF85C1,#FFB0D1);
+ color:#fff;
  font-weight:bold;
- text-shadow:none;
- box-shadow:0 0 15px rgba(255,182,193,0.35),0 0 25px rgba(255,192,203,0.3);
+ text-shadow: 0 0 4px rgba(0,0,0,0.2);
+ box-shadow:0 4px 20px rgba(255,105,180,0.4),0 0 25px rgba(255,135,193,0.3);
  font-size:1.6rem;
  padding:1rem 3.5rem;
  border-radius:2rem;
- transition: transform 0.3s, box-shadow 0.3s;
+ transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
 }
 .click-button:hover { 
- transform: scale(1.05); 
- box-shadow:0 0 20px rgba(255,182,193,0.5),0 0 30px rgba(255,192,203,0.45); 
+ transform: scale(1.07); 
+ box-shadow:0 6px 25px rgba(255,105,180,0.6),0 0 30px rgba(255,135,193,0.45);
+ filter: brightness(1.1);
 }
 
 /* Cards */
@@ -141,7 +148,7 @@ opacity:0;
 <div class="urgency-pulse">Limited Time! Hurry Up!</div>
 
 <section class="relative py-16 px-4 text-center">
-<h1 class="text-5xl md:text-7xl mb-6 animate-pulse-hero hero-headline">Want a Shein Gift Card?</h1>
+<h1 class="text-5xl md:text-7xl mb-6 hero-headline">Want a Shein Gift Card?</h1>
 
 <p class="instructions-text">You must complete these steps to claim it:</p>
 
