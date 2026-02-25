@@ -36,64 +36,6 @@ body {
  margin-top:-0.5rem; 
 }
 
-/* Apply Sections */
-.apply-section-wrapper {
- display: flex;
- justify-content: center;
- gap: 1rem;
- flex-wrap: wrap;
- margin-bottom: 1rem;
-}
-.apply-section {
- background: linear-gradient(145deg,#FFD1E6,#FFE4F2);
- color: #3A0E3A;
- border-radius: 2rem;
- padding: 1rem 1.5rem;
- text-align: center;
- min-width: 140px;
- flex: 1 1 140px;
- max-width: 180px;
- display: flex;
- flex-direction: column;
- align-items: center;
- position: relative;
- box-shadow: 0 10px 25px rgba(255,182,193,0.25);
- transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.apply-section:hover {
- transform: translateY(-8px) scale(1.05);
- box-shadow:0 15px 30px rgba(255,182,193,0.35);
-}
-.apply-section::before, .apply-section::after {
- content: "★";
- position: absolute;
- font-size:1.2rem;
- color: rgba(214,51,108,0.6);
-}
-.apply-section::before { top:-8px; left:-8px; }
-.apply-section::after { bottom:-8px; right:-8px; }
-
-.apply-subtext {
- font-size: 0.85rem;
- margin-bottom: 0.5rem;
- font-weight: 500;
-}
-.apply-button {
- background: linear-gradient(90deg,#FFD1E6,#FFE4F2);
- color: #3A0E3A;
- font-weight: bold;
- padding: 0.75rem 1.5rem;
- border-radius: 1.5rem;
- box-shadow:0 0 15px rgba(255,182,193,0.4),0 0 25px rgba(255,192,203,0.3);
- font-size: 0.95rem;
- text-decoration:none;
- transition: transform 0.2s, box-shadow 0.2s;
-}
-.apply-button:hover {
- transform: scale(1.05);
- box-shadow:0 0 20px rgba(255,182,193,0.6),0 0 30px rgba(255,192,203,0.5);
-}
-
 /* Step Boxes */
 .step-box {
  background: linear-gradient(135deg,#FFE0EB,#FFD1E6);
@@ -120,8 +62,19 @@ body {
 }
 .step-box p { font-size: 0.95rem; }
 
-/* Instruction Text */
-.instructions-text { font-size: 0.95rem; font-weight:500; margin-bottom:1rem; }
+/* Instruction Text - DESIGN ONLY */
+.instructions-text {
+ font-size: 1.1rem;
+ font-weight: 700;
+ margin-bottom: 1rem;
+ display: inline-block;
+ padding: 0.5rem 1.2rem;
+ border-radius: 2rem;
+ background: linear-gradient(90deg,#FFD1E6,#FFE4F2);
+ box-shadow: 0 0 12px rgba(255,182,193,0.4);
+ color: #D6336C;
+ letter-spacing: 0.5px;
+}
 
 /* Click Button */
 .click-button {
@@ -143,11 +96,10 @@ body {
 /* Cards */
 .card { border-radius:1.5rem; padding:2rem; box-shadow:0 10px 20px rgba(0,0,0,0.12); transition: transform 0.3s; }
 .card:hover { transform: translateY(-5px); }
-.card-stats { background: linear-gradient(135deg,#FFE0EB,#FFD1E6); color:#3A0E3A; }
-.card-leaderboard { background: linear-gradient(135deg,#FFE0EB,#FFD1E6); color:#3A0E3A; }
-.card-testimonial { background: linear-gradient(135deg,#FFE0EB,#FFD1E6); color:#3A0E3A; }
-.card-faq { background: linear-gradient(135deg,#FFE0EB,#FFD1E6); color:#3A0E3A; }
-.card-estimator { background: linear-gradient(135deg,#FFE0EB,#FFD1E6); color:#3A0E3A; }
+.card-stats, .card-leaderboard, .card-testimonial, .card-faq, .card-estimator {
+ background: linear-gradient(135deg,#FFE0EB,#FFD1E6);
+ color:#3A0E3A;
+}
 
 /* Popups */
 .popup {
@@ -168,23 +120,22 @@ opacity:0;
 /* Bubbles */
 #bubbles {position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;}
 .bubble {
-position:absolute;
-border-radius:50%;
-background: radial-gradient(circle at 30% 30%, #FF7BA9, #FF9BCB); /* brighter and more visible */
-opacity:0.45; /* increased visibility */
-animation: floatBubble linear infinite;
-pointer-events:none;
+ position:absolute;
+ border-radius:50%;
+ background: radial-gradient(circle at 30% 30%, #FF7BA9, #FF9BCB);
+ opacity:0.45;
+ animation: floatBubble linear infinite;
+ pointer-events:none;
 }
 @keyframes floatBubble {
-0% { transform: translateY(0px) scale(0.5); opacity:0.4; }
-50% { opacity:0.5; }
-100% { transform: translateY(110vh) scale(1); opacity:0.45; }
+ 0% { transform: translateY(0px) scale(0.5); opacity:0.4; }
+ 50% { opacity:0.5; }
+ 100% { transform: translateY(110vh) scale(1); opacity:0.45; }
 }
 </style>
 </head>
 <body>
 
-<!-- Background Bubbles -->
 <div id="bubbles"></div>
 
 <div class="urgency-pulse">Limited Time! Hurry Up!</div>
@@ -192,25 +143,13 @@ pointer-events:none;
 <section class="relative py-16 px-4 text-center">
 <h1 class="text-5xl md:text-7xl mb-6 animate-pulse-hero hero-headline">Want a Shein Gift Card?</h1>
 
-<!-- Apply Sections -->
-<div class="apply-section-wrapper">
-<div class="apply-section">
-<span class="apply-subtext">Must complete 4-5 deals</span>
-<a href="https://trkio.org/aff_c?offer_id=1146&aff_id=64120" class="apply-button">Apply for $150 →</a>
-</div>
-<div class="apply-section">
-<span class="apply-subtext">Must complete 8+ deals</span>
-<a href="https://trkio.org/aff_c?offer_id=1146&aff_id=64120" class="apply-button">Apply for $450 →</a>
-</div>
-</div>
-
 <p class="instructions-text">You must complete these steps to claim it:</p>
 
 <!-- Steps -->
 <div class="grid md:grid-cols-3 gap-6 mb-6 max-w-6xl mx-auto">
 <div class="step-box"><p class="font-bold mb-1">Step 1</p><p>Complete surveys</p></div>
 <div class="step-box"><p class="font-bold mb-1">Step 2</p><p>Enter email & basic info</p></div>
-<div class="step-box"><p class="font-bold mb-1">Step 3</p><p>Complete recommended deals (install apps or games)</p></div>
+<div class="step-box"><p class="font-bold mb-1">Step 3</p><p>Complete 4-5 recommended deals (install apps or games)</p></div>
 </div>
 
 <div class="mt-6">
@@ -296,9 +235,8 @@ function calculateReward(){
  document.getElementById('rewardResult').textContent=`Estimated Reward: $${reward}`;
 }
 
-// ---------------- BUBBLES ----------------
+// Bubbles
 const bubblesContainer = document.getElementById('bubbles');
-
 function createBubble(topPosition = -50) {
  const bubble = document.createElement('div');
  bubble.className = 'bubble';
@@ -311,15 +249,9 @@ function createBubble(topPosition = -50) {
  bubblesContainer.appendChild(bubble);
  bubble.addEventListener('animationend', () => bubble.remove());
 }
-
-// Spawn bubbles already on the screen randomly
-for(let i = 0; i < 30; i++){
- const randomTop = Math.random() * window.innerHeight; // anywhere on screen
- createBubble(randomTop);
-}
-
-// Spawn new bubbles continuously
+for(let i = 0; i < 30; i++){ createBubble(Math.random() * window.innerHeight); }
 setInterval(() => createBubble(), 500);
 </script>
+
 </body>
 </html>
